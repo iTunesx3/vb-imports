@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="es" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modelo B · Minimal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Tokens de la skill UI/UX Pro Max: "Minimalism & Swiss Style", paleta "Premium dark + gold accent" */
+  :root {
+    --color-primary: #1C1917;
+    --color-on-primary: #FFFFFF;
+    --color-secondary: #44403C;
+    --color-accent: #A16207;
+    --color-background: #FAFAF9;
+    --color-foreground: #0C0A09;
+    --color-card: #FFFFFF;
+    --color-muted: #EFEDEA;
+    --color-muted-foreground: #57534E;
+    --color-border: #D6D3D1;
+    --display: "Cormorant", Georgia, serif;
+    --body: "Montserrat", system-ui, sans-serif;
+    --ease: cubic-bezier(.25,.46,.45,.94);
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--color-background); color: var(--color-foreground); font-family: var(--body); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; color: inherit; }
+  :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+  .wrap { max-width: 1320px; margin: 0 auto; padding-inline: 32px; }
+
+  .aviso { background: var(--color-primary); color: var(--color-on-primary); text-align: center; font-size: 13px; letter-spacing: .04em; padding: 10px 16px; }
+
+  header { position: sticky; top: 0; z-index: 10; background: rgba(250,250,249,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--color-border); }
+  .nav { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 76px; }
+  .links { display: flex; gap: 28px; font-size: 13px; font-weight: 500; letter-spacing: .04em; }
+  .links a { padding-block: 6px; border-bottom: 1px solid transparent; transition: border-color .2s var(--ease); }
+  .links a:hover { border-color: var(--color-foreground); }
+  .logo { font-family: var(--display); font-size: 36px; font-weight: 600; letter-spacing: .01em; }
+  .acciones { display: flex; justify-content: flex-end; gap: 4px; }
+  .accion { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding-inline: 12px; background: none; border: 0; font-size: 13px; font-weight: 500; }
+  .accion svg { width: 20px; height: 20px; }
+
+  .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; padding-block: 72px 96px; }
+  .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 24px; }
+  h1 { font-family: var(--display); font-weight: 500; font-size: clamp(48px, 6.4vw, 96px); line-height: 1; letter-spacing: -.01em; }
+  h1 em { font-style: italic; color: var(--color-secondary); }
+  .hero p { color: var(--color-muted-foreground); max-width: 420px; margin: 28px 0 40px; }
+  .ctas { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; height: 52px; padding-inline: 32px; background: var(--color-primary); color: var(--color-on-primary); font-size: 14px; font-weight: 500; letter-spacing: .04em; border: 0; transition: background .2s var(--ease); }
+  .btn:hover { background: var(--color-secondary); }
+  .link { font-size: 14px; font-weight: 500; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+  .escaparate { position: relative; aspect-ratio: 4/4.4; background: var(--color-muted); display: grid; place-items: center; }
+  .escaparate svg { width: 84%; height: auto; transform: rotate(-6deg); }
+  .escaparate figcaption { position: absolute; left: 24px; bottom: 20px; font-size: 13px; color: var(--color-muted-foreground); }
+  .escaparate figcaption b { color: var(--color-foreground); font-weight: 600; }
+
+  .seccion { padding-block: 24px 96px; scroll-margin-top: 76px; }
+  .seccion-cab { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap; padding-bottom: 20px; border-bottom: 1px solid var(--color-border); margin-bottom: 40px; }
+  h2 { font-family: var(--display); font-weight: 500; font-size: clamp(36px, 4vw, 52px); line-height: 1.05; }
+  .tabs { display: flex; gap: 28px; flex-wrap: wrap; }
+  .tab { background: none; border: 0; border-bottom: 1px solid transparent; height: 44px; font-size: 14px; color: var(--color-muted-foreground); transition: color .2s var(--ease), border-color .2s var(--ease); }
+  .tab:hover { color: var(--color-foreground); }
+  .tab.on { color: var(--color-foreground); border-color: var(--color-foreground); font-weight: 500; }
+  .tab sup { font-size: 10px; margin-left: 3px; }
+
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px 24px; }
+  .producto .foto { position: relative; aspect-ratio: 1; background: var(--color-muted); display: grid; place-items: center; overflow: hidden; }
+  .producto .foto svg { width: 82%; height: auto; transition: transform .25s var(--ease); }
+  .producto:hover .foto svg { transform: scale(1.04); }
+  .etiqueta { position: absolute; top: 16px; left: 16px; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+  .etiqueta.oferta { color: var(--color-accent); }
+  .agregar { position: absolute; left: 12px; right: 12px; bottom: 12px; height: 48px; background: var(--color-card); border: 1px solid var(--color-border); font-size: 13px; font-weight: 500; letter-spacing: .04em; opacity: 0; transform: translateY(8px); transition: opacity .2s var(--ease), transform .2s var(--ease), background .2s var(--ease), color .2s var(--ease); }
+  .producto:hover .agregar, .agregar:focus-visible { opacity: 1; transform: none; }
+  .agregar:hover, .agregar.ok { background: var(--color-primary); color: var(--color-on-primary); border-color: var(--color-primary); }
+  @media (hover: none) { .agregar { opacity: 1; transform: none; } }
+  .producto .info { display: flex; justify-content: space-between; gap: 12px; margin-top: 16px; }
+  .producto h3 { font-size: 15px; font-weight: 500; }
+  .producto .cat { font-size: 13px; color: var(--color-muted-foreground); margin-top: 2px; }
+  .precio { font-size: 15px; font-weight: 500; white-space: nowrap; text-align: right; }
+  .precio s { display: block; font-size: 13px; color: var(--color-muted-foreground); font-weight: 400; }
+  .colores { display: flex; gap: 6px; margin-top: 10px; }
+  .colores i { width: 12px; height: 12px; border-radius: 50%; border: 1px solid var(--color-border); }
+
+  .valores { border-top: 1px solid var(--color-border); display: grid; grid-template-columns: repeat(3, 1fr); }
+  .valores div { padding: 48px 32px 56px 0; }
+  .valores div + div { padding-left: 32px; border-left: 1px solid var(--color-border); }
+  .valores b { display: block; font-family: var(--display); font-size: 40px; font-weight: 500; color: var(--color-accent); line-height: 1; margin-bottom: 16px; }
+  .valores h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .valores p { font-size: 14px; color: var(--color-muted-foreground); max-width: 300px; }
+
+  footer { background: var(--color-primary); color: #D6D3D1; padding-block: 40px; font-size: 13px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  /* Scroll Reveal (sutil) */
+  .js .revelar { opacity: 0; transform: translateY(12px); transition: opacity .35s var(--ease), transform .35s var(--ease); }
+  .js .revelar.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 1024px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .links { display: none; }
+    .nav { grid-template-columns: auto 1fr; }
+    .acciones { grid-column: 2; }
+    .hero { gap: 40px; }
+  }
+  @media (max-width: 768px) {
+    .wrap { padding-inline: 16px; }
+    .hero { grid-template-columns: 1fr; padding-block: 32px 64px; }
+    .grid { gap: 32px 12px; }
+    .accion span { display: none; }
+    .valores { grid-template-columns: 1fr; }
+    .valores div, .valores div + div { padding: 32px 0; border-left: 0; border-top: 1px solid var(--color-border); }
+    .producto .info { flex-direction: column; gap: 4px; }
+    .precio { text-align: left; }
+    .precio s { display: inline; margin-left: 6px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .js .revelar { opacity: 1; transform: none; } * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="aviso">Envío gratis en pedidos desde $99 · Cambios sin costo durante 30 días</div>
+<header>
+  <div class="wrap nav">
+    <nav class="links"><a href="#">Novedades</a><a href="#">Hombre</a><a href="#">Mujer</a><a href="#">Colecciones</a></nav>
+    <a class="logo" href="#">Suela</a>
+    <div class="acciones">
+      <button class="accion" aria-label="Buscar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Buscar</span></button>
+      <button class="accion" aria-label="Bolsa de compras"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span>Bolsa (<span id="contador" aria-live="polite">0</span>)</span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <div>
+      <div class="eyebrow">Colección Otoño 2026</div>
+      <h1>Diseñadas para caminar <em>la ciudad</em></h1>
+      <p>Siluetas atemporales, materiales nobles y la comodidad de siempre. Una selección corta, pensada para durar.</p>
+      <div class="ctas">
+        <a class="btn" href="#catalogo">Explorar colección</a>
+        <a class="link" href="#catalogo">Ver novedades</a>
+      </div>
+    </div>
+    <figure class="escaparate" id="escaparate">
+      <figcaption><b>Metro Suede</b> — $109</figcaption>
+    </figure>
+  </section>
+
+  <section class="wrap seccion" id="catalogo">
+    <div class="seccion-cab">
+      <h2>La selección</h2>
+      <div class="tabs" id="tabs" role="toolbar" aria-label="Filtrar por categoría"></div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="wrap valores revelar">
+    <div><b>01</b><h4>Originales garantizados</h4><p>Cada par llega con su caja y etiquetas originales.</p></div>
+    <div><b>02</b><h4>Envío en 24–72 h</h4><p>Despachamos el mismo día si compras antes de las 14:00.</p></div>
+    <div><b>03</b><h4>Cambios en 30 días</h4><p>¿No es tu talla? La cambiamos sin costo.</p></div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Suela — Modelo B · Minimal</span><span>Envíos · Cambios · Contacto</span></div></footer>
+
+<script src="compartido/sneaker.js"></script>
+<script src="compartido/datos.js"></script>
+<script>
+  document.documentElement.className = "js";
+  document.getElementById("escaparate").insertAdjacentHTML("afterbegin", sneakerSVG(PRODUCTOS.find(p => p.id === "metro-suede")));
+
+  let filtro = "Todos", carrito = 0;
+  const tabs = document.getElementById("tabs");
+  const grid = document.getElementById("grid");
+  const cuenta = c => c === "Todos" ? PRODUCTOS.length : PRODUCTOS.filter(p => p.categoria === c).length;
+
+  function pintar() {
+    tabs.innerHTML = CATEGORIAS.map(c => `<button class="tab ${c === filtro ? "on" : ""}" data-c="${c}" aria-pressed="${c === filtro}">${c}<sup>${cuenta(c)}</sup></button>`).join("");
+    grid.innerHTML = PRODUCTOS.filter(p => filtro === "Todos" || p.categoria === filtro).map(p => `
+      <article class="producto revelar">
+        <div class="foto">
+          ${p.etiqueta ? `<span class="etiqueta ${p.precioAntes ? "oferta" : ""}">${p.etiqueta}</span>` : ""}
+          ${sneakerSVG(p)}
+          <button class="agregar" aria-label="Añadir ${p.nombre} a la bolsa">Añadir a la bolsa</button>
+        </div>
+        <div class="info">
+          <div><h3>${p.nombre}</h3><div class="cat">${p.categoria}</div></div>
+          <div class="precio">${formatoPrecio(p.precio)}${p.precioAntes ? `<s>${formatoPrecio(p.precioAntes)}</s>` : ""}</div>
+        </div>
+        <div class="colores" aria-label="Colores">${[p.colores.upper, p.colores.acento, p.colores.media].map(c => `<i style="background:${c}"></i>`).join("")}</div>
+      </article>`).join("");
+    observar();
+  }
+
+  const io = "IntersectionObserver" in window
+    ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -10% 0px" })
+    : null;
+  function observar() { document.querySelectorAll(".revelar:not(.visible)").forEach(el => io ? io.observe(el) : el.classList.add("visible")); }
+
+  tabs.addEventListener("click", e => { const b = e.target.closest(".tab"); if (b) { filtro = b.dataset.c; pintar(); } });
+  grid.addEventListener("click", e => {
+    const b = e.target.closest(".agregar");
+    if (!b) return;
+    document.getElementById("contador").textContent = ++carrito;
+    b.classList.add("ok"); b.textContent = "Añadido ✓";
+    setTimeout(() => { b.classList.remove("ok"); b.textContent = "Añadir a la bolsa"; }, 1400);
+  });
+  pintar();
+</script>
+</body>
+</html>

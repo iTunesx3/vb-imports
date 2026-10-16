@@ -1,0 +1,54 @@
+# Publica la tienda en GitHub Pages y actualiza la tasa del BCV cada hora.
+#
+# Una sola vez, en GitHub: Settings → Pages → Build and deployment → Source: "GitHub Actions".
+name: Publicar tienda
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 * * * *" # cada hora, en el minuto 17
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  construir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Leer la tasa oficial en bcv.org.ve
+        # Si el BCV no responde, se publica igual: la tienda usa su fuente de respaldo.
+        continue-on-error: true
+        run: python3 scripts/actualizar_tasa.py
+
+      - name: Preparar los archivos públicos
+        run: |
+          mkdir _site
+          cp -r index.html css js _site/
+          if [ -d img ]; then cp -r img _site/; fi
+          mkdir -p _site/data
+          if [ -f data/tasa.json ]; then cp data/tasa.json _site/data/; fi
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  publicar:
+    needs: construir
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.despliegue.outputs.page_url }}
+    steps:
+      - id: despliegue
+        uses: actions/deploy-pages@v4

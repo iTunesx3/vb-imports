@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modelo C · Deportivo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,700;1,800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Tokens de la skill UI/UX Pro Max: "Vibrant & Block-based", paleta "Team red" */
+  :root {
+    --color-primary: #DC2626;
+    --color-primary-hover: #B91C1C;
+    --color-on-primary: #FFFFFF;
+    --color-background: #FEF2F2;
+    --color-foreground: #7F1D1D;
+    --color-card: #FFFFFF;
+    --color-muted: #F0EDF1;
+    --color-muted-foreground: #475569;
+    --color-border: #FECACA;
+    --display: "Barlow Condensed", Impact, sans-serif;
+    --body: "Barlow", system-ui, sans-serif;
+    --radio: 24px;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--color-background); color: var(--color-foreground); font-family: var(--body); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; }
+  :focus-visible { outline: 3px solid var(--color-foreground); outline-offset: 3px; }
+  .wrap { max-width: 1320px; margin: 0 auto; padding-inline: 24px; }
+
+  header { position: sticky; top: 0; z-index: 10; padding-block: 12px; background: rgba(254,242,242,.88); backdrop-filter: blur(10px); }
+  .nav { display: flex; align-items: center; gap: 16px; background: var(--color-card); border: 1px solid var(--color-border); border-radius: 999px; padding: 8px 8px 8px 20px; }
+  .logo { display: flex; align-items: center; gap: 8px; font-family: var(--display); font-style: italic; font-weight: 800; font-size: 28px; letter-spacing: .01em; text-transform: uppercase; }
+  .logo i { width: 14px; height: 14px; background: var(--color-primary); transform: skewX(-12deg); }
+  .buscar { flex: 1; max-width: 420px; margin-left: auto; display: flex; align-items: center; gap: 10px; height: 44px; padding-inline: 16px; background: var(--color-background); border-radius: 999px; color: var(--color-muted-foreground); }
+  .buscar svg { width: 18px; height: 18px; flex: none; }
+  .buscar input { border: 0; background: none; font: inherit; color: var(--color-foreground); width: 100%; outline: none; }
+  .carrito { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding-inline: 18px; border: 0; border-radius: 999px; background: var(--color-primary); color: var(--color-on-primary); font-weight: 700; transition: background .2s; }
+  .carrito:hover { background: var(--color-primary-hover); }
+  .carrito svg { width: 20px; height: 20px; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+  /* Bento hero */
+  .bento { display: grid; grid-template-columns: 1.7fr 1fr; grid-template-rows: 1fr 1fr; gap: 16px; padding-block: 16px 56px; }
+  .bloque { border-radius: var(--radio); position: relative; overflow: hidden; }
+  .principal { grid-row: span 2; background: var(--color-primary); color: var(--color-on-primary); padding: 48px; min-height: 560px; display: flex; flex-direction: column; justify-content: space-between; }
+  .principal .pill { align-self: flex-start; background: rgba(255,255,255,.18); padding: 6px 14px; border-radius: 999px; font-weight: 600; font-size: 14px; }
+  h1 { font-family: var(--display); font-style: italic; font-weight: 800; text-transform: uppercase; font-size: clamp(56px, 8vw, 120px); line-height: .86; letter-spacing: -.01em; position: relative; z-index: 1; }
+  .principal .zapa { position: absolute; right: -6%; bottom: 14%; width: 66%; transform: rotate(-18deg); filter: drop-shadow(0 30px 24px rgba(0,0,0,.3)); transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+  .principal:hover .zapa { transform: rotate(-22deg) translateY(-12px); }
+  .principal .zapa svg { width: 100%; height: auto; }
+  .fila-cta { display: flex; gap: 12px; flex-wrap: wrap; position: relative; z-index: 1; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; height: 54px; padding-inline: 28px; border-radius: 999px; font-weight: 700; font-size: 16px; border: 2px solid var(--color-on-primary); transition: background .2s, color .2s; }
+  .btn svg { width: 18px; height: 18px; }
+  .btn.blanco { background: var(--color-on-primary); color: var(--color-primary); }
+  .btn.blanco:hover { background: var(--color-foreground); border-color: var(--color-foreground); color: var(--color-on-primary); }
+  .btn.borde { color: var(--color-on-primary); }
+  .btn.borde:hover { background: rgba(255,255,255,.14); }
+  .oferta { background: var(--color-card); border: 1px solid var(--color-border); padding: 28px; display: flex; flex-direction: column; justify-content: space-between; }
+  .oferta .zapa { position: absolute; right: -4%; top: 22%; width: 70%; transform: rotate(-10deg); }
+  .oferta .zapa svg { width: 100%; height: auto; }
+  .badge { align-self: flex-start; background: var(--color-primary); color: var(--color-on-primary); font-weight: 700; padding: 4px 12px; border-radius: 999px; font-size: 14px; }
+  .oferta h3 { font-family: var(--display); font-size: 34px; text-transform: uppercase; line-height: 1; }
+  .oferta .precio { font-size: 22px; }
+  .envio { background: var(--color-foreground); color: var(--color-on-primary); padding: 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; }
+  .envio svg { width: 40px; height: 40px; color: #FCA5A5; }
+  .envio h3 { font-family: var(--display); font-weight: 700; font-size: 40px; text-transform: uppercase; line-height: .95; }
+  .envio p { color: #FECACA; }
+
+  /* Categorías como bloques */
+  .seccion { padding-block: 24px 80px; scroll-margin-top: 90px; }
+  h2 { font-family: var(--display); font-style: italic; font-weight: 800; text-transform: uppercase; font-size: clamp(40px, 5vw, 64px); line-height: .95; margin-bottom: 24px; }
+  .cats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 40px; }
+  .cat-btn { height: 88px; border-radius: 20px; border: 2px solid transparent; background: var(--color-card); color: var(--color-foreground); text-align: left; padding: 16px 18px; display: flex; flex-direction: column; justify-content: space-between; transition: background .2s, color .2s, border-color .2s; }
+  .cat-btn b { font-family: var(--display); font-weight: 700; font-size: 26px; text-transform: uppercase; line-height: 1; }
+  .cat-btn span { font-size: 13px; color: var(--color-muted-foreground); }
+  .cat-btn:hover { border-color: var(--color-primary); }
+  .cat-btn.on { background: var(--color-primary); color: var(--color-on-primary); }
+  .cat-btn.on span { color: #FECACA; }
+
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .card { background: var(--color-card); border: 2px solid var(--color-border); border-radius: var(--radio); padding: 10px; display: flex; flex-direction: column; transition: transform .25s cubic-bezier(.34,1.56,.64,1), border-color .2s; animation: entrar .4s cubic-bezier(.34,1.56,.64,1) backwards; animation-delay: calc(var(--i) * 60ms); }
+  .card:hover { transform: translateY(-4px); border-color: var(--color-primary); }
+  @keyframes entrar { from { opacity: 0; transform: translateY(16px) scale(.92); } }
+  .card .foto { position: relative; aspect-ratio: 1; border-radius: 16px; display: grid; place-items: center; overflow: hidden; }
+  .card .foto svg { width: 90%; height: auto; transform: rotate(-8deg); transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+  .card:hover .foto svg { transform: rotate(-14deg) scale(1.08); }
+  .tag { position: absolute; top: 12px; left: 12px; background: var(--color-primary); color: var(--color-on-primary); font-weight: 700; font-size: 12px; padding: 4px 10px; border-radius: 999px; }
+  .card .info { display: flex; justify-content: space-between; align-items: end; gap: 12px; padding: 14px 8px 6px; }
+  .card h3 { font-family: var(--display); font-weight: 700; font-size: 26px; text-transform: uppercase; line-height: 1; }
+  .card .sub { font-size: 14px; color: var(--color-muted-foreground); margin-top: 4px; }
+  .precio { font-weight: 700; font-size: 18px; margin-top: 6px; }
+  .precio s { font-weight: 400; color: var(--color-muted-foreground); font-size: 14px; margin-left: 6px; }
+  .mas { width: 48px; height: 48px; flex: none; border-radius: 50%; border: 0; display: grid; place-items: center; background: var(--color-primary); color: var(--color-on-primary); transition: background .2s, transform .2s; }
+  .mas:hover { background: var(--color-primary-hover); transform: rotate(90deg); }
+  .mas.ok { background: var(--color-foreground); transform: none; }
+  .mas svg { width: 22px; height: 22px; }
+
+  footer { padding-block: 32px 48px; color: var(--color-muted-foreground); font-size: 14px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  @media (max-width: 1024px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .cats { grid-template-columns: repeat(3, 1fr); }
+    .bento { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; }
+    .principal { grid-column: span 2; grid-row: auto; }
+    .oferta, .envio { min-height: 240px; }
+  }
+  @media (max-width: 768px) {
+    .wrap { padding-inline: 16px; }
+    .buscar { display: none; }
+    .carrito { margin-left: auto; }
+    .principal { padding: 28px; min-height: 520px; }
+    .principal .zapa { width: 92%; right: -10%; bottom: 22%; }
+    .bento { grid-template-columns: 1fr; }
+    .principal { grid-column: auto; }
+    .cats { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 4px; }
+    .cat-btn { flex: 0 0 140px; scroll-snap-align: start; }
+    .grid { gap: 10px; }
+    .card .info { flex-direction: column; align-items: stretch; }
+    .card h3 { font-size: 22px; }
+    .mas { width: 100%; border-radius: 999px; height: 44px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="nav">
+      <a class="logo" href="#"><i></i>Suela</a>
+      <label class="buscar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="sr">Buscar</span><input type="search" placeholder="Busca tu modelo…" id="q"></label>
+      <button class="carrito" aria-label="Carrito"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span id="contador" aria-live="polite">0</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="bento">
+    <div class="bloque principal">
+      <span class="pill">Nueva temporada</span>
+      <h1>Corre.<br>Salta.<br>Repite.</h1>
+      <div class="zapa" id="zapa-hero"></div>
+      <div class="fila-cta">
+        <a class="btn blanco" href="#catalogo">Comprar ahora <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn borde" href="#catalogo">Ver ofertas</a>
+      </div>
+    </div>
+    <a class="bloque oferta" href="#catalogo">
+      <span class="badge">-20%</span>
+      <div class="zapa" id="zapa-oferta"></div>
+      <div><h3>Aero Knit</h3><div class="precio">$119 <s style="font-weight:400;color:var(--color-muted-foreground);font-size:16px">$149</s></div></div>
+    </a>
+    <div class="bloque envio">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>
+      <div><h3>Envío gratis<br>desde $99</h3><p>Llega en 24–72 h a todo el país.</p></div>
+    </div>
+  </section>
+
+  <section class="seccion" id="catalogo">
+    <h2>Elige tu juego</h2>
+    <div class="cats" id="cats" role="toolbar" aria-label="Filtrar por categoría"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Suela — Modelo C · Deportivo</span><span>Envíos · Cambios · Contacto</span></div></footer>
+
+<script src="compartido/sneaker.js"></script>
+<script src="compartido/datos.js"></script>
+<script>
+  const buscar = id => PRODUCTOS.find(p => p.id === id);
+  document.getElementById("zapa-hero").innerHTML = sneakerSVG(buscar("velox-runner"), { sombra: false });
+  document.getElementById("zapa-oferta").innerHTML = sneakerSVG(buscar("aero-knit"));
+
+  let filtro = "Todos", texto = "", carrito = 0;
+  const cats = document.getElementById("cats");
+  const grid = document.getElementById("grid");
+  const cuenta = c => c === "Todos" ? PRODUCTOS.length : PRODUCTOS.filter(p => p.categoria === c).length;
+  const MAS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>';
+  const OK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 5 5 9-10"/></svg>';
+
+  function pintar() {
+    cats.innerHTML = CATEGORIAS.map(c => `<button class="cat-btn ${c === filtro ? "on" : ""}" data-c="${c}" aria-pressed="${c === filtro}"><b>${c}</b><span>${cuenta(c)} modelos</span></button>`).join("");
+    const lista = PRODUCTOS.filter(p => (filtro === "Todos" || p.categoria === filtro) && p.nombre.toLowerCase().includes(texto));
+    grid.innerHTML = lista.length ? lista.map((p, i) => `
+      <article class="card" style="--i:${i}">
+        <div class="foto" style="background:${p.fondo}">${p.etiqueta ? `<span class="tag">${p.etiqueta}</span>` : ""}${sneakerSVG(p)}</div>
+        <div class="info">
+          <div>
+            <h3>${p.nombre}</h3>
+            <div class="sub">${p.categoria}</div>
+            <div class="precio">${formatoPrecio(p.precio)}${p.precioAntes ? `<s>${formatoPrecio(p.precioAntes)}</s>` : ""}</div>
+          </div>
+          <button class="mas" aria-label="Agregar ${p.nombre} al carrito">${MAS}</button>
+        </div>
+      </article>`).join("") : `<p style="grid-column:1/-1;padding:40px 0">No encontramos modelos con “${texto}”.</p>`;
+  }
+  cats.addEventListener("click", e => { const b = e.target.closest(".cat-btn"); if (b) { filtro = b.dataset.c; pintar(); } });
+  document.getElementById("q").addEventListener("input", e => { texto = e.target.value.trim().toLowerCase(); pintar(); });
+  grid.addEventListener("click", e => {
+    const b = e.target.closest(".mas");
+    if (!b) return;
+    document.getElementById("contador").textContent = ++carrito;
+    b.classList.add("ok"); b.innerHTML = OK;
+    setTimeout(() => { b.classList.remove("ok"); b.innerHTML = MAS; }, 1200);
+  });
+  pintar();
+</script>
+</body>
+</html>

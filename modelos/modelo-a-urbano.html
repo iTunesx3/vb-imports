@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modelo A · Urbano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Epilogue:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0f;
+    --surface: #17171a;
+    --surface-2: #1f1f23;
+    --line: #2a2a2f;
+    --text: #f3f3f0;
+    --muted: #9a9aa0;
+    --accent: #d4ff3a;
+    --on-accent: #0d0d0f;
+    --display: "Anton", Impact, sans-serif;
+    --body: "Epilogue", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  body { background: var(--bg); color: var(--text); font-family: var(--body); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+  /* Cabecera */
+  header { position: sticky; top: 0; z-index: 10; background: rgba(13,13,15,.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .logo { font-family: var(--display); font-size: 30px; letter-spacing: .02em; }
+  .logo span { color: var(--accent); }
+  .links { display: flex; gap: 32px; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; }
+  .links a { color: var(--muted); transition: color .2s; }
+  .links a:hover, .links a.on { color: var(--text); }
+  .acciones { display: flex; gap: 8px; }
+  .icono { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--line); background: none; color: var(--text); border-radius: 0; position: relative; transition: border-color .2s; }
+  .icono:hover { border-color: var(--accent); }
+  .icono svg { width: 20px; height: 20px; }
+  .contador { position: absolute; top: -6px; right: -6px; min-width: 20px; height: 20px; padding: 0 5px; background: var(--accent); color: var(--on-accent); font-size: 11px; font-weight: 700; display: grid; place-items: center; }
+
+  /* Hero */
+  .hero { display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: 24px; padding-block: 56px 72px; min-height: 620px; }
+  .drop { display: inline-flex; gap: 10px; align-items: center; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+  .drop::before { content: ""; width: 8px; height: 8px; background: var(--accent); }
+  h1 { font-family: var(--display); font-weight: 400; font-size: clamp(64px, 10.5vw, 156px); line-height: .86; text-transform: uppercase; }
+  h1 em { font-style: normal; color: var(--accent); }
+  .hero p { color: var(--muted); max-width: 420px; margin: 28px 0 32px; line-height: 1.6; font-size: 17px; }
+  .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; height: 54px; padding: 0 28px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; font-size: 14px; border: 2px solid var(--accent); transition: transform .15s; }
+  .btn:active { transform: translateY(1px); }
+  .btn.primario { background: var(--accent); color: var(--on-accent); }
+  .btn.secundario { color: var(--accent); background: none; }
+  .btn svg { width: 18px; height: 18px; }
+  .escena { position: relative; aspect-ratio: 1; display: grid; place-items: center; }
+  .escena .disco { position: absolute; inset: 8%; border-radius: 50%; background: var(--accent); }
+  .escena .texto-fondo { position: absolute; font-family: var(--display); font-size: clamp(90px, 14vw, 210px); color: var(--bg); opacity: .14; line-height: 1; letter-spacing: -.01em; }
+  .escena .zapa { position: relative; width: 100%; transform: rotate(-14deg) translateY(-4%); filter: drop-shadow(0 40px 30px rgba(0,0,0,.45)); animation: flotar 5s ease-in-out infinite; }
+  .escena .zapa svg { width: 100%; height: auto; }
+  .sticker { position: absolute; right: 2%; bottom: 10%; background: var(--bg); color: var(--text); border: 2px solid var(--accent); padding: 12px 16px; transform: rotate(6deg); }
+  .sticker b { display: block; font-family: var(--display); font-size: 34px; color: var(--accent); font-weight: 400; }
+  .sticker small { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  @keyframes flotar { 50% { transform: rotate(-14deg) translateY(-8%); } }
+
+  /* Cinta */
+  .cinta { background: var(--accent); color: var(--on-accent); overflow: hidden; white-space: nowrap; border-block: 2px solid var(--bg); }
+  .cinta div { display: inline-block; padding: 14px 0; font-family: var(--display); font-size: 22px; letter-spacing: .04em; animation: correr 26s linear infinite; }
+  @keyframes correr { to { transform: translateX(-50%); } }
+
+  /* Catálogo */
+  .seccion { padding-block: 72px 96px; scroll-margin-top: 68px; }
+  .seccion-cab { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: 32px; }
+  h2 { font-family: var(--display); font-weight: 400; font-size: clamp(40px, 6vw, 72px); line-height: .9; text-transform: uppercase; }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .chip { height: 40px; padding: 0 18px; background: none; border: 1px solid var(--line); color: var(--muted); font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: .05em; transition: all .2s; }
+  .chip:hover { color: var(--text); border-color: var(--muted); }
+  .chip.on { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--line); display: flex; flex-direction: column; transition: border-color .25s; }
+  .card:hover { border-color: var(--accent); }
+  .card .foto { position: relative; aspect-ratio: 4/3.4; background: var(--surface-2); display: grid; place-items: center; overflow: hidden; }
+  .card .foto svg { width: 88%; height: auto; transition: transform .4s cubic-bezier(.2,.8,.2,1); }
+  .card:hover .foto svg { transform: rotate(-8deg) scale(1.06) translateY(-4%); }
+  .tag { position: absolute; top: 12px; left: 12px; background: var(--accent); color: var(--on-accent); font-size: 11px; font-weight: 700; padding: 5px 9px; text-transform: uppercase; letter-spacing: .06em; }
+  .card .info { padding: 18px; display: flex; justify-content: space-between; align-items: end; gap: 12px; flex: 1; }
+  .card h3 { font-family: var(--display); font-weight: 400; font-size: 24px; text-transform: uppercase; line-height: 1; }
+  .card .cat { color: var(--muted); font-size: 13px; margin-top: 6px; }
+  .precio { font-weight: 700; font-size: 18px; color: var(--accent); margin-top: 12px; }
+  .precio s { color: var(--muted); font-weight: 400; font-size: 14px; margin-left: 6px; }
+  .mas { width: 44px; height: 44px; flex: none; display: grid; place-items: center; background: none; border: 2px solid var(--accent); color: var(--accent); transition: all .2s; }
+  .mas:hover { background: var(--accent); color: var(--on-accent); }
+  .mas.ok { background: var(--accent); color: var(--on-accent); }
+  /* Entrada escalonada (Stagger List, recomendación de la skill) */
+  .card { animation: entrar .4s cubic-bezier(.34,1.56,.64,1) backwards; animation-delay: calc(var(--i) * 60ms); }
+  @keyframes entrar { from { opacity: 0; transform: translateY(16px) scale(.94); } }
+  .mas svg { width: 20px; height: 20px; }
+
+  footer { border-top: 1px solid var(--line); padding: 32px 0; color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  @media (max-width: 1000px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .links { display: none; }
+  }
+  @media (max-width: 760px) {
+    .wrap { padding: 0 16px; }
+    .hero { grid-template-columns: 1fr; padding-block: 32px 48px; min-height: 0; }
+    .escena { order: -1; max-width: 420px; margin: 0 auto; width: 100%; }
+    .grid { gap: 10px; }
+    .card .info { flex-direction: column; align-items: stretch; padding: 14px; }
+    .card h3 { font-size: 19px; }
+    .mas { width: 100%; height: 40px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#">SUELA<span>.</span></a>
+    <nav class="links">
+      <a class="on" href="#">Novedades</a><a href="#">Hombre</a><a href="#">Mujer</a><a href="#">Ofertas</a>
+    </nav>
+    <div class="acciones">
+      <button class="icono" aria-label="Buscar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <button class="icono" aria-label="Carrito"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7h14l-1.5 12h-11z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="contador" id="contador" aria-live="polite">0</span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <div>
+      <div class="drop">Drop 04 — Otoño 2026</div>
+      <h1>Pisa<br>sin pedir<br><em>permiso</em></h1>
+      <p>Sneakers originales para la calle, la cancha y todo lo que pase en medio. Envío a todo el país.</p>
+      <div class="ctas">
+        <a class="btn primario" href="#catalogo">Ver colección <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn secundario" href="#catalogo">Ofertas</a>
+      </div>
+    </div>
+    <div class="escena">
+      <div class="disco"></div>
+      <div class="texto-fondo">HI-TOP</div>
+      <div class="zapa" id="zapa-hero"></div>
+      <div class="sticker"><small>Skyline Hi</small><b>$159</b></div>
+    </div>
+  </section>
+
+  <div class="cinta" aria-hidden="true"><div id="cinta"></div></div>
+
+  <section class="wrap seccion" id="catalogo">
+    <div class="seccion-cab">
+      <h2>Lo más<br>nuevo</h2>
+      <div class="chips" id="chips"></div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 SUELA — Modelo A · Urbano</span><span>Envíos · Cambios · Contacto</span></div></footer>
+
+<script src="compartido/sneaker.js"></script>
+<script src="compartido/datos.js"></script>
+<script>
+  const mensaje = "ENVÍO GRATIS DESDE $99 ✦ CAMBIOS EN 30 DÍAS ✦ 100% ORIGINALES ✦ PAGA COMO QUIERAS ✦ ";
+  document.getElementById("cinta").textContent = mensaje.repeat(6);
+  document.getElementById("zapa-hero").innerHTML = sneakerSVG(PRODUCTOS.find(p => p.id === "skyline-hi"), { sombra: false });
+
+  let filtro = "Todos", carrito = 0;
+  const chips = document.getElementById("chips");
+  const grid = document.getElementById("grid");
+
+  function pintar() {
+    chips.innerHTML = CATEGORIAS.map(c => `<button class="chip ${c === filtro ? "on" : ""}" data-c="${c}" aria-pressed="${c === filtro}">${c}</button>`).join("");
+    grid.innerHTML = PRODUCTOS.filter(p => filtro === "Todos" || p.categoria === filtro).map((p, i) => `
+      <article class="card" style="--i:${i}">
+        <div class="foto">${p.etiqueta ? `<span class="tag">${p.etiqueta}</span>` : ""}${sneakerSVG(p)}</div>
+        <div class="info">
+          <div>
+            <h3>${p.nombre}</h3>
+            <div class="cat">${p.categoria}</div>
+            <div class="precio">${formatoPrecio(p.precio)}${p.precioAntes ? `<s>${formatoPrecio(p.precioAntes)}</s>` : ""}</div>
+          </div>
+          <button class="mas" aria-label="Agregar ${p.nombre} al carrito"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></button>
+        </div>
+      </article>`).join("");
+  }
+  chips.addEventListener("click", e => { const b = e.target.closest(".chip"); if (b) { filtro = b.dataset.c; pintar(); } });
+  const MAS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>';
+  const OK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 5 5 9-10"/></svg>';
+  grid.addEventListener("click", e => {
+    const b = e.target.closest(".mas");
+    if (!b) return;
+    document.getElementById("contador").textContent = ++carrito;
+    b.classList.add("ok"); b.innerHTML = OK;
+    setTimeout(() => { b.classList.remove("ok"); b.innerHTML = MAS; }, 1200);
+  });
+  pintar();
+</script>
+</body>
+</html>

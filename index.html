@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VB-Imports — Productos importados en Ciudad Ojeda</title>
+<meta name="description" content="VB-Imports: productos importados y originales en Ciudad Ojeda, Zulia. Sneakers y más, con envío a todo el país.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<a class="saltar" href="#app">Saltar al contenido</a>
+<div class="aviso" id="aviso"></div>
+
+<header class="cabecera">
+  <div class="wrap nav">
+    <div class="nav-izq">
+      <button class="icono-btn menu-btn" data-abrir="menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="links" id="links" aria-label="Categorías"></nav>
+    </div>
+    <a class="logo" href="#/" data-nombre>VB-Imports</a>
+    <div class="acciones">
+      <button class="accion" id="btn-buscar" aria-controls="buscador" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="texto">Buscar</span>
+      </button>
+      <button class="accion" id="btn-bolsa" data-abrir="bolsa" aria-controls="bolsa" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span><span class="texto">Bolsa </span>(<span data-contador>0</span>)</span>
+      </button>
+    </div>
+  </div>
+  <div class="buscador" id="buscador" hidden>
+    <div class="wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <label class="sr" for="q">Buscar modelos</label>
+      <input id="q" type="search" placeholder="Busca por modelo, categoría o color" autocomplete="off" enterkeyhint="search">
+      <button class="icono-btn" id="cerrar-buscar" aria-label="Cerrar búsqueda">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="app" tabindex="-1"></main>
+
+<footer class="pie">
+  <div class="wrap">
+    <div class="pie-grid">
+      <div><span class="logo" data-nombre>VB-Imports</span><p id="pie-descripcion"></p></div>
+      <div><h3>Tienda</h3><ul id="pie-links"></ul></div>
+      <div><h3>Ayuda</h3><ul><li>Envíos en 24–72 h</li><li>Cambios en 30 días</li><li><a id="pie-contacto" href="#/" target="_blank" rel="noopener">Contacto por WhatsApp</a></li></ul></div>
+    </div>
+    <div class="pie-final">
+      <span>© <span id="anio"></span> <span data-nombre>VB-Imports</span>. Todos los derechos reservados.</span>
+      <span data-tasa="larga"></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-flotante" id="wa-flotante" href="#/" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 10h6M9 13h4"/></svg><span>WhatsApp</span>
+</a>
+
+<div class="velo" id="velo" data-cerrar hidden></div>
+
+<aside class="panel derecha" id="bolsa" role="dialog" aria-modal="true" aria-labelledby="bolsa-titulo" hidden>
+  <div class="panel-cab">
+    <h2 id="bolsa-titulo" tabindex="-1">Tu bolsa</h2>
+    <button class="icono-btn" data-cerrar data-foco aria-label="Cerrar bolsa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="panel-cuerpo" id="bolsa-cuerpo"></div>
+  <div class="panel-pie" id="bolsa-pie" hidden>
+    <div class="totales">
+      <div><span>Subtotal</span><span id="bolsa-subtotal"></span></div>
+      <div class="fila-bs"><span>En bolívares</span><span id="bolsa-subtotal-bs"></span></div>
+      <div><span>Envío</span><span id="bolsa-envio"></span></div>
+    </div>
+    <p class="nota" data-tasa></p>
+    <button class="btn ancho" id="pedir">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/></svg>Pedir por WhatsApp
+    </button>
+    <p class="nota">Te responderemos por WhatsApp para confirmar tallas, pago y entrega.</p>
+  </div>
+</aside>
+
+<aside class="panel izquierda" id="menu" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+  <div class="panel-cab">
+    <span class="logo" data-nombre>VB-Imports</span>
+    <button class="icono-btn" data-cerrar data-foco aria-label="Cerrar menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="panel-cuerpo"><nav class="menu-links" id="menu-links" aria-label="Categorías"></nav></div>
+</aside>
+
+<script src="js/config.js"></script>
+<script src="js/productos.js"></script>
+<script src="js/sneaker.js"></script>
+<script src="js/tasa.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

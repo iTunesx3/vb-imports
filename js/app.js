@@ -629,4 +629,5 @@
   window.addEventListener("hashchange", () => render());
   pintarBolsa();
   render(true);
+  refrescarBs(); // muestra la tasa guardada de la visita anterior mientras llega la nueva
 })();

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logos VB-Imports</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --fondo: #F5F5F4; --tarjeta: #FFFFFF; --tinta: #1C1917; --suave: #57534E; --borde: #E7E5E4; --oro: #A16207; --claro: #FAFAF9; --oscuro: #1C1917; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--fondo); color: var(--tinta); font: 15px/1.5 Montserrat, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 48px 24px 80px; }
+  header { margin-bottom: 40px; }
+  .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--oro); }
+  h1 { font-family: Cormorant, Georgia, serif; font-weight: 500; font-size: clamp(40px, 5vw, 60px); line-height: 1.05; margin: 10px 0 12px; }
+  header p { color: var(--suave); max-width: 640px; }
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .propuesta { background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+  .cab { display: flex; align-items: baseline; gap: 12px; padding: 20px 24px 0; }
+  .num { font-family: Cormorant, serif; font-size: 28px; font-weight: 600; color: var(--oro); }
+  .cab h2 { font-size: 18px; font-weight: 600; }
+  .idea { padding: 6px 24px 18px; color: var(--suave); font-size: 14px; }
+  .lienzo { display: grid; place-items: center; padding: 36px 32px; background: var(--claro); border-top: 1px solid var(--borde); min-height: 200px; }
+  .lienzo svg { width: 100%; max-width: 380px; height: auto; }
+  .lienzo.sello svg { max-width: 190px; }
+  .fila { display: grid; grid-template-columns: 1.4fr 1fr; border-top: 1px solid var(--borde); }
+  .oscuro { background: var(--oscuro); display: grid; place-items: center; padding: 24px; min-height: 130px; }
+  .oscuro svg { width: 100%; max-width: 240px; height: auto; }
+  .oscuro.sello svg { max-width: 110px; }
+  .tamanos { display: flex; align-items: end; justify-content: center; gap: 18px; padding: 20px 16px; background: var(--claro); border-left: 1px solid var(--borde); }
+  .tamanos figure { display: grid; justify-items: center; gap: 6px; font-size: 11px; color: var(--suave); }
+  .tamanos svg { display: block; }
+  .usos { padding: 14px 24px 18px; font-size: 13px; color: var(--suave); border-top: 1px solid var(--borde); margin-top: auto; }
+  .usos b { color: var(--tinta); font-weight: 600; }
+  .pestana { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: #E7E5E4; border-top: 1px solid var(--borde); font-size: 12px; color: var(--suave); }
+  .pestana .tab { display: inline-flex; align-items: center; gap: 8px; background: #fff; padding: 6px 12px; border-radius: 8px 8px 0 0; color: var(--tinta); }
+  .pestana .tab svg { width: 16px; height: 16px; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+  @media (max-width: 520px) {
+    .wrap { padding: 32px 16px 64px; }
+    .fila { grid-template-columns: 1fr; }
+    .tamanos { border-left: 0; border-top: 1px solid var(--borde); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">VB-Imports · Propuestas de logo</div>
+    <h1>Seis caminos para tu marca</h1>
+    <p>Cada propuesta se muestra sobre fondo claro y oscuro, como ícono a 64, 32 y 16 píxeles, y como ícono de la pestaña del navegador. Elige una o combina ideas: luego la afino y preparo todos los archivos.</p>
+  </header>
+  <div class="grid" id="grid"></div>
+</div>
+<script src="logos.js"></script>
+<script>
+  const { TEMAS, PROPUESTAS } = window.LOGOS;
+  document.getElementById("grid").innerHTML = PROPUESTAS.map((p, i) => {
+    const sello = p.id === "sello" ? "sello" : "";
+    const icono = (px) => p.icono(TEMAS.claro).replace("<svg ", `<svg width="${px}" height="${px}" `);
+    return `<article class="propuesta">
+      <div class="cab"><span class="num">0${i + 1}</span><h2>${p.nombre}</h2></div>
+      <p class="idea">${p.idea}</p>
+      <div class="lienzo ${sello}">${p.completo(TEMAS.claro)}</div>
+      <div class="fila">
+        <div class="oscuro ${sello}">${p.completo(TEMAS.oscuro)}</div>
+        <div class="tamanos">
+          <figure>${icono(64)}<figcaption>64 px</figcaption></figure>
+          <figure>${icono(32)}<figcaption>32 px</figcaption></figure>
+          <figure>${icono(16)}<figcaption>16 px</figcaption></figure>
+        </div>
+      </div>
+      <div class="pestana"><span class="tab">${p.icono(TEMAS.claro)}VB-Imports — Productos…</span></div>
+      <p class="usos"><b>Ideal para:</b> ${p.usos}</p>
+    </article>`;
+  }).join("");
+</script>
+</body>
+</html>

@@ -10,6 +10,7 @@ fuente con la misma tasa oficial del BCV.
 """
 import json
 import re
+import ssl
 import sys
 import urllib.request
 from datetime import datetime, timezone
@@ -18,10 +19,23 @@ from pathlib import Path
 URL = "https://www.bcv.org.ve/"
 DESTINO = Path(__file__).resolve().parent.parent / "data" / "tasa.json"
 
+# El servidor del BCV no envía el certificado intermedio que firmó el suyo, y fuera de Windows
+# la conexión segura falla. Se agrega ese intermedio público de Sectigo (vence en 2036) a los
+# certificados del sistema, sin desactivar la verificación. Origen:
+# http://crt.sectigo.com/SectigoPublicServerAuthenticationCADVR36.crt
+INTERMEDIO = Path(__file__).resolve().parent / "certificados" / "sectigo-dv-r36.pem"
 
-def leer_bcv():
+
+def contexto_ssl(cafile=None):
+    contexto = ssl.create_default_context(cafile=cafile)
+    if INTERMEDIO.exists():
+        contexto.load_verify_locations(cafile=str(INTERMEDIO))
+    return contexto
+
+
+def leer_bcv(contexto=None):
     pedido = urllib.request.Request(URL, headers={"User-Agent": "Mozilla/5.0 (tasa para catálogo)"})
-    with urllib.request.urlopen(pedido, timeout=30) as respuesta:
+    with urllib.request.urlopen(pedido, timeout=30, context=contexto or contexto_ssl()) as respuesta:
         html = respuesta.read().decode("utf-8", "replace")
 
     # <div id="dolar"> ... <strong class="strong-tb">880,11590000</strong>

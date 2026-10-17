@@ -371,7 +371,10 @@
     if (!grid) return;
     $$("#tabs .tab").forEach((t) => t.setAttribute("aria-pressed", String(t.dataset.cat === estado.cat)));
     const lista = filtrados();
+    // Cada talla disponible de un modelo es un par (una caja).
+    const pares = lista.reduce((n, p) => n + tallasDe(p).filter((t) => !agotada(p, t)).length, 0);
     $("#resumen").innerHTML = `${lista.length} ${lista.length === 1 ? "modelo" : "modelos"}` +
+      (pares ? ` · ${pares} ${pares === 1 ? "par" : "pares"}` : "") +
       (estado.texto ? `<span class="filtro-texto">“${escapar(estado.texto)}”<button type="button" data-limpiar-texto aria-label="Quitar búsqueda">${ICONO.x}</button></span>` : "");
     grid.innerHTML = lista.length ? lista.map(tarjeta).join("") : `
       <div class="vacio">

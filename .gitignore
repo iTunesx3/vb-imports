@@ -8,3 +8,6 @@ __pycache__/
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Inventario privado (no se publica)
+inventario/

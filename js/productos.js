@@ -25,7 +25,7 @@ window.PRODUCTOS = [
   },
   {
     id: "air-jordan-3-blanco-plata", marca: "Jordan", nombre: "Air Jordan 3 Blanco y Plata", categoria: "Basketball", precio: null,
-    color: "Blanco / Plata",
+    color: "Blanco / Plata", tallas: [42],
     descripcion: "El clásico Air Jordan 3 en blanco, con estampado tipo elefante plateado en la puntera y el talón.",
     detalles: ["Caña media", "Estampado tipo elefante plateado", "Jumpman negro en la lengüeta"],
     imagenes: [
@@ -35,7 +35,7 @@ window.PRODUCTOS = [
   },
   {
     id: "air-jordan-3-negro", marca: "Jordan", nombre: "Air Jordan 3 Negro", categoria: "Basketball", precio: null,
-    color: "Negro",
+    color: "Negro", tallas: [43],
     descripcion: "Air Jordan 3 todo negro con costuras blancas en contraste.",
     detalles: ["Acabado tipo nobuk negro", "Costuras blancas en contraste", "Jumpman blanco en la lengüeta"],
     imagenes: [
@@ -85,7 +85,7 @@ window.PRODUCTOS = [
   },
   {
     id: "tommy-azul-marino", marca: "Tommy Hilfiger", nombre: "Sneaker Azul Marino", categoria: "Lifestyle", precio: null,
-    color: "Azul marino",
+    color: "Azul marino", tallas: [42],
     descripcion: "Sneaker azul marino con el nombre de la marca en relieve alrededor del talón.",
     detalles: ["Acabado tipo cuero granulado", "Bandera Tommy en el costado", "Letras en relieve en la suela"],
     imagenes: [
@@ -119,7 +119,7 @@ window.PRODUCTOS = [
   },
   {
     id: "regent-beige", marca: "Regent", nombre: "Casual Beige", categoria: "Casual", precio: null,
-    color: "Beige / Café",
+    color: "Beige / Café", tallas: [42],
     descripcion: "Zapato casual en beige con franjas y suela gruesa en café.",
     detalles: ["Hecho en Turquía", "Forro interior color camel", "Suela gruesa café"],
     imagenes: [

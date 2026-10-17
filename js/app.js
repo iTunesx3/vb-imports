@@ -28,12 +28,15 @@
   // Bolívares según la tasa BCV vigente (vacío mientras no haya tasa).
   const SIMBOLO_BS = (T.bolivares && T.bolivares.simbolo) || "Bs.";
   const formatoBs = (n) => `${SIMBOLO_BS} ${n.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-  const enBs = (usd) => (TasaBCV.valor ? formatoBs(usd * TasaBCV.valor) : "");
+  // El IVA va solo en bolívares: el monto en Bs. es dólares × tasa BCV × (1 + IVA).
+  const IVA = (T.bolivares && T.bolivares.iva) || 0;
+  const enBs = (usd) => (TasaBCV.valor ? formatoBs(usd * TasaBCV.valor * (1 + IVA)) : "");
   const bsHTML = (usd, clase = "") => `<span class="bs ${clase}" data-usd="${usd}">${enBs(usd)}</span>`;
   const fechaCorta = (iso) => (iso ? iso.slice(0, 10).split("-").reverse().join("/") : "");
   function textoTasa(largo) {
     if (!TasaBCV.valor) return "";
-    const base = `Tasa BCV: ${formatoBs(TasaBCV.valor)} por USD${TasaBCV.fechaValor ? ` · fecha valor ${fechaCorta(TasaBCV.fechaValor)}` : ""}`;
+    const base = `Tasa BCV: ${formatoBs(TasaBCV.valor)} por USD${TasaBCV.fechaValor ? ` · fecha valor ${fechaCorta(TasaBCV.fechaValor)}` : ""}` +
+      (IVA ? ` · Bs. con IVA (${Math.round(IVA * 100)} %) incluido; USD sin IVA` : "");
     if (!largo || !TasaBCV.consultada) return base;
     const hora = new Date(TasaBCV.consultada).toLocaleTimeString("es-VE", { hour: "2-digit", minute: "2-digit" });
     return `${base} · actualizada a las ${hora}`;

@@ -63,9 +63,9 @@ window.PRODUCTOS = [
   },
   {
     id: "nike-air-max-blanco", marca: "Nike", nombre: "Air Max Dn Blanco", categoria: "Lifestyle", precio: null,
-    color: "Blanco", tallas: [42],
+    color: "Blanco", tallas: [41],
     descripcion: "Nike Air Max Dn blanco de malla, con cuatro cámaras de aire visibles en la suela.",
-    detalles: ["Parte superior de malla", "Insignia Air Max Dn en la lengüeta", "Cámaras de aire visibles en la suela", "Talla EU 42 (US 8.5)"],
+    detalles: ["Parte superior de malla", "Insignia Air Max Dn en la lengüeta", "Cámaras de aire visibles en la suela", "Talla EU 41"],
     imagenes: [
       "img/productos/nike-air-max-blanco-1.webp", "img/productos/nike-air-max-blanco-2.webp",
       "img/productos/nike-air-max-blanco-3.webp", "img/productos/nike-air-max-blanco-4.webp",

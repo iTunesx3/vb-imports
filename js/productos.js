@@ -45,7 +45,7 @@ window.PRODUCTOS = [
   },
   {
     id: "on-cloudsurfer-blanco-negro", marca: "Estilo On", nombre: "Cloudsurfer Blanco y Negro", categoria: "Running", precio: null,
-    color: "Blanco / Negro", tallas: [42],
+    color: "Blanco / Negro", tallas: [42, 43],
     descripcion: "Running ligero de tejido knit blanco, con cuello y cordones negros.",
     detalles: ["Tejido knit transpirable", "Suela con cápsulas de amortiguación", "Diseño inspirado en el On Cloudsurfer"],
     imagenes: ["img/productos/on-cloudsurfer-blanco-negro-1.webp", "img/productos/on-cloudsurfer-blanco-negro-2.webp"],

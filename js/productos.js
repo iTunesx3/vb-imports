@@ -66,14 +66,22 @@ window.PRODUCTOS = [
     color: "Blanco", tallas: [42],
     descripcion: "Nike Air Max Dn blanco de malla, con cuatro cámaras de aire visibles en la suela.",
     detalles: ["Parte superior de malla", "Insignia Air Max Dn en la lengüeta", "Cámaras de aire visibles en la suela", "Talla EU 42 (US 8.5)"],
-    imagenes: ["img/productos/nike-air-max-blanco-1.webp"],
+    imagenes: [
+      "img/productos/nike-air-max-blanco-1.webp", "img/productos/nike-air-max-blanco-2.webp",
+      "img/productos/nike-air-max-blanco-3.webp", "img/productos/nike-air-max-blanco-4.webp",
+      "img/productos/nike-air-max-blanco-5.webp", "img/productos/nike-air-max-blanco-6.webp",
+    ],
   },
   {
     id: "nike-blanco-cafe", marca: "Estilo Nike", nombre: "Metcon Blanco y Goma", categoria: "Training", precio: null,
     color: "Blanco / Café", tallas: [43],
     descripcion: "Zapato de entrenamiento blanco, con suela tipo goma y detalles en café.",
     detalles: ["Suela tipo goma con agarre", "Detalles en tono café", "Diseño inspirado en el Nike Metcon"],
-    imagenes: ["img/productos/nike-blanco-cafe-1.webp"],
+    imagenes: [
+      "img/productos/nike-blanco-cafe-1.webp", "img/productos/nike-blanco-cafe-2.webp",
+      "img/productos/nike-blanco-cafe-3.webp", "img/productos/nike-blanco-cafe-4.webp",
+      "img/productos/nike-blanco-cafe-5.webp",
+    ],
   },
   {
     id: "tommy-azul-marino", marca: "Tommy Hilfiger", nombre: "Sneaker Azul Marino", categoria: "Lifestyle", precio: null,

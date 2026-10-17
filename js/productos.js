@@ -2,69 +2,111 @@
 //
 // Campos:
 //   id          identificador único, sin espacios (se usa en el enlace del producto)
+//   marca       marca que se muestra junto a la categoría
 //   nombre      nombre visible
-//   categoria   Running, Lifestyle, Basketball, Trail... (una categoría nueva aparece sola en el menú)
-//   precio      precio actual; precioAntes (opcional) muestra el precio tachado y lo pone en Ofertas
-//   etiqueta    texto opcional sobre la foto ("Nuevo" lo pone en Novedades)
-//   agotadas    tallas sin stock de este modelo
-//   imagenes    (opcional) rutas a fotos reales, ej: ["img/velox-1.jpg", "img/velox-2.jpg"]
-//               Mientras no haya fotos se usa la ilustración, que toma los colores de "colores".
-//   alto        true para la ilustración de caña alta
+//   categoria   Running, Basketball, Lifestyle, Casual... (una categoría nueva aparece sola en el menú)
+//   precio      precio en dólares; con null el producto se muestra como "Consultar precio"
+//   precioAntes (opcional) precio tachado; pone el producto en Ofertas
+//   etiqueta    (opcional) texto sobre la foto; "Nuevo" pone el producto en Novedades
+//   tallas      tallas disponibles (EU). Si no hay, se pide consultar por WhatsApp
+//   agotadas    (opcional) tallas de la lista que ya no hay
+//   imagenes    fotos del producto, la primera es la principal
 window.PRODUCTOS = [
   {
-    id: "velox-runner", nombre: "Velox Runner", categoria: "Running", precio: 129, etiqueta: "Nuevo",
-    color: "Blanco / Naranja", agotadas: [7, 12],
-    descripcion: "Ligera y con amortiguación reactiva para tus kilómetros diarios. Malla transpirable y suela de goma de alta tracción.",
-    detalles: ["Upper de malla técnica", "Mediasuela de espuma EVA", "Suela de goma", "Peso: 260 g (talla US 9)"],
-    colores: { upper: "#f4f4f2", panel: "#e4e4e0", acento: "#ff5a1f", media: "#ffffff", suela: "#2b2b2b", cordones: "#d9d9d4" },
+    id: "jordan-spizike-gris", marca: "Jordan", nombre: "Spizike Gris y Negro", categoria: "Basketball", precio: null,
+    color: "Gris / Negro / Rojo",
+    descripcion: "Caña alta en gamuza gris con negro y detalles en rojo, con correa en el tobillo.",
+    detalles: ["Acabado tipo gamuza gris", "Correa ajustable en el tobillo", "Seguro de cordón y Jumpman en rojo"],
+    imagenes: ["img/productos/jordan-spizike-gris-1.webp"],
   },
   {
-    id: "court-classic-85", nombre: "Court Classic 85", categoria: "Lifestyle", precio: 99,
-    color: "Blanco / Verde", agotadas: [],
-    descripcion: "Un clásico de cancha con aire vintage: cuero suave, suela color crema y una línea verde que nunca pasa de moda.",
-    detalles: ["Upper de cuero", "Forro textil", "Suela de goma vulcanizada"],
-    colores: { upper: "#fbfaf6", panel: "#f0eee6", acento: "#1f7a4d", media: "#f3ecdc", suela: "#c9b48a", cordones: "#ffffff" },
+    id: "air-jordan-3-blanco-plata", marca: "Jordan", nombre: "Air Jordan 3 Blanco y Plata", categoria: "Basketball", precio: null,
+    color: "Blanco / Plata",
+    descripcion: "El clásico Air Jordan 3 en blanco, con estampado tipo elefante plateado en la puntera y el talón.",
+    detalles: ["Caña media", "Estampado tipo elefante plateado", "Jumpman negro en la lengüeta"],
+    imagenes: ["img/productos/air-jordan-3-blanco-plata-1.webp"],
   },
   {
-    id: "skyline-hi", nombre: "Skyline Hi", categoria: "Basketball", precio: 159, etiqueta: "Edición limitada", alto: true,
-    color: "Negro / Rojo", agotadas: [7, 7.5, 8, 11],
-    descripcion: "Caña alta, sujeción firme y una presencia que se nota. Pensada para la cancha, lista para la calle.",
-    detalles: ["Caña alta acolchada", "Upper de cuero sintético", "Suela de goma con patrón de espiga"],
-    colores: { upper: "#1b1b1f", panel: "#2e2e36", acento: "#e63946", media: "#ffffff", suela: "#e63946", cordones: "#3a3a42" },
+    id: "air-jordan-3-negro", marca: "Jordan", nombre: "Air Jordan 3 Negro", categoria: "Basketball", precio: null,
+    color: "Negro",
+    descripcion: "Air Jordan 3 todo negro con costuras blancas en contraste.",
+    detalles: ["Acabado tipo nobuk negro", "Costuras blancas en contraste", "Jumpman blanco en la lengüeta"],
+    imagenes: ["img/productos/air-jordan-3-negro-1.webp"],
   },
   {
-    id: "aero-knit", nombre: "Aero Knit", categoria: "Running", precio: 119, precioAntes: 149, etiqueta: "-20%",
-    color: "Azul / Lima", agotadas: [10.5],
-    descripcion: "Tejido knit que se adapta al pie como un calcetín. Ideal para entrenar o para el día a día.",
-    detalles: ["Upper de tejido knit", "Plantilla removible", "Mediasuela de espuma ligera"],
-    colores: { upper: "#6c8cff", panel: "#5a78e6", acento: "#d4ff3a", media: "#ffffff", suela: "#1e1e1e", cordones: "#ffffff" },
+    id: "on-cloudmonster-gris", marca: "Estilo On", nombre: "Cloudmonster Gris Claro", categoria: "Running", precio: null,
+    color: "Gris claro / Negro", tallas: [43],
+    descripcion: "Running de suela alta y acolchada, en gris claro con detalles en negro.",
+    detalles: ["Parte superior de malla", "Suela gruesa con cápsulas de amortiguación", "Diseño inspirado en el On Cloudmonster"],
+    imagenes: [
+      "img/productos/on-cloudmonster-gris-1.webp", "img/productos/on-cloudmonster-gris-2.webp",
+      "img/productos/on-cloudmonster-gris-3.webp", "img/productos/on-cloudmonster-gris-4.webp",
+    ],
   },
   {
-    id: "metro-suede", nombre: "Metro Suede", categoria: "Lifestyle", precio: 109,
-    color: "Tabaco / Crema", agotadas: [12],
-    descripcion: "Gamuza suave en tono tabaco y suela crema. La zapatilla que combina con todo tu armario.",
-    detalles: ["Upper de gamuza", "Forro de algodón", "Suela de goma"],
-    colores: { upper: "#c8a27a", panel: "#b48a60", acento: "#3b2a1a", media: "#f2e8d5", suela: "#6b4f2e", cordones: "#f2e8d5" },
+    id: "on-cloudsurfer-blanco-negro", marca: "Estilo On", nombre: "Cloudsurfer Blanco y Negro", categoria: "Running", precio: null,
+    color: "Blanco / Negro", tallas: [42],
+    descripcion: "Running ligero de tejido knit blanco, con cuello y cordones negros.",
+    detalles: ["Tejido knit transpirable", "Suela con cápsulas de amortiguación", "Diseño inspirado en el On Cloudsurfer"],
+    imagenes: ["img/productos/on-cloudsurfer-blanco-negro-1.webp", "img/productos/on-cloudsurfer-blanco-negro-2.webp"],
   },
   {
-    id: "block-hi", nombre: "Block Hi", categoria: "Basketball", precio: 139, alto: true,
-    color: "Blanco / Azul", agotadas: [],
-    descripcion: "Bloques de color, caña alta y una suela robusta. Un ícono de cancha reinterpretado.",
-    detalles: ["Caña alta", "Upper de cuero", "Suela de goma"],
-    colores: { upper: "#f4f4f2", panel: "#2a6fdb", acento: "#2a6fdb", media: "#ffffff", suela: "#2a6fdb", cordones: "#ffffff" },
+    id: "nike-air-max-blanco", marca: "Nike", nombre: "Air Max Blanco", categoria: "Lifestyle", precio: null,
+    color: "Blanco",
+    descripcion: "Nike Air Max blanco de malla, con cámaras de aire visibles en la suela.",
+    detalles: ["Parte superior de malla", "Insignia Air en la lengüeta", "Cámaras de aire visibles"],
+    imagenes: ["img/productos/nike-air-max-blanco-1.webp"],
   },
   {
-    id: "trail-pulse", nombre: "Trail Pulse", categoria: "Trail", precio: 149, etiqueta: "Nuevo",
-    color: "Oliva / Naranja", agotadas: [7],
-    descripcion: "Agarre extra y protección para caminos de tierra y montaña, sin perder ligereza.",
-    detalles: ["Upper de malla resistente", "Puntera reforzada", "Suela con tacos de 4 mm"],
-    colores: { upper: "#3d4a3a", panel: "#2c3529", acento: "#ff9f1c", media: "#d9d4c7", suela: "#1d1d1d", cordones: "#ff9f1c" },
+    id: "nike-blanco-cafe", marca: "Nike", nombre: "Blanco y Café", categoria: "Lifestyle", precio: null,
+    color: "Blanco / Café",
+    descripcion: "Nike blanco de perfil grueso, con detalles en café y suela tipo goma.",
+    detalles: ["Detalles en tono café", "Plantilla con logo Nike", "Suela tipo goma"],
+    imagenes: ["img/productos/nike-blanco-cafe-1.webp"],
   },
   {
-    id: "pastel-glide", nombre: "Pastel Glide", categoria: "Lifestyle", precio: 115,
-    color: "Rosa / Menta", agotadas: [11, 12],
-    descripcion: "Tonos suaves y una pisada ligera. Para quienes van con calma, pero con estilo.",
-    detalles: ["Upper de malla y sintético", "Mediasuela de espuma", "Suela de goma"],
-    colores: { upper: "#f6c9d0", panel: "#efb1bc", acento: "#7cc4ad", media: "#ffffff", suela: "#efb1bc", cordones: "#ffffff" },
+    id: "tommy-azul-marino", marca: "Tommy Hilfiger", nombre: "Sneaker Azul Marino", categoria: "Lifestyle", precio: null,
+    color: "Azul marino",
+    descripcion: "Sneaker azul marino con el nombre de la marca en relieve alrededor del talón.",
+    detalles: ["Acabado tipo cuero granulado", "Bandera Tommy en el costado", "Letras en relieve en la suela"],
+    imagenes: [
+      "img/productos/tommy-azul-marino-1.webp", "img/productos/tommy-azul-marino-2.webp",
+      "img/productos/tommy-azul-marino-3.webp",
+    ],
+  },
+  {
+    id: "tommy-blanco-h", marca: "Tommy Hilfiger", nombre: "Sneaker Blanco H", categoria: "Lifestyle", precio: null,
+    color: "Blanco / Azul / Rojo",
+    descripcion: "Sneaker blanco con la H en rojo y azul y el talón azul marino.",
+    detalles: ["Acabado tipo cuero", "H en rojo y azul en el costado", "Cinta tricolor en la lengüeta"],
+    imagenes: ["img/productos/tommy-blanco-h-1.webp", "img/productos/tommy-blanco-h-2.webp"],
+  },
+  {
+    id: "tommy-gris", marca: "Tommy Hilfiger", nombre: "Sneaker Gris", categoria: "Lifestyle", precio: null,
+    color: "Gris", tallas: [42],
+    descripcion: "Sneaker gris de acabado tipo gamuza y diseño minimalista.",
+    detalles: ["Acabado tipo gamuza", "Perforaciones laterales", "Logo en el talón"],
+    imagenes: ["img/productos/tommy-gris-1.webp", "img/productos/tommy-gris-2.webp"],
+  },
+  {
+    id: "tommy-negro", marca: "Tommy Hilfiger", nombre: "Sneaker Negro", categoria: "Lifestyle", precio: null,
+    color: "Negro",
+    descripcion: "Sneaker negro con el logo de la marca en el costado.",
+    detalles: ["Acabado tipo cuero", "Logo Tommy Hilfiger en el costado", "Plantilla con logo Tommy"],
+    imagenes: ["img/productos/tommy-negro-1.webp"],
+  },
+  {
+    id: "regent-beige", marca: "Regent", nombre: "Casual Beige", categoria: "Casual", precio: null,
+    color: "Beige / Café",
+    descripcion: "Zapato casual en beige con franjas y suela gruesa en café.",
+    detalles: ["Hecho en Turquía", "Forro interior color camel", "Suela gruesa café"],
+    imagenes: ["img/productos/regent-beige-1.webp", "img/productos/regent-beige-2.webp", "img/productos/regent-beige-3.webp"],
+  },
+  {
+    id: "regent-gris", marca: "Regent", nombre: "Casual Gris", categoria: "Casual", precio: null,
+    color: "Gris / Azul marino",
+    descripcion: "Zapato casual gris con rayas azul marino y suela gris azulada.",
+    detalles: ["Hecho en Turquía", "Rayas laterales azul marino", "Tirador en el talón"],
+    imagenes: ["img/productos/regent-gris-1.webp", "img/productos/regent-gris-2.webp", "img/productos/regent-gris-3.webp"],
   },
 ];

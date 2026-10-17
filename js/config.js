@@ -2,7 +2,7 @@
 window.TIENDA = {
   nombre: "VB-Imports",
   lema: "Productos importados en Ciudad Ojeda",
-  descripcion: "Productos importados y originales, con envío desde Ciudad Ojeda a todo el país. Empezamos con sneakers; pronto, mucho más.",
+  descripcion: "Productos importados, con envío desde Ciudad Ojeda a todo el país. Empezamos con sneakers; pronto, mucho más.",
 
   // Los precios de productos.js están en dólares. El formato de números es el venezolano (1.234,56).
   moneda: { simbolo: "$", locale: "es-VE" },
@@ -17,16 +17,15 @@ window.TIENDA = {
   // A partir de este subtotal el envío es gratis (pon 0 para desactivar la barra de progreso).
   envioGratisDesde: 99,
 
-  // Tallas que se ofrecen en todos los modelos (cada producto puede marcar algunas como agotadas).
-  sistemaTallas: "US",
-  tallas: [7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 12],
+  // Sistema de tallas que se muestra junto a cada talla (las tallas van en cada producto).
+  sistemaTallas: "EU",
 
   // Portada: producto destacado y textos (en el título, <em> pone la palabra en cursiva).
-  destacado: "metro-suede",
+  destacado: "regent-beige",
   portada: {
-    etiqueta: "Colección Otoño 2026",
+    etiqueta: "Nuevos ingresos",
     titulo: "Diseñadas para caminar <em>la ciudad</em>",
-    texto: "Siluetas atemporales, materiales nobles y la comodidad de siempre. Una selección corta, pensada para durar.",
+    texto: "Running, básquet y casual: una selección de sneakers importados, con envío desde Ciudad Ojeda a todo el país.",
   },
 
   aviso: "Envío gratis en pedidos desde $99 · Cambios sin costo durante 30 días",

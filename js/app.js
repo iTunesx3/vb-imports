@@ -15,6 +15,12 @@
   const porId = (id) => P.find((p) => p.id === id);
   const tallaTxt = (t) => `${T.sistemaTallas} ${t}`;
   const agotada = (p, t) => (p.agotadas || []).includes(t);
+  // Un producto sin precio o sin tallas cargadas se muestra como "a consultar" y se pide por WhatsApp.
+  const conPrecio = (p) => typeof p.precio === "number" && p.precio > 0;
+  const tallasDe = (p) => p.tallas || [];
+  const vendible = (p) => conPrecio(p) && tallasDe(p).some((t) => !agotada(p, t));
+  const nombreCompleto = (p) => (p.marca && !p.nombre.includes(p.marca) ? `${p.marca} ${p.nombre}` : p.nombre);
+  const marcaYCategoria = (p) => escapar([p.marca, p.categoria].filter(Boolean).join(" · "));
   const numeroWhatsApp = String(T.whatsapp || "").replace(/\D/g, "");
   // Click to Chat, la API oficial de WhatsApp para abrir un chat con un mensaje ya escrito.
   const enlaceWhatsApp = (texto) => `https://wa.me/${numeroWhatsApp}${texto ? `?text=${encodeURIComponent(texto)}` : ""}`;
@@ -49,7 +55,9 @@
   // Mensaje para consultar un modelo; incluye el enlace cuando la tienda ya está publicada.
   const enInternet = /^https?:$/.test(location.protocol) && !/^(localhost|127\.|\[::1\])/.test(location.hostname);
   const mensajeConsulta = (p, talla) =>
-    `Hola, me interesa el modelo ${p.nombre}${talla != null ? ` en talla ${tallaTxt(talla)}` : ""} (${precio(p.precio)}). ¿Está disponible?` +
+    `Hola, me interesa el modelo ${nombreCompleto(p)}${talla != null ? ` en talla ${tallaTxt(talla)}` : ""}` +
+    (conPrecio(p) ? ` (${precio(p.precio)}). ¿Está disponible?`
+      : talla != null ? ". ¿Qué precio tiene y está disponible?" : ". ¿Qué precio tiene y en qué tallas está disponible?") +
     (enInternet ? `\n${location.origin}${location.pathname}#/producto/${p.id}` : "");
 
   // Categorías: las fijas más las que aparezcan en los productos.
@@ -64,19 +72,22 @@
   // Imagen del producto: foto real si existe; si no, la ilustración.
   const NOMBRES_VISTA = ["Vista lateral", "Vista interior", "Detalle"];
   const vistas = (p) => (p.imagenes && p.imagenes.length ? p.imagenes.map((_, i) => i) : [0, 1, 2]);
+  const nombreVista = (p, i) => (p.imagenes && p.imagenes.length ? `Foto ${i + 1}` : NOMBRES_VISTA[i]);
   function imagen(p, { vista = 0, decorativa = true } = {}) {
     if (p.imagenes && p.imagenes.length) {
-      return `<img src="${escapar(p.imagenes[vista] || p.imagenes[0])}" alt="${decorativa ? "" : escapar(p.nombre)}" loading="lazy">`;
+      return `<img src="${escapar(p.imagenes[vista] || p.imagenes[0])}" alt="${decorativa ? "" : escapar(nombreCompleto(p))}" loading="lazy">`;
     }
     const svg = sneakerSVG(p, { decorativa });
     const clase = ["", "v-interior", "v-detalle"][vista];
     return clase ? svg.replace("<svg", `<svg class="${clase}"`) : svg;
   }
 
-  const precioHTML = (p) => precio(p.precio) + (p.precioAntes ? `<s>${precio(p.precioAntes)}</s>` : "") + bsHTML(p.precio);
+  const precioHTML = (p) => (conPrecio(p)
+    ? precio(p.precio) + (p.precioAntes ? `<s>${precio(p.precioAntes)}</s>` : "") + bsHTML(p.precio)
+    : `<span class="consultar">Consultar precio</span>`);
 
   function tallasHTML(p, { rapido = false, elegida = null } = {}) {
-    return T.tallas.map((t) => {
+    return tallasDe(p).map((t) => {
       const sin = agotada(p, t);
       const etiqueta = rapido ? `Añadir talla ${tallaTxt(t)}` : `Talla ${tallaTxt(t)}`;
       return `<button type="button" class="talla" data-talla="${t}" ${sin ? "disabled" : ""}
@@ -89,17 +100,17 @@
       <div class="foto">
         <a href="#/producto/${p.id}" tabindex="-1" aria-hidden="true">${imagen(p)}</a>
         ${p.etiqueta ? `<span class="etiqueta ${p.precioAntes ? "oferta" : ""}">${escapar(p.etiqueta)}</span>` : ""}
-        <button type="button" class="rapido-btn" data-rapido aria-expanded="false">Añadir rápido<span class="sr"> ${escapar(p.nombre)}</span></button>
+        ${vendible(p) ? `<button type="button" class="rapido-btn" data-rapido aria-expanded="false">Añadir rápido<span class="sr"> ${escapar(p.nombre)}</span></button>
         <div class="rapido" hidden>
           <div class="rapido-cab"><span>Elige tu talla (${T.sistemaTallas})</span><button type="button" data-rapido-cerrar aria-label="Cerrar selector de talla">${ICONO.x}</button></div>
           <div class="tallas">${tallasHTML(p, { rapido: true })}</div>
-        </div>
+        </div>` : ""}
       </div>
       <a class="info" href="#/producto/${p.id}">
-        <div><h3>${escapar(p.nombre)}</h3><div class="cat">${escapar(p.categoria)}</div></div>
+        <div><h3>${escapar(p.nombre)}</h3><div class="cat">${marcaYCategoria(p)}</div></div>
         <div class="precio">${precioHTML(p)}</div>
       </a>
-      <div class="colores" aria-hidden="true">${[p.colores.upper, p.colores.acento, p.colores.media].map((c) => `<i style="background:${c}"></i>`).join("")}</div>
+      ${p.colores ? `<div class="colores" aria-hidden="true">${[p.colores.upper, p.colores.acento, p.colores.media].map((c) => `<i style="background:${c}"></i>`).join("")}</div>` : ""}
     </article>`;
 
   // ---------- Bolsa ----------
@@ -294,10 +305,12 @@
   function filtrados() {
     const cat = porSlug(estado.cat);
     const q = estado.texto.toLowerCase();
-    const lista = P.filter((p) => cat.incluye(p) && (!q || `${p.nombre} ${p.categoria} ${p.color || ""}`.toLowerCase().includes(q)));
+    const lista = P.filter((p) => cat.incluye(p) && (!q || `${p.marca || ""} ${p.nombre} ${p.categoria} ${p.color || ""}`.toLowerCase().includes(q)));
+    // Los productos sin precio quedan al final en ambos órdenes.
+    const valor = (p, sinPrecio) => (conPrecio(p) ? p.precio : sinPrecio);
     const orden = {
-      "precio-asc": (a, b) => a.precio - b.precio,
-      "precio-desc": (a, b) => b.precio - a.precio,
+      "precio-asc": (a, b) => valor(a, Infinity) - valor(b, Infinity) || 0,
+      "precio-desc": (a, b) => valor(b, -Infinity) - valor(a, -Infinity) || 0,
       nombre: (a, b) => a.nombre.localeCompare(b.nombre, "es"),
     }[estado.orden];
     return orden ? lista.sort(orden) : lista;
@@ -319,7 +332,7 @@
         </div>
         <figure class="escaparate">
           <a href="#/producto/${d.id}" aria-label="Ver ${escapar(d.nombre)}">${imagen(d)}</a>
-          <figcaption><b>${escapar(d.nombre)}</b> — ${precio(d.precio)}${bsHTML(d.precio, "en-linea")}</figcaption>
+          <figcaption><b>${escapar(nombreCompleto(d))}</b>${conPrecio(d) ? ` — ${precio(d.precio)}${bsHTML(d.precio, "en-linea")}` : ""}</figcaption>
         </figure>
       </section>
 
@@ -335,8 +348,8 @@
           <label class="ordenar"><span>Ordenar</span>
             <select id="orden">
               <option value="destacados">Destacados</option>
-              <option value="precio-asc">Precio: menor a mayor</option>
-              <option value="precio-desc">Precio: mayor a menor</option>
+              ${P.some(conPrecio) ? `<option value="precio-asc">Precio: menor a mayor</option>
+              <option value="precio-desc">Precio: mayor a menor</option>` : ""}
               <option value="nombre">Nombre</option>
             </select>
           </label>
@@ -345,7 +358,7 @@
       </section>
 
       <section class="wrap valores revelar" aria-label="Por qué comprar aquí">
-        <div><b>01</b><h3>Originales garantizados</h3><p>Cada par llega con su caja y etiquetas originales.</p></div>
+        <div><b>01</b><h3>Revisados par por par</h3><p>Revisamos cada par antes de enviarlo para que llegue en perfecto estado.</p></div>
         <div><b>02</b><h3>Envío en 24–72 h</h3><p>Despachamos el mismo día si compras antes de las 14:00.</p></div>
         <div><b>03</b><h3>Cambios en 30 días</h3><p>¿No es tu talla? La cambiamos sin costo.</p></div>
       </section>`;
@@ -375,7 +388,9 @@
     document.title = `${p.nombre} — ${T.nombre}`;
     const cat = porSlug(aSlug(p.categoria));
     const ahorro = p.precioAntes ? Math.round((1 - p.precio / p.precioAntes) * 100) : 0;
-    const hayStock = T.tallas.some((t) => !agotada(p, t));
+    const tallas = tallasDe(p);
+    const hayStock = tallas.some((t) => !agotada(p, t));
+    const comprable = vendible(p);
     const relacionados = [
       ...P.filter((x) => x.id !== p.id && x.categoria === p.categoria),
       ...P.filter((x) => x.id !== p.id && x.categoria !== p.categoria),
@@ -392,34 +407,37 @@
         <div class="ficha">
           <div class="galeria">
             <div class="miniaturas" role="group" aria-label="Vistas del producto">
-              ${vistas(p).map((v, i) => `<button type="button" class="miniatura" data-vista="${v}" aria-pressed="${i === 0}" aria-label="${NOMBRES_VISTA[i] || `Foto ${i + 1}`}">${imagen(p, { vista: v })}</button>`).join("")}
+              ${vistas(p).map((v, i) => `<button type="button" class="miniatura" data-vista="${v}" aria-pressed="${i === 0}" aria-label="${nombreVista(p, i)}">${imagen(p, { vista: v })}</button>`).join("")}
             </div>
             <div class="vista-principal" id="vista-principal">${imagen(p, { decorativa: false })}</div>
           </div>
 
           <div class="ficha-info">
-            <div class="eyebrow">${escapar(p.categoria)}${p.etiqueta ? ` · ${escapar(p.etiqueta)}` : ""}</div>
+            <div class="eyebrow">${marcaYCategoria(p)}${p.etiqueta ? ` · ${escapar(p.etiqueta)}` : ""}</div>
             <h1 tabindex="-1">${escapar(p.nombre)}</h1>
+            ${conPrecio(p) ? `
             <div class="ficha-precio">${precio(p.precio)}${p.precioAntes ? `<s>${precio(p.precioAntes)}</s><span class="ahorro">Ahorras ${ahorro}%</span>` : ""}</div>
             <div class="ficha-bs">${bsHTML(p.precio)}</div>
-            <div class="tasa-nota" data-tasa>${textoTasa()}</div>
+            <div class="tasa-nota" data-tasa>${textoTasa()}</div>` : `
+            <div class="ficha-precio"><span class="consultar">Precio a consultar</span></div>
+            <div class="tasa-nota">Escríbenos por WhatsApp y te lo damos en dólares o bolívares.</div>`}
             <p class="ficha-desc">${escapar(p.descripcion)}</p>
 
-            <div class="campo" id="campo-talla">
+            ${tallas.length ? `<div class="campo" id="campo-talla">
               <div class="campo-cab" id="etq-talla">Talla (${T.sistemaTallas}) <span id="talla-elegida">${hayStock ? "Elige una" : "Agotado"}</span></div>
               <div class="tallas" role="group" aria-labelledby="etq-talla" aria-describedby="error-talla">${tallasHTML(p)}</div>
               <p class="error" id="error-talla" hidden>Elige una talla para continuar.</p>
-            </div>
+            </div>` : `<p class="campo campo-nota">Tallas: consulta la disponibilidad por WhatsApp.</p>`}
 
             <div class="ficha-acciones">
-              <button type="button" class="btn ancho" id="agregar" ${hayStock ? "" : "disabled"}>${ICONO.bolsa}${hayStock ? "Añadir a la bolsa" : "Agotado"}</button>
-              <a class="btn secundario ancho" id="preguntar" href="${enlaceWhatsApp(mensajeConsulta(p))}" target="_blank" rel="noopener">${ICONO.chat}Preguntar por WhatsApp</a>
+              ${comprable ? `<button type="button" class="btn ancho" id="agregar">${ICONO.bolsa}Añadir a la bolsa</button>` : ""}
+              <a class="btn ${comprable ? "secundario " : ""}ancho" id="preguntar" href="${enlaceWhatsApp(mensajeConsulta(p))}" target="_blank" rel="noopener">${ICONO.chat}${conPrecio(p) ? "Preguntar por WhatsApp" : "Consultar precio por WhatsApp"}</a>
             </div>
 
             <ul class="beneficios">
               <li>${ICONO.camion}${envio}</li>
               <li>${ICONO.cambio}Cambios de talla sin costo durante 30 días</li>
-              <li>${ICONO.escudo}Producto original, con caja y etiquetas</li>
+              <li>${ICONO.escudo}Revisado antes del envío y entregado en su caja</li>
             </ul>
 
             <div class="acordeon">

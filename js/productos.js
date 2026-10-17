@@ -13,11 +13,15 @@
 //   imagenes    fotos del producto, la primera es la principal
 window.PRODUCTOS = [
   {
-    id: "jordan-spizike-gris", marca: "Jordan", nombre: "Spizike Gris y Negro", categoria: "Basketball", precio: null,
-    color: "Gris / Negro / Rojo",
-    descripcion: "Caña alta en gamuza gris con negro y detalles en rojo, con correa en el tobillo.",
-    detalles: ["Acabado tipo gamuza gris", "Correa ajustable en el tobillo", "Seguro de cordón y Jumpman en rojo"],
-    imagenes: ["img/productos/jordan-spizike-gris-1.webp"],
+    id: "jordan-spizike-gris", marca: "Jordan", nombre: "Spizike Low Gris y Negro", categoria: "Basketball", precio: null,
+    color: "Negro / Gris (Black/Grey)", tallas: [44],
+    descripcion: "Jordan Spizike Low en gamuza gris con negro y detalles en rojo: mezcla piezas de varios Air Jordan clásicos en un solo diseño.",
+    detalles: ["Acabado tipo gamuza gris", "Pieza trasera con el nombre JORDAN en relieve", "Seguro de cordón y Jumpman en rojo", "Talla EU 44 (US 10)"],
+    imagenes: [
+      "img/productos/jordan-spizike-gris-1.webp", "img/productos/jordan-spizike-gris-2.webp",
+      "img/productos/jordan-spizike-gris-3.webp", "img/productos/jordan-spizike-gris-4.webp",
+      "img/productos/jordan-spizike-gris-5.webp",
+    ],
   },
   {
     id: "air-jordan-3-blanco-plata", marca: "Jordan", nombre: "Air Jordan 3 Blanco y Plata", categoria: "Basketball", precio: null,

@@ -270,7 +270,7 @@ h2 { font-family: var(--display); font-weight: 500; font-size: clamp(36px, 4vw, 
   .hero { gap: 40px; }
   .ficha { gap: 40px; grid-template-columns: 1fr 1fr; }
   .galeria { grid-template-columns: 1fr; }
-  .miniaturas { flex-direction: row; order: 2; }
+  .miniaturas { flex-direction: row; flex-wrap: wrap; order: 2; }
   .miniatura { width: 72px; }
 }
 @media (max-width: 768px) {

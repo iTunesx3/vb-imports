@@ -110,7 +110,7 @@ window.PRODUCTOS = [
   },
   {
     id: "tommy-negro", marca: "Estilo Tommy Hilfiger", nombre: "Sneaker Negro", categoria: "Lifestyle", precio: null,
-    color: "Negro / Blanco", tallas: [42],
+    color: "Negro / Blanco", tallas: [42, 43],
     descripcion: "Sneaker negro con suela blanca, el nombre TOMMY en el talón y detalle rojo en el primer ojal.",
     detalles: ["Acabado tipo cuero liso", "Nombre en el costado y en el talón", "Suela blanca", "Diseño inspirado en Tommy Hilfiger"],
     imagenes: [

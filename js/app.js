@@ -50,7 +50,6 @@
     x: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>',
     bolsa: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>',
     camion: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>',
-    cambio: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 9h13l-3-3M20 15H7l3 3"/></svg>',
     escudo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6z"/><path d="m9 12 2 2 4-4"/></svg>',
     chat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/></svg>',
   };
@@ -363,7 +362,7 @@
       <section class="wrap valores revelar" aria-label="Por qué comprar aquí">
         <div><b>01</b><h3>Revisados par por par</h3><p>Revisamos cada par antes de enviarlo para que llegue en perfecto estado.</p></div>
         <div><b>02</b><h3>Envío en 24–72 h</h3><p>Despachamos el mismo día si compras antes de las 14:00.</p></div>
-        <div><b>03</b><h3>Cambios en 30 días</h3><p>¿No es tu talla? La cambiamos sin costo.</p></div>
+        <div><b>03</b><h3>Pedidos por WhatsApp</h3><p>Te confirmamos disponibilidad, pago y entrega antes de despachar.</p></div>
       </section>`;
     $("#orden").value = estado.orden;
     pintarGrid();
@@ -442,7 +441,7 @@
 
             <ul class="beneficios">
               <li>${ICONO.camion}${envio}</li>
-              <li>${ICONO.cambio}Cambios de talla sin costo durante 30 días</li>
+              <li>${ICONO.chat}Pedido, pago y entrega coordinados por WhatsApp</li>
               <li>${ICONO.escudo}Revisado antes del envío y entregado en su caja</li>
             </ul>
 
@@ -451,8 +450,8 @@
                 ${p.color ? `<p>Color: ${escapar(p.color)}</p>` : ""}
                 <ul>${(p.detalles || []).map((d) => `<li>${escapar(d)}</li>`).join("")}</ul>
               </div></details>
-              <details><summary>Envío y cambios</summary><div class="contenido">
-                <p>Enviamos a todo el país en 24–72 h hábiles. Si la talla no te queda, puedes cambiarla sin costo dentro de los 30 días siguientes a la entrega, con el producto sin uso y en su caja.</p>
+              <details><summary>Envío</summary><div class="contenido">
+                <p>Enviamos a todo el país en 24–72 h hábiles. Te confirmamos el costo del envío por WhatsApp al hacer tu pedido.</p>
               </div></details>
             </div>
           </div>

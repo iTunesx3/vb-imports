@@ -15,8 +15,8 @@ window.TIENDA = {
   // Número de WhatsApp que recibe los pedidos: código de país + número, sin "+" ni espacios.
   whatsapp: "584121365631",
 
-  // A partir de este subtotal el envío es gratis (pon 0 para desactivar la barra de progreso).
-  envioGratisDesde: 99,
+  // Envío gratis a partir de este subtotal en USD. 0 = no se ofrece (no se muestra la barra en la bolsa).
+  envioGratisDesde: 0,
 
   // Sistema de tallas que se muestra junto a cada talla (las tallas van en cada producto).
   sistemaTallas: "EU",
@@ -29,5 +29,6 @@ window.TIENDA = {
     texto: "Running, básquet y casual: una selección de sneakers importados, con envío desde Ciudad Ojeda a todo el país.",
   },
 
-  aviso: "Envío gratis en pedidos desde $99 · Cambios sin costo durante 30 días",
+  // Franja superior con un anuncio; vacía, no se muestra.
+  aviso: "",
 };

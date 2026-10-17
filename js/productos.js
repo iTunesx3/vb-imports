@@ -90,14 +90,15 @@ window.PRODUCTOS = [
     detalles: ["Acabado tipo cuero granulado", "Bandera Tommy en el costado", "Letras en relieve en la suela"],
     imagenes: [
       "img/productos/tommy-azul-marino-1.webp", "img/productos/tommy-azul-marino-2.webp",
-      "img/productos/tommy-azul-marino-3.webp",
+      "img/productos/tommy-azul-marino-3.webp", "img/productos/tommy-azul-marino-4.webp",
+      "img/productos/tommy-azul-marino-5.webp",
     ],
   },
   {
-    id: "tommy-blanco-h", marca: "Tommy Hilfiger", nombre: "Sneaker Blanco H", categoria: "Lifestyle", precio: null,
-    color: "Blanco / Azul / Rojo",
+    id: "tommy-blanco-h", marca: "Estilo Tommy Hilfiger", nombre: "Sneaker Blanco H", categoria: "Lifestyle", precio: null,
+    color: "Blanco / Azul / Rojo", tallas: [42],
     descripcion: "Sneaker blanco con la H en rojo y azul y el talón azul marino.",
-    detalles: ["Acabado tipo cuero", "H en rojo y azul en el costado", "Cinta tricolor en la lengüeta"],
+    detalles: ["Acabado tipo cuero", "H en rojo y azul en el costado", "Cinta tricolor en la lengüeta", "Diseño inspirado en Tommy Hilfiger"],
     imagenes: ["img/productos/tommy-blanco-h-1.webp", "img/productos/tommy-blanco-h-2.webp"],
   },
   {
@@ -108,24 +109,34 @@ window.PRODUCTOS = [
     imagenes: ["img/productos/tommy-gris-1.webp", "img/productos/tommy-gris-2.webp"],
   },
   {
-    id: "tommy-negro", marca: "Tommy Hilfiger", nombre: "Sneaker Negro", categoria: "Lifestyle", precio: null,
-    color: "Negro",
-    descripcion: "Sneaker negro con el logo de la marca en el costado.",
-    detalles: ["Acabado tipo cuero", "Logo Tommy Hilfiger en el costado", "Plantilla con logo Tommy"],
-    imagenes: ["img/productos/tommy-negro-1.webp"],
+    id: "tommy-negro", marca: "Estilo Tommy Hilfiger", nombre: "Sneaker Negro", categoria: "Lifestyle", precio: null,
+    color: "Negro / Blanco", tallas: [42],
+    descripcion: "Sneaker negro con suela blanca, el nombre TOMMY en el talón y detalle rojo en el primer ojal.",
+    detalles: ["Acabado tipo cuero liso", "Nombre en el costado y en el talón", "Suela blanca", "Diseño inspirado en Tommy Hilfiger"],
+    imagenes: [
+      "img/productos/tommy-negro-1.webp", "img/productos/tommy-negro-2.webp",
+    ],
   },
   {
     id: "regent-beige", marca: "Regent", nombre: "Casual Beige", categoria: "Casual", precio: null,
     color: "Beige / Café",
     descripcion: "Zapato casual en beige con franjas y suela gruesa en café.",
     detalles: ["Hecho en Turquía", "Forro interior color camel", "Suela gruesa café"],
-    imagenes: ["img/productos/regent-beige-1.webp", "img/productos/regent-beige-2.webp", "img/productos/regent-beige-3.webp"],
+    imagenes: [
+      "img/productos/regent-beige-1.webp", "img/productos/regent-beige-2.webp",
+      "img/productos/regent-beige-3.webp", "img/productos/regent-beige-4.webp",
+      "img/productos/regent-beige-5.webp", "img/productos/regent-beige-6.webp",
+    ],
   },
   {
     id: "regent-gris", marca: "Regent", nombre: "Casual Gris", categoria: "Casual", precio: null,
-    color: "Gris / Azul marino",
+    color: "Gris / Azul marino", tallas: [42],
     descripcion: "Zapato casual gris con rayas azul marino y suela gris azulada.",
     detalles: ["Hecho en Turquía", "Rayas laterales azul marino", "Tirador en el talón"],
-    imagenes: ["img/productos/regent-gris-1.webp", "img/productos/regent-gris-2.webp", "img/productos/regent-gris-3.webp"],
+    imagenes: [
+      "img/productos/regent-gris-1.webp", "img/productos/regent-gris-2.webp",
+      "img/productos/regent-gris-3.webp", "img/productos/regent-gris-4.webp",
+      "img/productos/regent-gris-5.webp", "img/productos/regent-gris-6.webp",
+    ],
   },
 ];

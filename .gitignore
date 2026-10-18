@@ -11,3 +11,6 @@ desktop.ini
 
 # Inventario privado (no se publica)
 inventario/
+
+# Fotos de los anuncios de Marketplace: se regeneran con marketing/marketplace/generar.py
+marketing/marketplace/anuncios/

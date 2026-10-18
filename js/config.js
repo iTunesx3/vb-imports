@@ -13,7 +13,7 @@ window.TIENDA = {
   bolivares: { activo: true, simbolo: "Bs.", tasaRespaldo: 0, actualizarCadaMinutos: 60, iva: 0.16 },
 
   // Número de WhatsApp que recibe los pedidos: código de país + número, sin "+" ni espacios.
-  whatsapp: "584121365631",
+  whatsapp: "17097972460",
 
   // Usuario de Instagram, sin "@". Vacío, no se muestra el enlace en el pie de página.
   instagram: "vbi_ojeda",

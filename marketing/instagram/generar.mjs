@@ -27,22 +27,23 @@ const waTxt = wa.startsWith("1") && wa.length === 11 ? `+1 ${wa.slice(1, 4)}-${w
 const usd = (n) => "$" + n.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const iva = (T.bolivares && T.bolivares.iva) || 0; // el mismo precio con IVA que muestra la tienda
 const tallasDe = (p) => (p.tallas || []).filter((t) => !(p.agotadas || []).includes(t));
+// Igual que en la tienda: sin repetir la marca cuando el nombre ya la trae ("Air Jordan 3").
+const nombreCompleto = (p) => (p.marca && !p.nombre.includes(p.marca) ? `${p.marca} ${p.nombre}` : p.nombre);
 const unir = (xs) => (xs.length > 1 ? `${xs.slice(0, -1).join(", ")} y ${xs.at(-1)}` : String(xs[0] ?? ""));
 
 function texto(p) {
   const t = tallasDe(p);
   const pares = t.length > 1 ? `Un par en cada talla: ${T.sistemaTallas} ${unir(t)}.` : `Un solo par, talla ${T.sistemaTallas} ${t[0]}.`;
   return [
-    `${p.marca} ${p.nombre}`,
+    nombreCompleto(p),
     `${usd(p.precio * (1 + iva))} IVA incluido · o en Bs. a tasa BCV del día`,
     pares,
     "",
     "Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.",
-    "Pagos: Pago Móvil, transferencia, dólares en efectivo, Zelle y Binance.",
     "",
     `Pídelo por WhatsApp al ${waTxt} o desde el enlace de la biografía.`,
     "",
-    `#CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #SneakersVenezuela #Sneakers #${p.categoria}`,
+    `#CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #${p.categoria}`,
   ].join("\n");
 }
 
@@ -94,7 +95,7 @@ try {
     const foto = await cdp("Page.captureScreenshot", { format: "jpeg", quality: 92, clip: { x: 0, y: 0, width: 1080, height: 1350, scale: 1 } });
     const archivo = `${nn}-${p.id}.jpg`;
     writeFileSync(join(salida, archivo), Buffer.from(foto.result.data, "base64"));
-    md.push(`## ${nn} · ${p.marca} ${p.nombre}`, "", `Imagen: \`publicaciones/${archivo}\``, "", "```", texto(p), "```", "");
+    md.push(`## ${nn} · ${nombreCompleto(p)}`, "", `Imagen: \`publicaciones/${archivo}\``, "", "```", texto(p), "```", "");
     console.log(`${nn} ${p.id}`);
   }
   writeFileSync(join(aqui, "textos.md"), md.join("\n"));

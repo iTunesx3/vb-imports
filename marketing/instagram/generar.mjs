@@ -25,11 +25,11 @@ const modelos = (ids.length ? ids.map((id) => P.find((p) => p.id === id)) : P);
 // Igual que en la tienda: sin repetir la marca cuando el nombre ya la trae ("Air Jordan 3").
 const nombreCompleto = (p) => (p.marca && !p.nombre.includes(p.marca) ? `${p.marca} ${p.nombre}` : p.nombre);
 
-// Texto corto a propósito: los detalles (fotos, tallas, entrega) están en la web, para que la visiten.
+// Texto corto a propósito (lo pidió el dueño): los detalles están en la web, para que la visiten.
 function texto(p) {
   return [
-    `${nombreCompleto(p)} · nuevo ingreso en Ciudad Ojeda.`,
-    `Más fotos, tallas y modelos en ${T.web} (enlace en la biografía).`,
+    "Nuevos modelos en Ciudad Ojeda.",
+    "Más fotos, tallas y modelos en la web (enlace en la biografía).",
     "",
     `#CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #${p.categoria}`,
   ].join("\n");

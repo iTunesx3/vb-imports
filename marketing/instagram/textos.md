@@ -8,8 +8,8 @@ El precio en bolívares no va en la imagen porque la tasa BCV cambia cada día.
 Imagen: `publicaciones/01-regent-beige.jpg`
 
 ```
-Regent Casual Beige · nuevo ingreso en Ciudad Ojeda.
-Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
+Nuevos modelos en Ciudad Ojeda.
+Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Casual
 ```
@@ -19,8 +19,8 @@ Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 Imagen: `publicaciones/02-jordan-spizike-gris.jpg`
 
 ```
-Jordan Spizike Low Gris y Negro · nuevo ingreso en Ciudad Ojeda.
-Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
+Nuevos modelos en Ciudad Ojeda.
+Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Basketball
 ```
@@ -30,8 +30,8 @@ Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 Imagen: `publicaciones/03-on-cloudmonster-gris.jpg`
 
 ```
-Estilo On Cloudmonster Gris Claro · nuevo ingreso en Ciudad Ojeda.
-Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
+Nuevos modelos en Ciudad Ojeda.
+Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Running
 ```
@@ -41,8 +41,8 @@ Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 Imagen: `publicaciones/04-nike-air-max-blanco.jpg`
 
 ```
-Nike Air Max Dn Blanco · nuevo ingreso en Ciudad Ojeda.
-Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
+Nuevos modelos en Ciudad Ojeda.
+Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Lifestyle
 ```
@@ -52,8 +52,8 @@ Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 Imagen: `publicaciones/05-tommy-azul-marino.jpg`
 
 ```
-Tommy Hilfiger Botas Azul Marino · nuevo ingreso en Ciudad Ojeda.
-Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
+Nuevos modelos en Ciudad Ojeda.
+Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Lifestyle
 ```
@@ -63,8 +63,8 @@ Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 Imagen: `publicaciones/06-air-jordan-3-blanco-plata.jpg`
 
 ```
-Air Jordan 3 Blanco y Plata · nuevo ingreso en Ciudad Ojeda.
-Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
+Nuevos modelos en Ciudad Ojeda.
+Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Basketball
 ```
@@ -74,8 +74,8 @@ Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 Imagen: `publicaciones/07-regent-gris.jpg`
 
 ```
-Regent Casual Gris · nuevo ingreso en Ciudad Ojeda.
-Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
+Nuevos modelos en Ciudad Ojeda.
+Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Casual
 ```
@@ -85,8 +85,8 @@ Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 Imagen: `publicaciones/08-on-cloudsurfer-blanco-negro.jpg`
 
 ```
-Estilo On Cloudsurfer Blanco y Negro · nuevo ingreso en Ciudad Ojeda.
-Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
+Nuevos modelos en Ciudad Ojeda.
+Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Running
 ```
@@ -96,8 +96,8 @@ Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 Imagen: `publicaciones/09-nike-blanco-cafe.jpg`
 
 ```
-Estilo Nike Metcon Blanco y Goma · nuevo ingreso en Ciudad Ojeda.
-Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
+Nuevos modelos en Ciudad Ojeda.
+Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Training
 ```
@@ -107,8 +107,8 @@ Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 Imagen: `publicaciones/10-tommy-gris.jpg`
 
 ```
-Tommy Hilfiger Botas Grises · nuevo ingreso en Ciudad Ojeda.
-Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
+Nuevos modelos en Ciudad Ojeda.
+Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Lifestyle
 ```
@@ -118,8 +118,8 @@ Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 Imagen: `publicaciones/11-air-jordan-3-negro.jpg`
 
 ```
-Air Jordan 3 Negro · nuevo ingreso en Ciudad Ojeda.
-Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
+Nuevos modelos en Ciudad Ojeda.
+Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Basketball
 ```
@@ -129,8 +129,8 @@ Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 Imagen: `publicaciones/12-tommy-blanco-h.jpg`
 
 ```
-Estilo Tommy Hilfiger Botas Blancas H · nuevo ingreso en Ciudad Ojeda.
-Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
+Nuevos modelos en Ciudad Ojeda.
+Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Lifestyle
 ```
@@ -140,8 +140,8 @@ Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 Imagen: `publicaciones/13-tommy-negro.jpg`
 
 ```
-Estilo Tommy Hilfiger Botas Negras · nuevo ingreso en Ciudad Ojeda.
-Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
+Nuevos modelos en Ciudad Ojeda.
+Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Lifestyle
 ```

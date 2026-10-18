@@ -2,7 +2,7 @@
 window.TIENDA = {
   nombre: "VB-Imports",
   lema: "Productos importados en Ciudad Ojeda",
-  descripcion: "Productos importados, con envío desde Ciudad Ojeda a todo el país. Empezamos con sneakers; pronto, mucho más.",
+  descripcion: "Productos importados, con envío desde Ciudad Ojeda a todo el país. Empezamos con botas; pronto, mucho más.",
 
   // Los precios de productos.js están en dólares. El formato de números es el venezolano (1.234,56).
   moneda: { simbolo: "$", locale: "es-VE" },
@@ -30,7 +30,7 @@ window.TIENDA = {
   portada: {
     etiqueta: "Nuevos ingresos",
     titulo: "Diseñadas para caminar <em>la ciudad</em>",
-    texto: "Running, básquet y casual: una selección de sneakers importados, con envío desde Ciudad Ojeda a todo el país.",
+    texto: "Running, básquet y casual: una selección de botas importadas, con envío desde Ciudad Ojeda a todo el país.",
     rotacion: [
       "regent-beige", "jordan-spizike-gris", "on-cloudmonster-gris", "nike-air-max-blanco", "tommy-azul-marino",
       "air-jordan-3-blanco-plata", "regent-gris", "on-cloudsurfer-blanco-negro", "nike-blanco-cafe", "tommy-gris",

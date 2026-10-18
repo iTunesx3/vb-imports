@@ -94,9 +94,9 @@ window.PRODUCTOS = [
     ],
   },
   {
-    id: "tommy-azul-marino", marca: "Tommy Hilfiger", nombre: "Sneaker Azul Marino", categoria: "Lifestyle", precio: 54.893479,
+    id: "tommy-azul-marino", marca: "Tommy Hilfiger", nombre: "Botas Azul Marino", categoria: "Lifestyle", precio: 54.893479,
     color: "Azul marino", tallas: [42],
-    descripcion: "Sneaker azul marino con el nombre de la marca en relieve alrededor del talón.",
+    descripcion: "Botas azul marino con el nombre de la marca en relieve alrededor del talón.",
     detalles: ["Acabado tipo cuero granulado", "Bandera Tommy en el costado", "Letras en relieve en la suela"],
     portada: "img/productos/tommy-azul-marino-portada.webp",
     imagenes: [
@@ -106,25 +106,25 @@ window.PRODUCTOS = [
     ],
   },
   {
-    id: "tommy-blanco-h", marca: "Estilo Tommy Hilfiger", nombre: "Sneaker Blanco H", categoria: "Lifestyle", precio: 54.893479,
+    id: "tommy-blanco-h", marca: "Estilo Tommy Hilfiger", nombre: "Botas Blancas H", categoria: "Lifestyle", precio: 54.893479,
     color: "Blanco / Azul / Rojo", tallas: [42],
-    descripcion: "Sneaker blanco con la H en rojo y azul y el talón azul marino.",
+    descripcion: "Botas blancas con la H en rojo y azul y el talón azul marino.",
     detalles: ["Acabado tipo cuero", "H en rojo y azul en el costado", "Cinta tricolor en la lengüeta", "Diseño inspirado en Tommy Hilfiger"],
     portada: "img/productos/tommy-blanco-h-portada.webp",
     imagenes: ["img/productos/tommy-blanco-h-1.webp", "img/productos/tommy-blanco-h-2.webp"],
   },
   {
-    id: "tommy-gris", marca: "Tommy Hilfiger", nombre: "Sneaker Gris", categoria: "Lifestyle", precio: 64.042392,
+    id: "tommy-gris", marca: "Tommy Hilfiger", nombre: "Botas Grises", categoria: "Lifestyle", precio: 64.042392,
     color: "Gris", tallas: [42],
-    descripcion: "Sneaker gris de acabado tipo gamuza y diseño minimalista.",
+    descripcion: "Botas grises de acabado tipo gamuza y diseño minimalista.",
     detalles: ["Acabado tipo gamuza", "Perforaciones laterales", "Logo en el talón"],
     portada: "img/productos/tommy-gris-portada.webp",
     imagenes: ["img/productos/tommy-gris-1.webp", "img/productos/tommy-gris-2.webp"],
   },
   {
-    id: "tommy-negro", marca: "Estilo Tommy Hilfiger", nombre: "Sneaker Negro", categoria: "Lifestyle", precio: 54.893479,
+    id: "tommy-negro", marca: "Estilo Tommy Hilfiger", nombre: "Botas Negras", categoria: "Lifestyle", precio: 54.893479,
     color: "Negro / Blanco", tallas: [42, 43],
-    descripcion: "Sneaker negro con suela blanca, el nombre TOMMY en el talón y detalle rojo en el primer ojal.",
+    descripcion: "Botas negras con suela blanca, el nombre TOMMY en el talón y detalle rojo en el primer ojal.",
     detalles: ["Acabado tipo cuero liso", "Nombre en el costado y en el talón", "Suela blanca", "Diseño inspirado en Tommy Hilfiger"],
     portada: "img/productos/tommy-negro-portada.webp",
     imagenes: [

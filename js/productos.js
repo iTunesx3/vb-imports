@@ -11,13 +11,15 @@
 //   etiqueta    (opcional) texto sobre la foto; "Nuevo" pone el producto en Novedades
 //   tallas      tallas disponibles (EU). Si no hay, se pide consultar por WhatsApp
 //   agotadas    (opcional) tallas de la lista que ya no hay
-//   imagenes    fotos del producto, la primera es la principal
+//   portada     (opcional) foto de estudio que se ve en el catálogo; al abrir el modelo se ven las imagenes
+//   imagenes    fotos reales del producto, la primera es la principal de la ficha
 window.PRODUCTOS = [
   {
     id: "jordan-spizike-gris", marca: "Jordan", nombre: "Spizike Low Gris y Negro", categoria: "Basketball", precio: 75.319011,
     color: "Negro / Gris (Black/Grey)", tallas: [44],
     descripcion: "Jordan Spizike Low en gamuza gris con negro y detalles en rojo: mezcla piezas de varios Air Jordan clásicos en un solo diseño.",
     detalles: ["Acabado tipo gamuza gris", "Pieza trasera con el nombre JORDAN en relieve", "Seguro de cordón y Jumpman en rojo", "Talla EU 44 (US 10)"],
+    portada: "img/productos/jordan-spizike-gris-portada.webp",
     imagenes: [
       "img/productos/jordan-spizike-gris-1.webp", "img/productos/jordan-spizike-gris-2.webp",
       "img/productos/jordan-spizike-gris-3.webp", "img/productos/jordan-spizike-gris-4.webp",
@@ -29,6 +31,7 @@ window.PRODUCTOS = [
     color: "Blanco / Plata", tallas: [42],
     descripcion: "El clásico Air Jordan 3 en blanco, con estampado tipo elefante plateado en la puntera y el talón.",
     detalles: ["Caña media", "Estampado tipo elefante plateado", "Jumpman negro en la lengüeta"],
+    portada: "img/productos/air-jordan-3-blanco-plata-portada.webp",
     imagenes: [
       "img/productos/air-jordan-3-blanco-plata-1.webp", "img/productos/air-jordan-3-blanco-plata-2.webp",
       "img/productos/air-jordan-3-blanco-plata-3.webp",
@@ -39,6 +42,7 @@ window.PRODUCTOS = [
     color: "Negro", tallas: [43],
     descripcion: "Air Jordan 3 todo negro con costuras blancas en contraste.",
     detalles: ["Acabado tipo nobuk negro", "Costuras blancas en contraste", "Jumpman blanco en la lengüeta"],
+    portada: "img/productos/air-jordan-3-negro-portada.webp",
     imagenes: [
       "img/productos/air-jordan-3-negro-1.webp", "img/productos/air-jordan-3-negro-2.webp",
       "img/productos/air-jordan-3-negro-3.webp", "img/productos/air-jordan-3-negro-4.webp",
@@ -50,6 +54,7 @@ window.PRODUCTOS = [
     color: "Gris claro / Negro", tallas: [43],
     descripcion: "Running de suela alta y acolchada, en gris claro con detalles en negro.",
     detalles: ["Parte superior de malla", "Suela gruesa con cápsulas de amortiguación", "Diseño inspirado en el On Cloudmonster"],
+    portada: "img/productos/on-cloudmonster-gris-portada.webp",
     imagenes: [
       "img/productos/on-cloudmonster-gris-1.webp", "img/productos/on-cloudmonster-gris-2.webp",
       "img/productos/on-cloudmonster-gris-3.webp", "img/productos/on-cloudmonster-gris-4.webp",
@@ -60,6 +65,7 @@ window.PRODUCTOS = [
     color: "Blanco / Negro", tallas: [42, 43],
     descripcion: "Running ligero de tejido knit blanco, con cuello y cordones negros.",
     detalles: ["Tejido knit transpirable", "Suela con cápsulas de amortiguación", "Diseño inspirado en el On Cloudsurfer"],
+    portada: "img/productos/on-cloudsurfer-blanco-negro-portada.webp",
     imagenes: ["img/productos/on-cloudsurfer-blanco-negro-1.webp", "img/productos/on-cloudsurfer-blanco-negro-2.webp"],
   },
   {
@@ -67,6 +73,7 @@ window.PRODUCTOS = [
     color: "Blanco", tallas: [41],
     descripcion: "Nike Air Max Dn blanco de malla, con cuatro cámaras de aire visibles en la suela.",
     detalles: ["Parte superior de malla", "Insignia Air Max Dn en la lengüeta", "Cámaras de aire visibles en la suela", "Talla EU 41"],
+    portada: "img/productos/nike-air-max-blanco-portada.webp",
     imagenes: [
       "img/productos/nike-air-max-blanco-1.webp", "img/productos/nike-air-max-blanco-2.webp",
       "img/productos/nike-air-max-blanco-3.webp", "img/productos/nike-air-max-blanco-4.webp",
@@ -78,6 +85,7 @@ window.PRODUCTOS = [
     color: "Blanco / Café", tallas: [43],
     descripcion: "Zapato de entrenamiento blanco, con suela tipo goma y detalles en café.",
     detalles: ["Suela tipo goma con agarre", "Detalles en tono café", "Diseño inspirado en el Nike Metcon"],
+    portada: "img/productos/nike-blanco-cafe-portada.webp",
     imagenes: [
       "img/productos/nike-blanco-cafe-1.webp", "img/productos/nike-blanco-cafe-2.webp",
       "img/productos/nike-blanco-cafe-3.webp", "img/productos/nike-blanco-cafe-4.webp",
@@ -89,6 +97,7 @@ window.PRODUCTOS = [
     color: "Azul marino", tallas: [42],
     descripcion: "Sneaker azul marino con el nombre de la marca en relieve alrededor del talón.",
     detalles: ["Acabado tipo cuero granulado", "Bandera Tommy en el costado", "Letras en relieve en la suela"],
+    portada: "img/productos/tommy-azul-marino-portada.webp",
     imagenes: [
       "img/productos/tommy-azul-marino-1.webp", "img/productos/tommy-azul-marino-2.webp",
       "img/productos/tommy-azul-marino-3.webp", "img/productos/tommy-azul-marino-4.webp",
@@ -100,6 +109,7 @@ window.PRODUCTOS = [
     color: "Blanco / Azul / Rojo", tallas: [42],
     descripcion: "Sneaker blanco con la H en rojo y azul y el talón azul marino.",
     detalles: ["Acabado tipo cuero", "H en rojo y azul en el costado", "Cinta tricolor en la lengüeta", "Diseño inspirado en Tommy Hilfiger"],
+    portada: "img/productos/tommy-blanco-h-portada.webp",
     imagenes: ["img/productos/tommy-blanco-h-1.webp", "img/productos/tommy-blanco-h-2.webp"],
   },
   {
@@ -107,6 +117,7 @@ window.PRODUCTOS = [
     color: "Gris", tallas: [42],
     descripcion: "Sneaker gris de acabado tipo gamuza y diseño minimalista.",
     detalles: ["Acabado tipo gamuza", "Perforaciones laterales", "Logo en el talón"],
+    portada: "img/productos/tommy-gris-portada.webp",
     imagenes: ["img/productos/tommy-gris-1.webp", "img/productos/tommy-gris-2.webp"],
   },
   {
@@ -114,6 +125,7 @@ window.PRODUCTOS = [
     color: "Negro / Blanco", tallas: [42, 43],
     descripcion: "Sneaker negro con suela blanca, el nombre TOMMY en el talón y detalle rojo en el primer ojal.",
     detalles: ["Acabado tipo cuero liso", "Nombre en el costado y en el talón", "Suela blanca", "Diseño inspirado en Tommy Hilfiger"],
+    portada: "img/productos/tommy-negro-portada.webp",
     imagenes: [
       "img/productos/tommy-negro-1.webp", "img/productos/tommy-negro-2.webp",
     ],
@@ -123,6 +135,7 @@ window.PRODUCTOS = [
     color: "Beige / Café", tallas: [42],
     descripcion: "Zapato casual en beige con franjas y suela gruesa en café.",
     detalles: ["Hecho en Turquía", "Forro interior color camel", "Suela gruesa café"],
+    portada: "img/productos/regent-beige-portada.webp",
     imagenes: [
       "img/productos/regent-beige-1.webp", "img/productos/regent-beige-2.webp",
       "img/productos/regent-beige-3.webp", "img/productos/regent-beige-4.webp",
@@ -134,6 +147,7 @@ window.PRODUCTOS = [
     color: "Gris / Azul marino", tallas: [42],
     descripcion: "Zapato casual gris con rayas azul marino y suela gris azulada.",
     detalles: ["Hecho en Turquía", "Rayas laterales azul marino", "Tirador en el talón"],
+    portada: "img/productos/regent-gris-portada.webp",
     imagenes: [
       "img/productos/regent-gris-1.webp", "img/productos/regent-gris-2.webp",
       "img/productos/regent-gris-3.webp", "img/productos/regent-gris-4.webp",

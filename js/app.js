@@ -72,10 +72,14 @@
   const porSlug = (s) => CATEGORIAS.find((c) => c.slug === s) || CATEGORIAS[0];
 
   // Imagen del producto: foto real si existe; si no, la ilustración.
+  // Con portada: true (catálogo, portada de inicio y bolsa) se usa la foto de estudio del modelo.
   const NOMBRES_VISTA = ["Vista lateral", "Vista interior", "Detalle"];
   const vistas = (p) => (p.imagenes && p.imagenes.length ? p.imagenes.map((_, i) => i) : [0, 1, 2]);
   const nombreVista = (p, i) => (p.imagenes && p.imagenes.length ? `Foto ${i + 1}` : NOMBRES_VISTA[i]);
-  function imagen(p, { vista = 0, decorativa = true } = {}) {
+  function imagen(p, { vista = 0, decorativa = true, portada = false } = {}) {
+    if (portada && p.portada) {
+      return `<img src="${escapar(p.portada)}" alt="${decorativa ? "" : escapar(nombreCompleto(p))}" loading="lazy">`;
+    }
     if (p.imagenes && p.imagenes.length) {
       return `<img src="${escapar(p.imagenes[vista] || p.imagenes[0])}" alt="${decorativa ? "" : escapar(nombreCompleto(p))}" loading="lazy">`;
     }
@@ -100,7 +104,7 @@
   const tarjeta = (p) => `
     <article class="producto revelar" data-id="${p.id}">
       <div class="foto">
-        <a href="#/producto/${p.id}" tabindex="-1" aria-hidden="true">${imagen(p)}</a>
+        <a href="#/producto/${p.id}" tabindex="-1" aria-hidden="true">${imagen(p, { portada: true })}</a>
         ${p.etiqueta ? `<span class="etiqueta ${p.precioAntes ? "oferta" : ""}">${escapar(p.etiqueta)}</span>` : ""}
         ${vendible(p) ? `<button type="button" class="rapido-btn" data-rapido aria-expanded="false">Añadir rápido<span class="sr"> ${escapar(p.nombre)}</span></button>
         <div class="rapido" hidden>
@@ -163,7 +167,7 @@
     cuerpo.innerHTML = progreso + bolsa.map((i, n) => {
       const p = porId(i.id);
       return `<div class="item">
-        <a class="mini" href="#/producto/${p.id}" data-cerrar tabindex="-1" aria-hidden="true">${imagen(p)}</a>
+        <a class="mini" href="#/producto/${p.id}" data-cerrar tabindex="-1" aria-hidden="true">${imagen(p, { portada: true })}</a>
         <div>
           <h3><a href="#/producto/${p.id}" data-cerrar>${escapar(p.nombre)}</a></h3>
           <div class="meta">Talla ${tallaTxt(i.talla)}${p.color ? ` · ${escapar(p.color)}` : ""}</div>
@@ -333,7 +337,7 @@
           </div>
         </div>
         <figure class="escaparate">
-          <a href="#/producto/${d.id}" aria-label="Ver ${escapar(d.nombre)}">${imagen(d)}</a>
+          <a href="#/producto/${d.id}" aria-label="Ver ${escapar(d.nombre)}">${imagen(d, { portada: true })}</a>
           <figcaption><b>${escapar(nombreCompleto(d))}</b>${conPrecio(d) ? ` — ${precio(d.precio)}${bsHTML(d.precio, "en-linea")}` : ""}</figcaption>
         </figure>
       </section>

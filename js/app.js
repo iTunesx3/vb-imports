@@ -760,6 +760,12 @@
   $("#pie-descripcion").textContent = T.descripcion;
   $("#pie-contacto").href = enlaceWhatsApp(`Hola, tengo una consulta sobre ${T.nombre}.`);
   $("#wa-flotante").href = enlaceWhatsApp(`Hola, tengo una consulta sobre ${T.nombre}.`);
+  const ig = $("#pie-instagram a"); // puede faltar si el navegador aún tiene guardado el index.html anterior
+  if (T.instagram && ig) {
+    ig.href = `https://www.instagram.com/${encodeURIComponent(T.instagram)}/`;
+    ig.textContent = `Instagram @${T.instagram}`;
+    $("#pie-instagram").hidden = false;
+  }
   TasaBCV.alCambiar(refrescarBs);
   TasaBCV.iniciar();
 

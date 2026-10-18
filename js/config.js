@@ -15,6 +15,9 @@ window.TIENDA = {
   // Número de WhatsApp que recibe los pedidos: código de país + número, sin "+" ni espacios.
   whatsapp: "584121365631",
 
+  // Usuario de Instagram, sin "@". Vacío, no se muestra el enlace en el pie de página.
+  instagram: "vbi_ojeda",
+
   // Envío gratis a partir de este subtotal en USD. 0 = no se ofrece (no se muestra la barra en la bolsa).
   envioGratisDesde: 0,
 

@@ -1,0 +1,8 @@
+{
+  "functions": {
+    "api/tasa.py": { "includeFiles": "scripts/**", "maxDuration": 20 }
+  },
+  "rewrites": [
+    { "source": "/data/tasa.json", "destination": "/api/tasa" }
+  ]
+}

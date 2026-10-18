@@ -31,7 +31,8 @@
   }
 
   async function desdeArchivo() {
-    const d = await pedirJSON(`data/tasa.json?t=${Date.now()}`);
+    // Sin parámetros en la URL, para que la CDN (Vercel o GitHub) pueda guardarla y no consultar al BCV en cada visita.
+    const d = await pedirJSON("data/tasa.json");
     if (!(d.usd > 0)) throw new Error("tasa.json sin valor");
     return { valor: d.usd, fechaValor: d.fecha_valor, fuente: "bcv.org.ve", vieja: Date.now() - new Date(d.consultado).getTime() > MAX_EDAD_ARCHIVO };
   }

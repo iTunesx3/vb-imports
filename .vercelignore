@@ -1,0 +1,9 @@
+# Archivos que no se publican en Vercel
+modelos/
+logos/
+.github/
+inventario/
+.claude/
+
+# En Vercel la tasa del BCV la entrega api/tasa.py (ver vercel.json)
+data/tasa.json

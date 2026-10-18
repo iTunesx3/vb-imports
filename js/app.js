@@ -1,7 +1,11 @@
 // Lógica del catálogo: portada, filtros, ficha de producto y bolsa con pedido por WhatsApp.
 (function () {
   const T = window.TIENDA;
-  const P = window.PRODUCTOS;
+  // El IVA va incluido en los dos precios. productos.js guarda el precio en dólares sin IVA (el "Precio Final" del
+  // Excel); aquí se le suma el IVA, y el monto en Bs. es ese total × tasa BCV.
+  const IVA = (T.bolivares && T.bolivares.iva) || 0;
+  const conIva = (n) => (typeof n === "number" ? n * (1 + IVA) : n);
+  const P = window.PRODUCTOS.map((p) => ({ ...p, precio: conIva(p.precio), precioAntes: conIva(p.precioAntes) }));
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const app = $("#app");
@@ -9,7 +13,7 @@
   document.documentElement.classList.add("js");
 
   // ---------- Utilidades ----------
-  const precio = (n) => T.moneda.simbolo + n.toLocaleString(T.moneda.locale, { maximumFractionDigits: 2 });
+  const precio = (n) => T.moneda.simbolo + n.toLocaleString(T.moneda.locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const escapar = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const aSlug = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/\s+/g, "-");
   const porId = (id) => P.find((p) => p.id === id);
@@ -28,15 +32,14 @@
   // Bolívares según la tasa BCV vigente (vacío mientras no haya tasa).
   const SIMBOLO_BS = (T.bolivares && T.bolivares.simbolo) || "Bs.";
   const formatoBs = (n) => `${SIMBOLO_BS} ${n.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-  // El IVA va solo en bolívares: el monto en Bs. es dólares × tasa BCV × (1 + IVA).
-  const IVA = (T.bolivares && T.bolivares.iva) || 0;
-  const enBs = (usd) => (TasaBCV.valor ? formatoBs(usd * TasaBCV.valor * (1 + IVA)) : "");
+  // Los precios ya traen el IVA (ver P arriba): el monto en Bs. es dólares × tasa BCV.
+  const enBs = (usd) => (TasaBCV.valor ? formatoBs(usd * TasaBCV.valor) : "");
   const bsHTML = (usd, clase = "") => `<span class="bs ${clase}" data-usd="${usd}">${enBs(usd)}</span>`;
   const fechaCorta = (iso) => (iso ? iso.slice(0, 10).split("-").reverse().join("/") : "");
   function textoTasa(largo) {
     if (!TasaBCV.valor) return "";
     const base = `Tasa BCV: ${formatoBs(TasaBCV.valor)} por USD${TasaBCV.fechaValor ? ` · fecha valor ${fechaCorta(TasaBCV.fechaValor)}` : ""}` +
-      (IVA ? ` · Bs. con IVA (${Math.round(IVA * 100)} %) incluido` : "");
+      (IVA ? ` · precios con IVA (${Math.round(IVA * 100)} %) incluido` : "");
     if (!largo || !TasaBCV.consultada) return base;
     const hora = new Date(TasaBCV.consultada).toLocaleTimeString("es-VE", { hour: "2-digit", minute: "2-digit" });
     return `${base} · actualizada a las ${hora}`;

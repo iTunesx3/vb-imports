@@ -9,7 +9,7 @@ window.TIENDA = {
 
   // Precio en bolívares calculado con la tasa oficial del BCV, que se consulta cada hora.
   // tasaRespaldo: tasa manual (Bs. por USD) que se usa solo si no se puede consultar ninguna fuente.
-  // iva: el IVA va solo en bolívares; el precio en dólares se muestra sin IVA.
+  // iva: se suma al precio de productos.js; el precio en $ y el de Bs. lo incluyen (Bs. = $ con IVA × tasa).
   bolivares: { activo: true, simbolo: "Bs.", tasaRespaldo: 0, actualizarCadaMinutos: 60, iva: 0.16 },
 
   // Número de WhatsApp que recibe los pedidos: código de país + número, sin "+" ni espacios.

@@ -6,7 +6,8 @@
 //   nombre      nombre visible
 //   categoria   Running, Basketball, Lifestyle, Casual... (una categoría nueva aparece sola en el menú)
 //   precio      precio en dólares SIN IVA (columna "Precio Final" del Excel); con null se muestra
-//               "Consultar precio". El precio en bolívares se calcula con la tasa BCV e incluye el IVA.
+//               "Consultar precio". La tienda le suma el IVA de config.js y muestra ese total en $ y,
+//               con la tasa BCV, en Bs.
 //   precioAntes (opcional) precio tachado; pone el producto en Ofertas
 //   etiqueta    (opcional) texto sobre la foto; "Nuevo" pone el producto en Novedades
 //   tallas      tallas disponibles (EU). Si no hay, se pide consultar por WhatsApp

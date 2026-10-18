@@ -9,7 +9,7 @@ Imagen: `publicaciones/01-regent-beige.jpg`
 
 ```
 Regent Casual Beige
-$54,89 · o en Bs. a tasa BCV del día (en Bs. con IVA incluido)
+$63,68 IVA incluido · o en Bs. a tasa BCV del día
 Un solo par, talla EU 42.
 
 Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
@@ -26,7 +26,7 @@ Imagen: `publicaciones/02-jordan-spizike-gris.jpg`
 
 ```
 Jordan Spizike Low Gris y Negro
-$75,32 · o en Bs. a tasa BCV del día (en Bs. con IVA incluido)
+$87,37 IVA incluido · o en Bs. a tasa BCV del día
 Un solo par, talla EU 44.
 
 Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
@@ -43,7 +43,7 @@ Imagen: `publicaciones/03-on-cloudmonster-gris.jpg`
 
 ```
 Estilo On Cloudmonster Gris Claro
-$64,02 · o en Bs. a tasa BCV del día (en Bs. con IVA incluido)
+$74,26 IVA incluido · o en Bs. a tasa BCV del día
 Un solo par, talla EU 43.
 
 Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
@@ -60,7 +60,7 @@ Imagen: `publicaciones/04-nike-air-max-blanco.jpg`
 
 ```
 Nike Air Max Dn Blanco
-$73,19 · o en Bs. a tasa BCV del día (en Bs. con IVA incluido)
+$84,90 IVA incluido · o en Bs. a tasa BCV del día
 Un solo par, talla EU 41.
 
 Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
@@ -77,7 +77,7 @@ Imagen: `publicaciones/05-tommy-azul-marino.jpg`
 
 ```
 Tommy Hilfiger Sneaker Azul Marino
-$54,89 · o en Bs. a tasa BCV del día (en Bs. con IVA incluido)
+$63,68 IVA incluido · o en Bs. a tasa BCV del día
 Un solo par, talla EU 42.
 
 Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
@@ -94,7 +94,7 @@ Imagen: `publicaciones/06-air-jordan-3-blanco-plata.jpg`
 
 ```
 Jordan Air Jordan 3 Blanco y Plata
-$45,72 · o en Bs. a tasa BCV del día (en Bs. con IVA incluido)
+$53,04 IVA incluido · o en Bs. a tasa BCV del día
 Un solo par, talla EU 42.
 
 Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
@@ -111,7 +111,7 @@ Imagen: `publicaciones/07-regent-gris.jpg`
 
 ```
 Regent Casual Gris
-$54,89 · o en Bs. a tasa BCV del día (en Bs. con IVA incluido)
+$63,68 IVA incluido · o en Bs. a tasa BCV del día
 Un solo par, talla EU 42.
 
 Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
@@ -128,7 +128,7 @@ Imagen: `publicaciones/08-on-cloudsurfer-blanco-negro.jpg`
 
 ```
 Estilo On Cloudsurfer Blanco y Negro
-$64,02 · o en Bs. a tasa BCV del día (en Bs. con IVA incluido)
+$74,26 IVA incluido · o en Bs. a tasa BCV del día
 Un par en cada talla: EU 42 y 43.
 
 Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
@@ -145,7 +145,7 @@ Imagen: `publicaciones/09-nike-blanco-cafe.jpg`
 
 ```
 Estilo Nike Metcon Blanco y Goma
-$64,02 · o en Bs. a tasa BCV del día (en Bs. con IVA incluido)
+$74,26 IVA incluido · o en Bs. a tasa BCV del día
 Un solo par, talla EU 43.
 
 Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
@@ -162,7 +162,7 @@ Imagen: `publicaciones/10-tommy-gris.jpg`
 
 ```
 Tommy Hilfiger Sneaker Gris
-$64,04 · o en Bs. a tasa BCV del día (en Bs. con IVA incluido)
+$74,29 IVA incluido · o en Bs. a tasa BCV del día
 Un solo par, talla EU 42.
 
 Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
@@ -179,7 +179,7 @@ Imagen: `publicaciones/11-air-jordan-3-negro.jpg`
 
 ```
 Jordan Air Jordan 3 Negro
-$45,72 · o en Bs. a tasa BCV del día (en Bs. con IVA incluido)
+$53,04 IVA incluido · o en Bs. a tasa BCV del día
 Un solo par, talla EU 43.
 
 Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
@@ -196,7 +196,7 @@ Imagen: `publicaciones/12-tommy-blanco-h.jpg`
 
 ```
 Estilo Tommy Hilfiger Sneaker Blanco H
-$54,89 · o en Bs. a tasa BCV del día (en Bs. con IVA incluido)
+$63,68 IVA incluido · o en Bs. a tasa BCV del día
 Un solo par, talla EU 42.
 
 Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
@@ -213,7 +213,7 @@ Imagen: `publicaciones/13-tommy-negro.jpg`
 
 ```
 Estilo Tommy Hilfiger Sneaker Negro
-$54,89 · o en Bs. a tasa BCV del día (en Bs. con IVA incluido)
+$63,68 IVA incluido · o en Bs. a tasa BCV del día
 Un par en cada talla: EU 42 y 43.
 
 Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.

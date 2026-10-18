@@ -52,7 +52,8 @@
   $("#foto").src = "../../" + (p.portada || (p.imagenes || [])[0]);
   $("#ceja").textContent = `${p.marca} · Nuevo ingreso`;
   $("#nombre").textContent = p.nombre;
-  $("#precio").textContent = "$" + p.precio.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const iva = (T.bolivares && T.bolivares.iva) || 0; // el mismo precio con IVA que muestra la tienda
+  $("#precio").textContent = "$" + (p.precio * (1 + iva)).toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   $("#tallas").textContent = `${tallas.length > 1 ? "Tallas" : "Talla"} ${T.sistemaTallas} ${lista} · Ciudad Ojeda`;
   $("#wa").textContent = waTxt;
   $("#ig").textContent = T.instagram ? "@" + T.instagram : "";

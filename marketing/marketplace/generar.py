@@ -7,6 +7,7 @@ Resultado, en marketing/marketplace/:
 Orden: el de portada.rotacion en config.js. Necesita Node (para leer los .js) y Pillow.
 """
 import json
+import math
 import shutil
 import subprocess
 from pathlib import Path
@@ -78,7 +79,7 @@ def main():
         "# Anuncios de Facebook Marketplace",
         "",
         "Generados con `python marketing/marketplace/generar.py`. Cada anuncio usa las fotos de su carpeta en `anuncios/`, en orden.",
-        "Precio con IVA, igual que en la tienda. Sin métodos de pago (se dicen por WhatsApp cuando el cliente pregunta).",
+        "Precio en dólares con IVA, redondeado hacia arriba (Marketplace no acepta decimales). Sin métodos de pago.",
         "",
     ]
     for n, p in enumerate(modelos, 1):
@@ -92,11 +93,14 @@ def main():
         t = tallas(p)
         linea_tallas = (f"Tallas {sistema} {unir(t)} (un par de cada una)." if len(t) > 1
                         else f"Talla {sistema} {t[0]} (un solo par).")
-        tit = f"{titulo(p)} · {'Tallas' if len(t) > 1 else 'Talla'} {unir(t)}"
+        # Marketplace en Venezuela solo acepta "Bs.F" y sin decimales: va el precio en dólares, redondeado hacia
+        # arriba, y el "$" en el título y la descripción para que se entienda.
+        dolares = math.ceil(round(p["precio"] * (1 + iva), 2))
+        tit = f"{titulo(p)} · {'Tallas' if len(t) > 1 else 'Talla'} {unir(t)} · ${dolares}"
         descripcion = "\n".join([
             f"{titulo(p)}, nuevas y en su caja, ya en Ciudad Ojeda.",
             linea_tallas,
-            "Precio con IVA incluido, o en bolívares a la tasa BCV del día.",
+            f"Precio en dólares: ${dolares} con IVA incluido, o en bolívares a la tasa BCV del día.",
             "Entrega en Ojeda a domicilio o en punto de encuentro. Envíos a todo el país.",
             "Escríbenos para ver más fotos y otros modelos.",
         ])
@@ -105,9 +109,10 @@ def main():
             "",
             f"- **Fotos:** `anuncios/{carpeta.name}/` ({min(len(fotos), 10)})",
             f"- **Título:** {tit}",
-            f"- **Precio:** {usd(p['precio'] * (1 + iva))}",
+            f"- **Precio:** {dolares} (Facebook lo muestra como Bs.F {dolares}; en la web: {usd(p['precio'] * (1 + iva))})",
             "- **Estado:** Nuevo",
             f"- **Marca:** {p['marca']}",
+            "- **Categoría:** Ropa y calzado de hombre",
             f"- **Talla:** {sistema} {unir(t)}",
             f"- **Color:** {p.get('color', '')}",
             "- **Ubicación:** Ciudad Ojeda, Zulia",

@@ -34,7 +34,7 @@
     <div class="nombre"><div class="ceja" id="ceja"></div><h1 id="nombre"></h1></div>
     <div class="precio"><b id="precio"></b><span>o en Bs. a tasa BCV del día</span></div>
   </div>
-  <div class="pie"><span id="tallas"></span><span>WhatsApp <b id="wa"></b> · <b id="ig"></b></span></div>
+  <div class="pie"><span id="tallas"></span><span>Más modelos en <b id="web"></b></span></div>
 </div>
 <script src="../../js/config.js"></script>
 <script src="../../js/productos.js"></script>
@@ -46,8 +46,6 @@
 
   const tallas = (p.tallas || []).filter((t) => !(p.agotadas || []).includes(t));
   const lista = tallas.length > 1 ? `${tallas.slice(0, -1).join(", ")} y ${tallas.at(-1)}` : String(tallas[0] ?? "");
-  const wa = String(T.whatsapp).replace(/\D/g, "");
-  const waTxt = wa.startsWith("1") && wa.length === 11 ? `+1 ${wa.slice(1, 4)}-${wa.slice(4, 7)}-${wa.slice(7)}` : `+${wa}`;
 
   $("#foto").src = "../../" + (p.portada || (p.imagenes || [])[0]);
   $("#ceja").textContent = `${p.marca} · Nuevo ingreso`;
@@ -55,8 +53,7 @@
   const iva = (T.bolivares && T.bolivares.iva) || 0; // el mismo precio con IVA que muestra la tienda
   $("#precio").textContent = "$" + (p.precio * (1 + iva)).toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   $("#tallas").textContent = `${tallas.length > 1 ? "Tallas" : "Talla"} ${T.sistemaTallas} ${lista} · Ciudad Ojeda`;
-  $("#wa").textContent = waTxt;
-  $("#ig").textContent = T.instagram ? "@" + T.instagram : "";
+  $("#web").textContent = T.web;
 
   // Nombres largos: se achica la letra hasta 80 px; si aún no cabe, va en dos líneas parejas y la foto cede ese espacio.
   function ajustar() {

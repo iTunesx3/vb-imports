@@ -22,26 +22,14 @@ const P = ctx.window.PRODUCTOS;
 const ids = (T.portada.rotacion || []).filter((id) => P.some((p) => p.id === id));
 const modelos = (ids.length ? ids.map((id) => P.find((p) => p.id === id)) : P);
 
-const wa = String(T.whatsapp).replace(/\D/g, "");
-const waTxt = wa.startsWith("1") && wa.length === 11 ? `+1 ${wa.slice(1, 4)}-${wa.slice(4, 7)}-${wa.slice(7)}` : `+${wa}`;
-const usd = (n) => "$" + n.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-const iva = (T.bolivares && T.bolivares.iva) || 0; // el mismo precio con IVA que muestra la tienda
-const tallasDe = (p) => (p.tallas || []).filter((t) => !(p.agotadas || []).includes(t));
 // Igual que en la tienda: sin repetir la marca cuando el nombre ya la trae ("Air Jordan 3").
 const nombreCompleto = (p) => (p.marca && !p.nombre.includes(p.marca) ? `${p.marca} ${p.nombre}` : p.nombre);
-const unir = (xs) => (xs.length > 1 ? `${xs.slice(0, -1).join(", ")} y ${xs.at(-1)}` : String(xs[0] ?? ""));
 
+// Texto corto a propósito: los detalles (fotos, tallas, entrega) están en la web, para que la visiten.
 function texto(p) {
-  const t = tallasDe(p);
-  const pares = t.length > 1 ? `Un par en cada talla: ${T.sistemaTallas} ${unir(t)}.` : `Un solo par, talla ${T.sistemaTallas} ${t[0]}.`;
   return [
-    nombreCompleto(p),
-    `${usd(p.precio * (1 + iva))} IVA incluido · o en Bs. a tasa BCV del día`,
-    pares,
-    "",
-    "Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.",
-    "",
-    `Pídelo por WhatsApp al ${waTxt} o desde el enlace de la biografía.`,
+    `${nombreCompleto(p)} · nuevo ingreso en Ciudad Ojeda.`,
+    `Más fotos, tallas y modelos en ${T.web} (enlace en la biografía).`,
     "",
     `#CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #${p.categoria}`,
   ].join("\n");

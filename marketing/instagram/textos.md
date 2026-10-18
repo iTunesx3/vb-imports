@@ -8,13 +8,8 @@ El precio en bolívares no va en la imagen porque la tasa BCV cambia cada día.
 Imagen: `publicaciones/01-regent-beige.jpg`
 
 ```
-Regent Casual Beige
-$63,68 IVA incluido · o en Bs. a tasa BCV del día
-Un solo par, talla EU 42.
-
-Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
-
-Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
+Regent Casual Beige · nuevo ingreso en Ciudad Ojeda.
+Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Casual
 ```
@@ -24,13 +19,8 @@ Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
 Imagen: `publicaciones/02-jordan-spizike-gris.jpg`
 
 ```
-Jordan Spizike Low Gris y Negro
-$87,37 IVA incluido · o en Bs. a tasa BCV del día
-Un solo par, talla EU 44.
-
-Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
-
-Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
+Jordan Spizike Low Gris y Negro · nuevo ingreso en Ciudad Ojeda.
+Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Basketball
 ```
@@ -40,13 +30,8 @@ Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
 Imagen: `publicaciones/03-on-cloudmonster-gris.jpg`
 
 ```
-Estilo On Cloudmonster Gris Claro
-$74,26 IVA incluido · o en Bs. a tasa BCV del día
-Un solo par, talla EU 43.
-
-Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
-
-Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
+Estilo On Cloudmonster Gris Claro · nuevo ingreso en Ciudad Ojeda.
+Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Running
 ```
@@ -56,13 +41,8 @@ Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
 Imagen: `publicaciones/04-nike-air-max-blanco.jpg`
 
 ```
-Nike Air Max Dn Blanco
-$84,90 IVA incluido · o en Bs. a tasa BCV del día
-Un solo par, talla EU 41.
-
-Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
-
-Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
+Nike Air Max Dn Blanco · nuevo ingreso en Ciudad Ojeda.
+Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Lifestyle
 ```
@@ -72,13 +52,8 @@ Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
 Imagen: `publicaciones/05-tommy-azul-marino.jpg`
 
 ```
-Tommy Hilfiger Botas Azul Marino
-$63,68 IVA incluido · o en Bs. a tasa BCV del día
-Un solo par, talla EU 42.
-
-Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
-
-Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
+Tommy Hilfiger Botas Azul Marino · nuevo ingreso en Ciudad Ojeda.
+Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Lifestyle
 ```
@@ -88,13 +63,8 @@ Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
 Imagen: `publicaciones/06-air-jordan-3-blanco-plata.jpg`
 
 ```
-Air Jordan 3 Blanco y Plata
-$53,04 IVA incluido · o en Bs. a tasa BCV del día
-Un solo par, talla EU 42.
-
-Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
-
-Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
+Air Jordan 3 Blanco y Plata · nuevo ingreso en Ciudad Ojeda.
+Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Basketball
 ```
@@ -104,13 +74,8 @@ Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
 Imagen: `publicaciones/07-regent-gris.jpg`
 
 ```
-Regent Casual Gris
-$63,68 IVA incluido · o en Bs. a tasa BCV del día
-Un solo par, talla EU 42.
-
-Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
-
-Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
+Regent Casual Gris · nuevo ingreso en Ciudad Ojeda.
+Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Casual
 ```
@@ -120,13 +85,8 @@ Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
 Imagen: `publicaciones/08-on-cloudsurfer-blanco-negro.jpg`
 
 ```
-Estilo On Cloudsurfer Blanco y Negro
-$74,26 IVA incluido · o en Bs. a tasa BCV del día
-Un par en cada talla: EU 42 y 43.
-
-Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
-
-Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
+Estilo On Cloudsurfer Blanco y Negro · nuevo ingreso en Ciudad Ojeda.
+Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Running
 ```
@@ -136,13 +96,8 @@ Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
 Imagen: `publicaciones/09-nike-blanco-cafe.jpg`
 
 ```
-Estilo Nike Metcon Blanco y Goma
-$74,26 IVA incluido · o en Bs. a tasa BCV del día
-Un solo par, talla EU 43.
-
-Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
-
-Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
+Estilo Nike Metcon Blanco y Goma · nuevo ingreso en Ciudad Ojeda.
+Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Training
 ```
@@ -152,13 +107,8 @@ Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
 Imagen: `publicaciones/10-tommy-gris.jpg`
 
 ```
-Tommy Hilfiger Botas Grises
-$74,29 IVA incluido · o en Bs. a tasa BCV del día
-Un solo par, talla EU 42.
-
-Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
-
-Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
+Tommy Hilfiger Botas Grises · nuevo ingreso en Ciudad Ojeda.
+Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Lifestyle
 ```
@@ -168,13 +118,8 @@ Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
 Imagen: `publicaciones/11-air-jordan-3-negro.jpg`
 
 ```
-Air Jordan 3 Negro
-$53,04 IVA incluido · o en Bs. a tasa BCV del día
-Un solo par, talla EU 43.
-
-Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
-
-Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
+Air Jordan 3 Negro · nuevo ingreso en Ciudad Ojeda.
+Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Basketball
 ```
@@ -184,13 +129,8 @@ Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
 Imagen: `publicaciones/12-tommy-blanco-h.jpg`
 
 ```
-Estilo Tommy Hilfiger Botas Blancas H
-$63,68 IVA incluido · o en Bs. a tasa BCV del día
-Un solo par, talla EU 42.
-
-Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
-
-Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
+Estilo Tommy Hilfiger Botas Blancas H · nuevo ingreso en Ciudad Ojeda.
+Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Lifestyle
 ```
@@ -200,13 +140,8 @@ Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
 Imagen: `publicaciones/13-tommy-negro.jpg`
 
 ```
-Estilo Tommy Hilfiger Botas Negras
-$63,68 IVA incluido · o en Bs. a tasa BCV del día
-Un par en cada talla: EU 42 y 43.
-
-Ya está en Ciudad Ojeda: te lo llevamos a domicilio o nos vemos en un punto de encuentro. Envíos a todo el país.
-
-Pídelo por WhatsApp al +1 709-797-2460 o desde el enlace de la biografía.
+Estilo Tommy Hilfiger Botas Negras · nuevo ingreso en Ciudad Ojeda.
+Más fotos, tallas y modelos en vb-imports.vercel.app (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Lifestyle
 ```

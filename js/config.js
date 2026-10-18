@@ -18,6 +18,9 @@ window.TIENDA = {
   // Usuario de Instagram, sin "@". Vacío, no se muestra el enlace en el pie de página.
   instagram: "vbi_ojeda",
 
+  // Dirección de la tienda que se muestra en las publicaciones de Instagram (marketing/instagram).
+  web: "vb-imports.vercel.app",
+
   // Envío gratis a partir de este subtotal en USD. 0 = no se ofrece (no se muestra la barra en la bolsa).
   envioGratisDesde: 0,
 

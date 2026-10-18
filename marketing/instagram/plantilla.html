@@ -1,77 +1,36 @@
 <!doctype html>
-<!-- Publicación de Instagram, estilo A · Vitrina (1080×1350). Toma los datos de js/config.js y js/productos.js.
+<!-- Publicación de Instagram (1080×1350): solo el logo arriba y la foto de estudio del modelo, sin textos.
+     El nombre, el precio y las tallas quedan para la web. La foto ocupa todo lo de abajo de borde a borde:
+     si en la foto la zapatilla toca un borde, el corte coincide con la franja del logo o con el borde de la imagen.
      Se abre como plantilla.html?id=<id del producto>; generar.mjs la convierte en imagen. -->
 <html lang="es">
 <head>
 <meta charset="utf-8">
 <title>Publicación VB-Imports</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500&family=Montserrat:wght@400;500;600&display=block" rel="stylesheet">
 <style>
-  :root { --tinta: #0C0A09; --suave: #57534E; --fondo: #FAFAF9; --muted: #EFEDEA; --oro: #A16207; --borde: #D6D3D1; }
   * { box-sizing: border-box; margin: 0; }
   html, body { width: 1080px; height: 1350px; overflow: hidden; }
-  body { font-family: Montserrat, sans-serif; color: var(--tinta); background: var(--fondo); -webkit-font-smoothing: antialiased; }
-  .marco { width: 1080px; height: 1350px; padding: 56px 72px; display: flex; flex-direction: column; }
-  .logo { height: 58px; align-self: center; }
-  .foto { margin-top: 40px; height: 860px; flex: none; background: var(--muted); overflow: hidden; }
-  .foto img { display: block; width: 100%; height: 100%; object-fit: contain; }
-  .texto { margin-top: 40px; display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; }
-  .nombre { flex: 1; min-width: 0; }
-  .ceja { font-size: 22px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--oro); white-space: nowrap; }
-  h1 { font-family: Cormorant, Georgia, serif; font-weight: 500; font-size: 96px; line-height: .95; margin-top: 14px; white-space: nowrap; }
-  .precio { flex: none; text-align: right; }
-  .precio b { display: block; font-size: 56px; font-weight: 600; }
-  .precio span { font-size: 20px; color: var(--suave); }
-  .pie { margin-top: auto; padding-top: 22px; border-top: 1.5px solid var(--borde); display: flex; justify-content: space-between; font-size: 21px; color: var(--suave); }
-  .pie b { color: var(--tinta); font-weight: 600; }
+  body { background: #FAFAF9; }
+  .marco { width: 1080px; height: 1350px; display: flex; flex-direction: column; }
+  .cabecera { height: 200px; flex: none; display: grid; place-items: center; }
+  .logo { height: 76px; }
+  .foto { flex: 1; background: rgb(239, 237, 233); overflow: hidden; }
+  .foto img { display: block; width: 100%; height: 100%; object-fit: cover; }
 </style>
 </head>
 <body>
 <div class="marco">
-  <img class="logo" src="../../img/marca/vb-imports-logo.svg" alt="">
+  <div class="cabecera"><img class="logo" src="../../img/marca/vb-imports-logo.svg" alt=""></div>
   <div class="foto"><img id="foto" alt=""></div>
-  <div class="texto">
-    <div class="nombre"><div class="ceja" id="ceja"></div><h1 id="nombre"></h1></div>
-    <div class="precio"><b id="precio"></b><span>o en Bs. a tasa BCV del día</span></div>
-  </div>
-  <div class="pie"><span id="tallas"></span><span>Más modelos en <b id="web"></b></span></div>
 </div>
 <script src="../../js/config.js"></script>
 <script src="../../js/productos.js"></script>
 <script>
-  const T = window.TIENDA;
   const id = new URLSearchParams(location.search).get("id");
   const p = window.PRODUCTOS.find((x) => x.id === id) || window.PRODUCTOS[0];
-  const $ = (s) => document.querySelector(s);
-
-  const tallas = (p.tallas || []).filter((t) => !(p.agotadas || []).includes(t));
-  const lista = tallas.length > 1 ? `${tallas.slice(0, -1).join(", ")} y ${tallas.at(-1)}` : String(tallas[0] ?? "");
-
-  $("#foto").src = "../../" + (p.portada || (p.imagenes || [])[0]);
-  $("#ceja").textContent = `${p.marca} · Nuevo ingreso`;
-  $("#nombre").textContent = p.nombre;
-  const iva = (T.bolivares && T.bolivares.iva) || 0; // el mismo precio con IVA que muestra la tienda
-  $("#precio").textContent = "$" + (p.precio * (1 + iva)).toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  $("#tallas").textContent = `${tallas.length > 1 ? "Tallas" : "Talla"} ${T.sistemaTallas} ${lista} · Ciudad Ojeda`;
-  $("#web").textContent = T.web;
-
-  // Nombres largos: se achica la letra hasta 80 px; si aún no cabe, va en dos líneas parejas y la foto cede ese espacio.
-  function ajustar() {
-    const ceja = $("#ceja"), h1 = $("#nombre"), foto = $(".foto");
-    if (ceja.scrollWidth > ceja.clientWidth) ceja.textContent = p.marca;
-    let tam = 96;
-    while (h1.scrollWidth > h1.clientWidth && tam > 80) h1.style.fontSize = (tam -= 2) + "px";
-    if (h1.scrollWidth > h1.clientWidth) {
-      h1.style.whiteSpace = "normal";
-      h1.style.textWrap = "balance";
-      h1.style.fontSize = "76px";
-      if (h1.getBoundingClientRect().height > 76 * 1.5) foto.style.height = "780px"; // solo si de verdad quedó en dos líneas
-    }
-  }
+  document.getElementById("foto").src = "../../" + (p.portada || (p.imagenes || [])[0]);
   window.listo = (async () => {
-    await Promise.all([document.fonts.load("500 96px Cormorant"), document.fonts.load("600 56px Montserrat"), document.fonts.load("400 21px Montserrat")]);
     await Promise.all([...document.images].map((i) => i.decode().catch(() => {})));
-    ajustar();
     return { id: p.id, nombre: p.nombre };
   })();
 </script>

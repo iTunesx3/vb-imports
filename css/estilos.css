@@ -77,15 +77,33 @@ img { max-width: 100%; display: block; }
 .hero h1 em { font-style: italic; color: var(--color-secondary); }
 .hero p { color: var(--color-muted-foreground); max-width: 420px; margin: 28px 0 40px; }
 .ctas { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
-.escaparate { position: relative; aspect-ratio: 4 / 4.4; background: var(--color-muted); display: grid; place-items: center; }
-.escaparate > a { display: grid; place-items: center; width: 100%; height: 100%; }
-.escaparate { overflow: hidden; }
-.escaparate svg { width: 84%; height: auto; transform: rotate(-6deg); transition: transform .4s var(--ease); }
-.escaparate:hover svg { transform: rotate(-8deg) scale(1.03); }
-.escaparate img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s var(--ease); }
-.escaparate:hover img { transform: scale(1.03); }
-.escaparate figcaption { position: absolute; left: 16px; bottom: 16px; font-size: 13px; color: var(--color-muted-foreground); background: rgba(250, 250, 249, .92); padding: 8px 12px; }
-.escaparate figcaption b { color: var(--color-foreground); font-weight: 600; }
+/* Portada que rota: las fotos se apilan y la activa aparece con un fundido. */
+.diapos { position: relative; aspect-ratio: 4 / 4.4; background: var(--color-muted); overflow: hidden; touch-action: pan-y; }
+.diapo { position: absolute; inset: 0; display: grid; place-items: center; opacity: 0; visibility: hidden; transition: opacity .7s var(--ease), visibility 0s .7s; }
+.diapo.activa { opacity: 1; visibility: visible; transition: opacity .7s var(--ease); }
+.diapo svg { width: 84%; height: auto; transform: rotate(-6deg); transition: transform .4s var(--ease); }
+.diapo:hover svg { transform: rotate(-8deg) scale(1.03); }
+/* La foto de estudio tiene el mismo fondo que la portada: se ve completa, sin recortar la zapatilla. */
+.diapo img { width: 100%; height: 100%; object-fit: contain; transform: scale(1.04); transition: transform 1.2s var(--ease); }
+.diapo.activa img { transform: none; }
+.diapo.activa:hover img { transform: scale(1.03); transition-duration: .4s; }
+.diapo:focus-visible { outline-offset: -4px; }
+.escaparate { position: relative; }
+.escaparate figcaption { position: relative; padding-top: 14px; font-size: 13px; color: var(--color-muted-foreground); }
+.leyenda { display: flex; flex-direction: column; gap: 2px; }
+.leyenda b { color: var(--color-foreground); font-weight: 600; }
+.progreso { position: absolute; inset: 0 0 auto; height: 2px; background: var(--color-border); }
+.progreso i { display: block; height: 100%; background: var(--color-accent); transform: scaleX(0); transform-origin: left; }
+.progreso i.corre { animation: progreso var(--segundos, 5s) linear forwards; }
+.escaparate:is(.retenida, .oculta, .fuera) .progreso i { animation-play-state: paused; }
+@keyframes progreso { to { transform: scaleX(1); } }
+/* Arriba a la derecha de la foto, donde el botón flotante de WhatsApp nunca los tapa. */
+.controles { position: absolute; top: 16px; right: 16px; z-index: 1; display: flex; align-items: center; background: rgba(250, 250, 249, .92); }
+.controles button { width: 44px; height: 44px; display: grid; place-items: center; background: none; border: 0; color: var(--color-foreground); transition: background .2s var(--ease); }
+.controles button:hover { background: var(--color-muted); }
+.controles svg { width: 18px; height: 18px; }
+.contador { min-width: 64px; text-align: center; font-variant-numeric: tabular-nums; letter-spacing: .08em; }
+.contador b { color: var(--color-foreground); font-weight: 600; }
 
 /* Catálogo */
 .seccion { padding-block: 24px 96px; scroll-margin-top: var(--alto-cabecera); }
@@ -281,6 +299,7 @@ h2 { font-family: var(--display); font-weight: 500; font-size: clamp(36px, 4vw, 
   .accion { padding-inline: 10px; }
   .hero { grid-template-columns: 1fr; padding-block: 24px 56px; gap: 32px; }
   .hero .escaparate { order: -1; }
+  .controles { top: 8px; right: 8px; }
   .grid { grid-template-columns: repeat(2, 1fr); gap: 32px 12px; }
   .seccion-cab { flex-direction: column; flex-wrap: nowrap; align-items: stretch; }
   .tabs { gap: 20px; min-width: 0; margin-inline: -16px; padding-inline: 16px; }

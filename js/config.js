@@ -21,12 +21,19 @@ window.TIENDA = {
   // Sistema de tallas que se muestra junto a cada talla (las tallas van en cada producto).
   sistemaTallas: "EU",
 
-  // Portada: producto destacado y textos (en el título, <em> pone la palabra en cursiva).
-  destacado: "regent-beige",
+  // Portada: textos (en el título, <em> pone la palabra en cursiva) y los modelos que van rotando en la
+  // foto, en este orden (los id de productos.js). Cuando lleguen nuevos ingresos, se ponen aquí.
+  // rotacion vacía = rotan todos los modelos. segundos: tiempo que se ve cada uno.
   portada: {
     etiqueta: "Nuevos ingresos",
     titulo: "Diseñadas para caminar <em>la ciudad</em>",
     texto: "Running, básquet y casual: una selección de sneakers importados, con envío desde Ciudad Ojeda a todo el país.",
+    rotacion: [
+      "regent-beige", "jordan-spizike-gris", "on-cloudmonster-gris", "nike-air-max-blanco", "tommy-azul-marino",
+      "air-jordan-3-blanco-plata", "regent-gris", "on-cloudsurfer-blanco-negro", "nike-blanco-cafe", "tommy-gris",
+      "air-jordan-3-negro", "tommy-blanco-h", "tommy-negro",
+    ],
+    segundos: 5,
   },
 
   // Franja superior con un anuncio; vacía, no se muestra.

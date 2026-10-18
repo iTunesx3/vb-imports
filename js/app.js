@@ -52,6 +52,10 @@
     camion: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>',
     escudo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6z"/><path d="m9 12 2 2 4-4"/></svg>',
     chat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/></svg>',
+    anterior: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>',
+    siguiente: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>',
+    pausa: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg>',
+    seguir: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"/></svg>',
   };
 
   // Mensaje para consultar un modelo; incluye el enlace cuando la tienda ya está publicada.
@@ -322,9 +326,20 @@
     return orden ? lista.sort(orden) : lista;
   }
 
+  // Leyenda de la portada: nombre y precio del modelo que se está viendo.
+  const leyendaHTML = (p) => `<b>${escapar(nombreCompleto(p))}</b>` +
+    (conPrecio(p) ? `<span>${precio(p.precio)}${bsHTML(p.precio, "en-linea")}</span>` : "");
+
   function pintarCatalogo() {
-    const d = porId(T.destacado) || P[0];
     const v = T.portada;
+    const elegidos = (v.rotacion || []).map(porId).filter(Boolean);
+    const diapos = elegidos.length ? elegidos : P;
+    const d = diapos[0];
+    const rota = diapos.length > 1;
+    // Solo la primera foto se pide al abrir; las demás, justo antes de mostrarse (ver iniciarCarrusel).
+    const foto = (p, i) => (i && p.portada
+      ? `<img data-src="${escapar(p.portada)}" alt="">`
+      : imagen(p, { portada: true }).replace('loading="lazy"', 'fetchpriority="high"'));
     app.innerHTML = `
       <section class="wrap hero">
         <div>
@@ -336,9 +351,20 @@
             ${CATEGORIAS.some((c) => c.slug === "novedades") ? `<a class="link" href="#/categoria/novedades">Ver novedades</a>` : ""}
           </div>
         </div>
-        <figure class="escaparate">
-          <a href="#/producto/${d.id}" aria-label="Ver ${escapar(d.nombre)}">${imagen(d, { portada: true })}</a>
-          <figcaption><b>${escapar(nombreCompleto(d))}</b>${conPrecio(d) ? ` — ${precio(d.precio)}${bsHTML(d.precio, "en-linea")}` : ""}</figcaption>
+        <figure class="escaparate" ${rota ? `role="region" aria-roledescription="carrusel" aria-label="${escapar(v.etiqueta || "Modelos")}" style="--segundos:${v.segundos || 5}s"` : ""}>
+          <div class="diapos">
+            ${diapos.map((p, i) => `<a class="diapo${i ? "" : " activa"}" href="#/producto/${p.id}" data-id="${p.id}" aria-label="Ver ${escapar(nombreCompleto(p))}">${foto(p, i)}</a>`).join("")}
+          </div>
+          ${rota ? `<div class="controles">
+            <button type="button" data-diapo="-1" aria-label="Modelo anterior">${ICONO.anterior}</button>
+            <span class="contador" aria-hidden="true"><b>01</b> / ${String(diapos.length).padStart(2, "0")}</span>
+            <button type="button" data-diapo="1" aria-label="Modelo siguiente">${ICONO.siguiente}</button>
+            <button type="button" data-pausa aria-pressed="false" aria-label="Pausar la rotación">${ICONO.pausa}</button>
+          </div>` : ""}
+          <figcaption>
+            ${rota ? `<span class="progreso" aria-hidden="true"><i></i></span>` : ""}
+            <div class="leyenda">${leyendaHTML(d)}</div>
+          </figcaption>
         </figure>
       </section>
 
@@ -370,6 +396,96 @@
       </section>`;
     $("#orden").value = estado.orden;
     pintarGrid();
+    iniciarCarrusel();
+  }
+
+  // ---------- Portada que rota ----------
+  // La barra de progreso es el reloj: al terminar su animación pasa al siguiente modelo. Por eso se
+  // detiene sola al pausarla (ratón encima, foco con teclado, pestaña oculta o portada fuera de la
+  // pantalla) y no rota si el dispositivo pide menos movimiento.
+  const menosMovimiento = matchMedia("(prefers-reduced-motion: reduce)");
+  let vigilaPortada = null;
+  document.addEventListener("visibilitychange", () => $(".escaparate", app)?.classList.toggle("oculta", document.hidden));
+
+  function iniciarCarrusel() {
+    vigilaPortada?.disconnect();
+    const fig = $(".escaparate[aria-roledescription]", app);
+    if (!fig) return;
+    const diapos = $$(".diapo", fig);
+    const barra = $(".progreso i", fig);
+    const btnPausa = $("[data-pausa]", fig);
+    let actual = 0;
+    let pausada = menosMovimiento.matches;
+    btnPausa.hidden = menosMovimiento.matches;
+
+    const cargar = (n) => {
+      const img = $("img[data-src]", diapos[n]);
+      if (img) { img.src = img.dataset.src; img.removeAttribute("data-src"); }
+    };
+    const correr = () => {
+      barra.classList.remove("corre");
+      if (pausada) return;
+      void barra.offsetWidth; // reinicia la animación
+      barra.classList.add("corre");
+    };
+    function mostrar(n) {
+      actual = (n + diapos.length) % diapos.length;
+      cargar(actual);
+      diapos.forEach((a, i) => a.classList.toggle("activa", i === actual));
+      $(".leyenda", fig).innerHTML = leyendaHTML(porId(diapos[actual].dataset.id));
+      $(".contador b", fig).textContent = String(actual + 1).padStart(2, "0");
+      cargar((actual + 1) % diapos.length); // la siguiente queda lista
+      correr();
+    }
+    let encima = false;
+    const retener = (conFoco = true) => fig.classList.toggle("retenida", encima || (conFoco && !!$(":focus-visible", fig)));
+
+    barra.addEventListener("animationend", () => mostrar(actual + 1));
+    fig.addEventListener("click", (e) => {
+      const paso = e.target.closest("[data-diapo]");
+      if (paso) mostrar(actual + Number(paso.dataset.diapo));
+    });
+    btnPausa.addEventListener("click", () => {
+      pausada = !pausada;
+      btnPausa.setAttribute("aria-pressed", String(pausada));
+      btnPausa.setAttribute("aria-label", pausada ? "Reanudar la rotación" : "Pausar la rotación");
+      btnPausa.innerHTML = pausada ? ICONO.seguir : ICONO.pausa;
+      correr();
+    });
+    fig.addEventListener("keydown", (e) => {
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+      e.preventDefault();
+      mostrar(actual + (e.key === "ArrowRight" ? 1 : -1));
+      if (e.target.classList.contains("diapo")) diapos[actual].focus(); // el foco sigue a la foto visible
+    });
+    fig.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") { encima = true; retener(); } });
+    fig.addEventListener("pointerleave", () => { encima = false; retener(); });
+    fig.addEventListener("focusin", () => retener());
+    fig.addEventListener("focusout", (e) => { if (!fig.contains(e.relatedTarget)) retener(false); });
+
+    // Deslizar con el dedo para cambiar de modelo, sin abrir el que se estaba viendo.
+    let x0 = null;
+    let deslizo = false;
+    const zona = $(".diapos", fig);
+    zona.addEventListener("pointerdown", (e) => { if (e.pointerType !== "mouse") x0 = e.clientX; });
+    zona.addEventListener("pointercancel", () => (x0 = null));
+    zona.addEventListener("pointerup", (e) => {
+      if (x0 == null) return;
+      const dx = e.clientX - x0;
+      x0 = null;
+      if (Math.abs(dx) < 40) return;
+      deslizo = true;
+      setTimeout(() => (deslizo = false), 400);
+      mostrar(actual + (dx < 0 ? 1 : -1));
+    });
+    zona.addEventListener("click", (e) => { if (deslizo) e.preventDefault(); }, true);
+
+    if ("IntersectionObserver" in window) {
+      vigilaPortada = new IntersectionObserver(([en]) => fig.classList.toggle("fuera", !en.isIntersecting));
+      vigilaPortada.observe(fig);
+    }
+    fig.classList.toggle("oculta", document.hidden);
+    mostrar(0);
   }
 
   function pintarGrid() {

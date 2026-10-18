@@ -36,7 +36,7 @@
   function textoTasa(largo) {
     if (!TasaBCV.valor) return "";
     const base = `Tasa BCV: ${formatoBs(TasaBCV.valor)} por USD${TasaBCV.fechaValor ? ` · fecha valor ${fechaCorta(TasaBCV.fechaValor)}` : ""}` +
-      (IVA ? ` · Bs. con IVA (${Math.round(IVA * 100)} %) incluido; USD sin IVA` : "");
+      (IVA ? ` · Bs. con IVA (${Math.round(IVA * 100)} %) incluido` : "");
     if (!largo || !TasaBCV.consultada) return base;
     const hora = new Date(TasaBCV.consultada).toLocaleTimeString("es-VE", { hour: "2-digit", minute: "2-digit" });
     return `${base} · actualizada a las ${hora}`;

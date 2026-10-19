@@ -3,13 +3,13 @@
 Generados con `python marketing/marketplace/generar.py`. Cada anuncio usa las fotos de su carpeta en `anuncios/`, en orden.
 Precio en dólares con IVA, redondeado hacia arriba (Marketplace no acepta decimales). Sin métodos de pago.
 
-## 01 · Botas Regent Casual Beige · Talla 42 · $64
+## 01 · Botas casuales beige · Talla 42 · $64
 
 - **Fotos:** `anuncios/01-regent-beige/` (7)
-- **Título:** Botas Regent Casual Beige · Talla 42 · $64
+- **Título:** Botas casuales beige · Talla 42 · $64
 - **Precio:** 64 (Facebook lo muestra como Bs.F 64; en la web: $63,68)
 - **Estado:** Nuevo
-- **Marca:** Regent
+- **Marca:** (vacío: sin marcas, para que Facebook no lo rechace)
 - **Categoría:** Ropa y calzado de hombre
 - **Talla:** EU 42
 - **Color:** Beige / Café
@@ -18,20 +18,20 @@ Precio en dólares con IVA, redondeado hacia arriba (Marketplace no acepta decim
 Descripción:
 
 ```
-Botas Regent Casual Beige, nuevas y en su caja, ya en Ciudad Ojeda.
+Botas casuales beige, nuevas y en su caja, ya en Ciudad Ojeda.
 Talla EU 42 (un solo par).
 Precio en dólares: $64 con IVA incluido, o en bolívares a la tasa BCV del día.
 Entrega en Ojeda a domicilio o en punto de encuentro. Envíos a todo el país.
 Escríbenos para ver más fotos y otros modelos.
 ```
 
-## 02 · Botas Jordan Spizike Low Gris y Negro · Talla 44 · $88
+## 02 · Botas de básquet gris y negro · Talla 44 · $88
 
 - **Fotos:** `anuncios/02-jordan-spizike-gris/` (6)
-- **Título:** Botas Jordan Spizike Low Gris y Negro · Talla 44 · $88
+- **Título:** Botas de básquet gris y negro · Talla 44 · $88
 - **Precio:** 88 (Facebook lo muestra como Bs.F 88; en la web: $87,37)
 - **Estado:** Nuevo
-- **Marca:** Jordan
+- **Marca:** (vacío: sin marcas, para que Facebook no lo rechace)
 - **Categoría:** Ropa y calzado de hombre
 - **Talla:** EU 44
 - **Color:** Negro / Gris (Black/Grey)
@@ -40,20 +40,20 @@ Escríbenos para ver más fotos y otros modelos.
 Descripción:
 
 ```
-Botas Jordan Spizike Low Gris y Negro, nuevas y en su caja, ya en Ciudad Ojeda.
+Botas de básquet gris y negro, nuevas y en su caja, ya en Ciudad Ojeda.
 Talla EU 44 (un solo par).
 Precio en dólares: $88 con IVA incluido, o en bolívares a la tasa BCV del día.
 Entrega en Ojeda a domicilio o en punto de encuentro. Envíos a todo el país.
 Escríbenos para ver más fotos y otros modelos.
 ```
 
-## 03 · Botas Estilo On Cloudmonster Gris Claro · Talla 43 · $75
+## 03 · Botas para correr gris claro · Talla 43 · $75
 
 - **Fotos:** `anuncios/03-on-cloudmonster-gris/` (5)
-- **Título:** Botas Estilo On Cloudmonster Gris Claro · Talla 43 · $75
+- **Título:** Botas para correr gris claro · Talla 43 · $75
 - **Precio:** 75 (Facebook lo muestra como Bs.F 75; en la web: $74,26)
 - **Estado:** Nuevo
-- **Marca:** Estilo On
+- **Marca:** (vacío: sin marcas, para que Facebook no lo rechace)
 - **Categoría:** Ropa y calzado de hombre
 - **Talla:** EU 43
 - **Color:** Gris claro / Negro
@@ -62,20 +62,20 @@ Escríbenos para ver más fotos y otros modelos.
 Descripción:
 
 ```
-Botas Estilo On Cloudmonster Gris Claro, nuevas y en su caja, ya en Ciudad Ojeda.
+Botas para correr gris claro, nuevas y en su caja, ya en Ciudad Ojeda.
 Talla EU 43 (un solo par).
 Precio en dólares: $75 con IVA incluido, o en bolívares a la tasa BCV del día.
 Entrega en Ojeda a domicilio o en punto de encuentro. Envíos a todo el país.
 Escríbenos para ver más fotos y otros modelos.
 ```
 
-## 04 · Botas Nike Air Max Dn Blanco · Talla 41 · $85
+## 04 · Botas blancas con cámara de aire · Talla 41 · $85
 
 - **Fotos:** `anuncios/04-nike-air-max-blanco/` (7)
-- **Título:** Botas Nike Air Max Dn Blanco · Talla 41 · $85
+- **Título:** Botas blancas con cámara de aire · Talla 41 · $85
 - **Precio:** 85 (Facebook lo muestra como Bs.F 85; en la web: $84,90)
 - **Estado:** Nuevo
-- **Marca:** Nike
+- **Marca:** (vacío: sin marcas, para que Facebook no lo rechace)
 - **Categoría:** Ropa y calzado de hombre
 - **Talla:** EU 41
 - **Color:** Blanco
@@ -84,20 +84,20 @@ Escríbenos para ver más fotos y otros modelos.
 Descripción:
 
 ```
-Botas Nike Air Max Dn Blanco, nuevas y en su caja, ya en Ciudad Ojeda.
+Botas blancas con cámara de aire, nuevas y en su caja, ya en Ciudad Ojeda.
 Talla EU 41 (un solo par).
 Precio en dólares: $85 con IVA incluido, o en bolívares a la tasa BCV del día.
 Entrega en Ojeda a domicilio o en punto de encuentro. Envíos a todo el país.
 Escríbenos para ver más fotos y otros modelos.
 ```
 
-## 05 · Botas Azul Marino Tommy Hilfiger · Talla 42 · $64
+## 05 · Botas casuales azul marino · Talla 42 · $64
 
 - **Fotos:** `anuncios/05-tommy-azul-marino/` (6)
-- **Título:** Botas Azul Marino Tommy Hilfiger · Talla 42 · $64
+- **Título:** Botas casuales azul marino · Talla 42 · $64
 - **Precio:** 64 (Facebook lo muestra como Bs.F 64; en la web: $63,68)
 - **Estado:** Nuevo
-- **Marca:** Tommy Hilfiger
+- **Marca:** (vacío: sin marcas, para que Facebook no lo rechace)
 - **Categoría:** Ropa y calzado de hombre
 - **Talla:** EU 42
 - **Color:** Azul marino
@@ -106,20 +106,20 @@ Escríbenos para ver más fotos y otros modelos.
 Descripción:
 
 ```
-Botas Azul Marino Tommy Hilfiger, nuevas y en su caja, ya en Ciudad Ojeda.
+Botas casuales azul marino, nuevas y en su caja, ya en Ciudad Ojeda.
 Talla EU 42 (un solo par).
 Precio en dólares: $64 con IVA incluido, o en bolívares a la tasa BCV del día.
 Entrega en Ojeda a domicilio o en punto de encuentro. Envíos a todo el país.
 Escríbenos para ver más fotos y otros modelos.
 ```
 
-## 06 · Botas Air Jordan 3 Blanco y Plata · Talla 42 · $54
+## 06 · Botas de básquet blanco y plata · Talla 42 · $54
 
 - **Fotos:** `anuncios/06-air-jordan-3-blanco-plata/` (4)
-- **Título:** Botas Air Jordan 3 Blanco y Plata · Talla 42 · $54
+- **Título:** Botas de básquet blanco y plata · Talla 42 · $54
 - **Precio:** 54 (Facebook lo muestra como Bs.F 54; en la web: $53,04)
 - **Estado:** Nuevo
-- **Marca:** Jordan
+- **Marca:** (vacío: sin marcas, para que Facebook no lo rechace)
 - **Categoría:** Ropa y calzado de hombre
 - **Talla:** EU 42
 - **Color:** Blanco / Plata
@@ -128,20 +128,20 @@ Escríbenos para ver más fotos y otros modelos.
 Descripción:
 
 ```
-Botas Air Jordan 3 Blanco y Plata, nuevas y en su caja, ya en Ciudad Ojeda.
+Botas de básquet blanco y plata, nuevas y en su caja, ya en Ciudad Ojeda.
 Talla EU 42 (un solo par).
 Precio en dólares: $54 con IVA incluido, o en bolívares a la tasa BCV del día.
 Entrega en Ojeda a domicilio o en punto de encuentro. Envíos a todo el país.
 Escríbenos para ver más fotos y otros modelos.
 ```
 
-## 07 · Botas Regent Casual Gris · Talla 42 · $64
+## 07 · Botas casuales gris y azul · Talla 42 · $64
 
 - **Fotos:** `anuncios/07-regent-gris/` (7)
-- **Título:** Botas Regent Casual Gris · Talla 42 · $64
+- **Título:** Botas casuales gris y azul · Talla 42 · $64
 - **Precio:** 64 (Facebook lo muestra como Bs.F 64; en la web: $63,68)
 - **Estado:** Nuevo
-- **Marca:** Regent
+- **Marca:** (vacío: sin marcas, para que Facebook no lo rechace)
 - **Categoría:** Ropa y calzado de hombre
 - **Talla:** EU 42
 - **Color:** Gris / Azul marino
@@ -150,20 +150,20 @@ Escríbenos para ver más fotos y otros modelos.
 Descripción:
 
 ```
-Botas Regent Casual Gris, nuevas y en su caja, ya en Ciudad Ojeda.
+Botas casuales gris y azul, nuevas y en su caja, ya en Ciudad Ojeda.
 Talla EU 42 (un solo par).
 Precio en dólares: $64 con IVA incluido, o en bolívares a la tasa BCV del día.
 Entrega en Ojeda a domicilio o en punto de encuentro. Envíos a todo el país.
 Escríbenos para ver más fotos y otros modelos.
 ```
 
-## 08 · Botas Estilo On Cloudsurfer Blanco y Negro · Tallas 42 y 43 · $75
+## 08 · Botas para correr blanco y negro · Tallas 42 y 43 · $75
 
 - **Fotos:** `anuncios/08-on-cloudsurfer-blanco-negro/` (3)
-- **Título:** Botas Estilo On Cloudsurfer Blanco y Negro · Tallas 42 y 43 · $75
+- **Título:** Botas para correr blanco y negro · Tallas 42 y 43 · $75
 - **Precio:** 75 (Facebook lo muestra como Bs.F 75; en la web: $74,26)
 - **Estado:** Nuevo
-- **Marca:** Estilo On
+- **Marca:** (vacío: sin marcas, para que Facebook no lo rechace)
 - **Categoría:** Ropa y calzado de hombre
 - **Talla:** EU 42 y 43
 - **Color:** Blanco / Negro
@@ -172,20 +172,20 @@ Escríbenos para ver más fotos y otros modelos.
 Descripción:
 
 ```
-Botas Estilo On Cloudsurfer Blanco y Negro, nuevas y en su caja, ya en Ciudad Ojeda.
+Botas para correr blanco y negro, nuevas y en su caja, ya en Ciudad Ojeda.
 Tallas EU 42 y 43 (un par de cada una).
 Precio en dólares: $75 con IVA incluido, o en bolívares a la tasa BCV del día.
 Entrega en Ojeda a domicilio o en punto de encuentro. Envíos a todo el país.
 Escríbenos para ver más fotos y otros modelos.
 ```
 
-## 09 · Botas Estilo Nike Metcon Blanco y Goma · Talla 43 · $75
+## 09 · Botas de entrenamiento blanco y goma · Talla 43 · $75
 
 - **Fotos:** `anuncios/09-nike-blanco-cafe/` (6)
-- **Título:** Botas Estilo Nike Metcon Blanco y Goma · Talla 43 · $75
+- **Título:** Botas de entrenamiento blanco y goma · Talla 43 · $75
 - **Precio:** 75 (Facebook lo muestra como Bs.F 75; en la web: $74,26)
 - **Estado:** Nuevo
-- **Marca:** Estilo Nike
+- **Marca:** (vacío: sin marcas, para que Facebook no lo rechace)
 - **Categoría:** Ropa y calzado de hombre
 - **Talla:** EU 43
 - **Color:** Blanco / Café
@@ -194,20 +194,20 @@ Escríbenos para ver más fotos y otros modelos.
 Descripción:
 
 ```
-Botas Estilo Nike Metcon Blanco y Goma, nuevas y en su caja, ya en Ciudad Ojeda.
+Botas de entrenamiento blanco y goma, nuevas y en su caja, ya en Ciudad Ojeda.
 Talla EU 43 (un solo par).
 Precio en dólares: $75 con IVA incluido, o en bolívares a la tasa BCV del día.
 Entrega en Ojeda a domicilio o en punto de encuentro. Envíos a todo el país.
 Escríbenos para ver más fotos y otros modelos.
 ```
 
-## 10 · Botas Grises Tommy Hilfiger · Talla 42 · $75
+## 10 · Botas casuales grises · Talla 42 · $75
 
 - **Fotos:** `anuncios/10-tommy-gris/` (3)
-- **Título:** Botas Grises Tommy Hilfiger · Talla 42 · $75
+- **Título:** Botas casuales grises · Talla 42 · $75
 - **Precio:** 75 (Facebook lo muestra como Bs.F 75; en la web: $74,29)
 - **Estado:** Nuevo
-- **Marca:** Tommy Hilfiger
+- **Marca:** (vacío: sin marcas, para que Facebook no lo rechace)
 - **Categoría:** Ropa y calzado de hombre
 - **Talla:** EU 42
 - **Color:** Gris
@@ -216,20 +216,20 @@ Escríbenos para ver más fotos y otros modelos.
 Descripción:
 
 ```
-Botas Grises Tommy Hilfiger, nuevas y en su caja, ya en Ciudad Ojeda.
+Botas casuales grises, nuevas y en su caja, ya en Ciudad Ojeda.
 Talla EU 42 (un solo par).
 Precio en dólares: $75 con IVA incluido, o en bolívares a la tasa BCV del día.
 Entrega en Ojeda a domicilio o en punto de encuentro. Envíos a todo el país.
 Escríbenos para ver más fotos y otros modelos.
 ```
 
-## 11 · Botas Air Jordan 3 Negro · Talla 43 · $54
+## 11 · Botas de básquet negras · Talla 43 · $54
 
 - **Fotos:** `anuncios/11-air-jordan-3-negro/` (6)
-- **Título:** Botas Air Jordan 3 Negro · Talla 43 · $54
+- **Título:** Botas de básquet negras · Talla 43 · $54
 - **Precio:** 54 (Facebook lo muestra como Bs.F 54; en la web: $53,04)
 - **Estado:** Nuevo
-- **Marca:** Jordan
+- **Marca:** (vacío: sin marcas, para que Facebook no lo rechace)
 - **Categoría:** Ropa y calzado de hombre
 - **Talla:** EU 43
 - **Color:** Negro
@@ -238,20 +238,20 @@ Escríbenos para ver más fotos y otros modelos.
 Descripción:
 
 ```
-Botas Air Jordan 3 Negro, nuevas y en su caja, ya en Ciudad Ojeda.
+Botas de básquet negras, nuevas y en su caja, ya en Ciudad Ojeda.
 Talla EU 43 (un solo par).
 Precio en dólares: $54 con IVA incluido, o en bolívares a la tasa BCV del día.
 Entrega en Ojeda a domicilio o en punto de encuentro. Envíos a todo el país.
 Escríbenos para ver más fotos y otros modelos.
 ```
 
-## 12 · Botas Blancas H Estilo Tommy Hilfiger · Talla 42 · $64
+## 12 · Botas casuales blancas con rojo y azul · Talla 42 · $64
 
 - **Fotos:** `anuncios/12-tommy-blanco-h/` (3)
-- **Título:** Botas Blancas H Estilo Tommy Hilfiger · Talla 42 · $64
+- **Título:** Botas casuales blancas con rojo y azul · Talla 42 · $64
 - **Precio:** 64 (Facebook lo muestra como Bs.F 64; en la web: $63,68)
 - **Estado:** Nuevo
-- **Marca:** Estilo Tommy Hilfiger
+- **Marca:** (vacío: sin marcas, para que Facebook no lo rechace)
 - **Categoría:** Ropa y calzado de hombre
 - **Talla:** EU 42
 - **Color:** Blanco / Azul / Rojo
@@ -260,20 +260,20 @@ Escríbenos para ver más fotos y otros modelos.
 Descripción:
 
 ```
-Botas Blancas H Estilo Tommy Hilfiger, nuevas y en su caja, ya en Ciudad Ojeda.
+Botas casuales blancas con rojo y azul, nuevas y en su caja, ya en Ciudad Ojeda.
 Talla EU 42 (un solo par).
 Precio en dólares: $64 con IVA incluido, o en bolívares a la tasa BCV del día.
 Entrega en Ojeda a domicilio o en punto de encuentro. Envíos a todo el país.
 Escríbenos para ver más fotos y otros modelos.
 ```
 
-## 13 · Botas Negras Estilo Tommy Hilfiger · Tallas 42 y 43 · $64
+## 13 · Botas casuales negras con suela blanca · Tallas 42 y 43 · $64
 
 - **Fotos:** `anuncios/13-tommy-negro/` (3)
-- **Título:** Botas Negras Estilo Tommy Hilfiger · Tallas 42 y 43 · $64
+- **Título:** Botas casuales negras con suela blanca · Tallas 42 y 43 · $64
 - **Precio:** 64 (Facebook lo muestra como Bs.F 64; en la web: $63,68)
 - **Estado:** Nuevo
-- **Marca:** Estilo Tommy Hilfiger
+- **Marca:** (vacío: sin marcas, para que Facebook no lo rechace)
 - **Categoría:** Ropa y calzado de hombre
 - **Talla:** EU 42 y 43
 - **Color:** Negro / Blanco
@@ -282,7 +282,7 @@ Escríbenos para ver más fotos y otros modelos.
 Descripción:
 
 ```
-Botas Negras Estilo Tommy Hilfiger, nuevas y en su caja, ya en Ciudad Ojeda.
+Botas casuales negras con suela blanca, nuevas y en su caja, ya en Ciudad Ojeda.
 Tallas EU 42 y 43 (un par de cada una).
 Precio en dólares: $64 con IVA incluido, o en bolívares a la tasa BCV del día.
 Entrega en Ojeda a domicilio o en punto de encuentro. Envíos a todo el país.

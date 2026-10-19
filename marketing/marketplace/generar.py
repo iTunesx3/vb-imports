@@ -37,16 +37,29 @@ def usd(n):
     return f"${entero.replace(',', '.')},{decimales}"
 
 
-def nombre_completo(p):
-    # Igual que en la tienda: sin repetir la marca cuando el nombre ya la trae ("Air Jordan 3").
-    return p["nombre"] if p.get("marca") and p["marca"] in p["nombre"] else f"{p['marca']} {p['nombre']}"
+# Marketplace rechaza como "artículos falsos" los anuncios que nombran marcas (pasó con Tommy Hilfiger), así que
+# cada modelo va por estilo y color, sin marca ni nombre de modelo. Un modelo nuevo necesita su línea aquí.
+GENERICOS = {
+    "regent-beige": "Botas casuales beige",
+    "jordan-spizike-gris": "Botas de básquet gris y negro",
+    "on-cloudmonster-gris": "Botas para correr gris claro",
+    "nike-air-max-blanco": "Botas blancas con cámara de aire",
+    "tommy-azul-marino": "Botas casuales azul marino",
+    "air-jordan-3-blanco-plata": "Botas de básquet blanco y plata",
+    "regent-gris": "Botas casuales gris y azul",
+    "on-cloudsurfer-blanco-negro": "Botas para correr blanco y negro",
+    "nike-blanco-cafe": "Botas de entrenamiento blanco y goma",
+    "tommy-gris": "Botas casuales grises",
+    "air-jordan-3-negro": "Botas de básquet negras",
+    "tommy-blanco-h": "Botas casuales blancas con rojo y azul",
+    "tommy-negro": "Botas casuales negras con suela blanca",
+}
 
 
 def titulo(p):
-    # "Botas" va primero porque es lo que la gente busca; los Tommy ya se llaman "Botas …".
-    if p["nombre"].startswith("Botas"):
-        return f"{p['nombre']} {p['marca']}"
-    return f"Botas {nombre_completo(p)}"
+    if p["id"] not in GENERICOS:
+        raise SystemExit(f"Falta el nombre sin marca de {p['id']} en GENERICOS (generar.py).")
+    return GENERICOS[p["id"]]
 
 
 def tallas(p):
@@ -111,7 +124,7 @@ def main():
             f"- **Título:** {tit}",
             f"- **Precio:** {dolares} (Facebook lo muestra como Bs.F {dolares}; en la web: {usd(p['precio'] * (1 + iva))})",
             "- **Estado:** Nuevo",
-            f"- **Marca:** {p['marca']}",
+            "- **Marca:** (vacío: sin marcas, para que Facebook no lo rechace)",
             "- **Categoría:** Ropa y calzado de hombre",
             f"- **Talla:** {sistema} {unir(t)}",
             f"- **Color:** {p.get('color', '')}",

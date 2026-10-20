@@ -14,3 +14,9 @@ inventario/
 
 # Fotos de los anuncios de Marketplace: se regeneran con marketing/marketplace/generar.py
 marketing/marketplace/anuncios/
+
+# Videos de los Reels: se regeneran con marketing/reels/generar.mjs
+marketing/reels/videos/
+
+# Registro diario del autopublicador de grupos (lo actualiza la tarea programada)
+marketing/grupos/registro.md

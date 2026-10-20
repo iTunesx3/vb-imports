@@ -1,0 +1,166 @@
+<!doctype html>
+<!-- Plantilla de los Reels (1080×1920). generar.mjs le pasa un guion con window.cargar(guion) y luego pide cada
+     cuadro con window.dibujar(t): todo depende solo de t (segundos), sin transiciones CSS, para que la captura
+     cuadro a cuadro salga igual siempre. Lo importante queda entre y≈250 y y≈1550, fuera de lo que tapa Instagram. -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Reel VB-Imports</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --tinta: #1C1917; --piedra: #FAFAF9; --tarjeta: #EFEDEA; --oro: #A16207; --gris: #57534E; }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--piedra); }
+  body { font-family: Montserrat, sans-serif; color: var(--tinta); }
+  .capa { position: absolute; inset: 0; display: none; }
+  .logo { position: absolute; top: 240px; left: 50%; height: 92px; transform: translateX(-50%); z-index: 5; }
+
+  .ceja { font: 600 30px/1 Montserrat, sans-serif; letter-spacing: .32em; text-transform: uppercase; color: var(--oro); }
+  .raya { width: 72px; height: 3px; background: var(--oro); }
+  h1, h2, .grande { font-family: Cormorant, serif; font-weight: 500; line-height: .95; letter-spacing: -.01em; }
+  h1 em, h2 em, .grande em { font-style: italic; }
+
+  #intro { display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 44px; padding: 0 90px; }
+  #intro h1 { font-size: 150px; }
+  #intro .sub { font: 500 34px/1.3 Montserrat, sans-serif; color: var(--gris); letter-spacing: .04em; }
+
+  #foto { background: var(--tarjeta); }
+  #foto .marco { position: absolute; left: 50px; right: 50px; top: 400px; height: 1060px; overflow: hidden; }
+  #foto img { width: 100%; height: 100%; object-fit: contain; }
+  #foto .pie { position: absolute; left: 0; right: 0; top: 1500px; display: flex; flex-direction: column; align-items: center; gap: 22px; }
+  #foto .etiqueta { font: 600 34px/1 Montserrat, sans-serif; letter-spacing: .3em; text-transform: uppercase; }
+  #foto .contador { font: 500 26px/1 Montserrat, sans-serif; color: var(--gris); letter-spacing: .2em; }
+
+  #real .tarjeta { position: absolute; left: 80px; top: 380px; width: 920px; height: 1180px; border-radius: 28px; overflow: hidden; background: var(--tarjeta); }
+  #real img { width: 100%; height: 100%; object-fit: cover; }
+
+  #capitulo { display: none; flex-direction: column; align-items: center; justify-content: center; gap: 36px; }
+  #capitulo h2 { font-size: 200px; font-style: italic; }
+
+  #cierre { display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 46px; padding: 0 90px; }
+  #cierre .grande { font-size: 112px; }
+  #cierre .extra { font: 600 40px/1 Montserrat, sans-serif; letter-spacing: .08em; }
+  #cierre .promo { background: var(--oro); color: #fff; padding: 26px 40px; max-width: 900px; font: 600 36px/1.3 Montserrat, sans-serif; letter-spacing: .02em; }
+  #cierre .boton { border: 3px solid var(--tinta); padding: 30px 54px; font: 600 36px/1 Montserrat, sans-serif; letter-spacing: .24em; text-transform: uppercase; }
+  #cierre .usuario { font: 600 38px/1 Montserrat, sans-serif; color: var(--oro); letter-spacing: .06em; }
+  #cierre .nota { font: 500 30px/1.3 Montserrat, sans-serif; color: var(--gris); }
+</style>
+</head>
+<body>
+<img class="logo" id="logo" src="../../img/marca/vb-imports-logo.svg" alt="">
+
+<div class="capa" id="intro">
+  <p class="ceja" id="intro-ceja"></p>
+  <h1 id="intro-titulo"></h1>
+  <div class="raya" id="intro-raya"></div>
+  <p class="sub" id="intro-sub"></p>
+</div>
+
+<div class="capa" id="foto">
+  <div class="marco"><img id="foto-img" alt=""></div>
+  <div class="pie"><div class="raya"></div><p class="etiqueta" id="foto-etiqueta"></p><p class="contador" id="foto-contador"></p></div>
+</div>
+
+<div class="capa" id="real"><div class="tarjeta"><img id="real-img" alt=""></div></div>
+
+<div class="capa" id="capitulo">
+  <p class="ceja" id="cap-ceja"></p>
+  <h2 id="cap-titulo"></h2>
+  <div class="raya"></div>
+</div>
+
+<div class="capa" id="cierre">
+  <p class="grande" id="cierre-titulo"></p>
+  <p class="extra" id="cierre-extra"></p>
+  <p class="promo" id="cierre-promo"></p>
+  <p class="boton" id="cierre-boton">Link en la bio</p>
+  <p class="usuario" id="cierre-usuario"></p>
+  <p class="nota" id="cierre-nota"></p>
+</div>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+  const sube = (x) => 1 - Math.pow(1 - Math.min(Math.max(x, 0), 1), 3); // ease-out cúbico, 0..1
+  const tramo = (t, a, b) => sube((t - a) / (b - a));
+  // Aparece desde abajo (o desde la derecha) entre los segundos a y b del plano.
+  const entra = (el, t, a, b, dx = 0, dy = 40) => {
+    const k = tramo(t, a, b);
+    el.style.opacity = k;
+    el.style.transform = `translate(${(1 - k) * dx}px, ${(1 - k) * dy}px)`;
+  };
+
+  let planos = [];
+  let inicios = [];
+  let total = 0;
+
+  window.cargar = async (guion) => {
+    planos = guion.planos;
+    inicios = [];
+    total = 0;
+    for (const p of planos) { inicios.push(total); total += p.dur; }
+    const fuentes = [...new Set(planos.map((p) => p.src).filter(Boolean))];
+    await Promise.all(fuentes.map((src) => new Promise((ok) => { const i = new Image(); i.onload = i.onerror = ok; i.src = src; })));
+    await document.fonts.ready;
+    await Promise.all(["500 40px Cormorant", "italic 500 40px Cormorant", "600 40px Montserrat", "500 40px Montserrat"].map((f) => document.fonts.load(f)));
+    return { total, fuentes: document.fonts.check("italic 500 40px Cormorant") && document.fonts.check("600 40px Montserrat") };
+  };
+
+  window.dibujar = (t) => {
+    let i = inicios.findIndex((ini, k) => t >= ini && t < ini + planos[k].dur);
+    if (i < 0) i = planos.length - 1;
+    const p = planos[i];
+    const l = t - inicios[i]; // segundos dentro del plano
+    for (const c of document.querySelectorAll(".capa")) c.style.display = "none";
+    const capa = $(p.tipo);
+    capa.style.display = ["intro", "capitulo", "cierre"].includes(p.tipo) ? "flex" : "block";
+    $("logo").style.display = p.tipo === "capitulo" ? "none" : "block";
+
+    if (p.tipo === "intro") {
+      $("intro-ceja").textContent = p.ceja || "";
+      $("intro-titulo").innerHTML = p.titulo || "";
+      $("intro-sub").textContent = p.sub || "";
+      entra($("intro-ceja"), l, 0, .45, 0, 20);
+      entra($("intro-titulo"), l, .15, .8, 0, 60);
+      entra($("intro-raya"), l, .45, .9, 0, 0);
+      entra($("intro-sub"), l, .5, 1.05, 0, 30);
+    } else if (p.tipo === "foto") {
+      $("foto-img").src = p.src;
+      $("foto-etiqueta").textContent = p.etiqueta || "";
+      $("foto-contador").textContent = p.contador || "";
+      const k = l / p.dur;
+      const img = $("foto-img");
+      img.style.transform = `translateX(${(1 - tramo(l, 0, .22)) * 90}px) scale(${.97 + .06 * k})`;
+      img.style.opacity = tramo(l, 0, .14);
+    } else if (p.tipo === "real") {
+      $("real-img").src = p.src;
+      const k = l / p.dur;
+      $("real-img").style.transform = `scale(${1.04 + .08 * k})`;
+      entra($("real").querySelector(".tarjeta"), l, 0, .25, 70, 0);
+    } else if (p.tipo === "capitulo") {
+      $("cap-ceja").textContent = p.ceja || "";
+      $("cap-titulo").innerHTML = p.titulo || "";
+      entra($("cap-ceja"), l, 0, .3, 0, 20);
+      const h = $("cap-titulo");
+      const k = tramo(l, .05, .5);
+      h.style.opacity = k;
+      h.style.transform = `scale(${.9 + .1 * k})`;
+    } else if (p.tipo === "cierre") {
+      $("cierre-titulo").innerHTML = p.titulo || "";
+      $("cierre-extra").textContent = p.extra || "";
+      $("cierre-extra").style.display = p.extra ? "block" : "none";
+      $("cierre-promo").textContent = p.promo || "";
+      $("cierre-promo").style.display = p.promo ? "block" : "none";
+      $("cierre-usuario").textContent = p.usuario || "";
+      $("cierre-nota").textContent = p.nota || "";
+      entra($("cierre-titulo"), l, 0, .55, 0, 50);
+      entra($("cierre-extra"), l, .3, .75, 0, 30);
+      entra($("cierre-promo"), l, .35, .8, 0, 30);
+      entra($("cierre-boton"), l, .45, .9, 0, 30);
+      entra($("cierre-usuario"), l, .65, 1.1, 0, 20);
+      entra($("cierre-nota"), l, .8, 1.25, 0, 20);
+    }
+    return i;
+  };
+</script>
+</body>
+</html>

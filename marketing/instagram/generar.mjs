@@ -26,9 +26,11 @@ const modelos = (ids.length ? ids.map((id) => P.find((p) => p.id === id)) : P);
 const nombreCompleto = (p) => (p.marca && !p.nombre.includes(p.marca) ? `${p.marca} ${p.nombre}` : p.nombre);
 
 // Texto corto a propósito (lo pidió el dueño): los detalles están en la web, para que la visiten.
+// Si la web tiene una promo en la franja de aviso (config.js), va también aquí.
 function texto(p) {
   return [
     "Nuevos modelos en Ciudad Ojeda.",
+    ...(T.aviso ? [T.aviso + "."] : []),
     "Más fotos, tallas y modelos en la web (enlace en la biografía).",
     "",
     `#CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #${p.categoria}`,

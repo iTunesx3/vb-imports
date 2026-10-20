@@ -38,6 +38,7 @@ window.TIENDA = {
     segundos: 5,
   },
 
-  // Franja superior con un anuncio; vacía, no se muestra.
-  aviso: "",
+  // Franja superior con un anuncio; vacía, no se muestra. También sale al final de los Reels (marketing/reels).
+  // Promo de lanzamiento aprobada por el dueño el 19/10/2026: quitarla después del domingo 25.
+  aviso: "Delivery gratis en Ciudad Ojeda hasta el domingo 25 de octubre",
 };

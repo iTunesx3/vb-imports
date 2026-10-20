@@ -9,6 +9,7 @@ Imagen: `publicaciones/01-regent-beige.jpg`
 
 ```
 Nuevos modelos en Ciudad Ojeda.
+Delivery gratis en Ciudad Ojeda hasta el domingo 25 de octubre.
 Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Casual
@@ -20,6 +21,7 @@ Imagen: `publicaciones/02-jordan-spizike-gris.jpg`
 
 ```
 Nuevos modelos en Ciudad Ojeda.
+Delivery gratis en Ciudad Ojeda hasta el domingo 25 de octubre.
 Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Basketball
@@ -31,6 +33,7 @@ Imagen: `publicaciones/03-on-cloudmonster-gris.jpg`
 
 ```
 Nuevos modelos en Ciudad Ojeda.
+Delivery gratis en Ciudad Ojeda hasta el domingo 25 de octubre.
 Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Running
@@ -42,6 +45,7 @@ Imagen: `publicaciones/04-nike-air-max-blanco.jpg`
 
 ```
 Nuevos modelos en Ciudad Ojeda.
+Delivery gratis en Ciudad Ojeda hasta el domingo 25 de octubre.
 Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Lifestyle
@@ -53,6 +57,7 @@ Imagen: `publicaciones/05-tommy-azul-marino.jpg`
 
 ```
 Nuevos modelos en Ciudad Ojeda.
+Delivery gratis en Ciudad Ojeda hasta el domingo 25 de octubre.
 Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Lifestyle
@@ -64,6 +69,7 @@ Imagen: `publicaciones/06-air-jordan-3-blanco-plata.jpg`
 
 ```
 Nuevos modelos en Ciudad Ojeda.
+Delivery gratis en Ciudad Ojeda hasta el domingo 25 de octubre.
 Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Basketball
@@ -75,6 +81,7 @@ Imagen: `publicaciones/07-regent-gris.jpg`
 
 ```
 Nuevos modelos en Ciudad Ojeda.
+Delivery gratis en Ciudad Ojeda hasta el domingo 25 de octubre.
 Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Casual
@@ -86,6 +93,7 @@ Imagen: `publicaciones/08-on-cloudsurfer-blanco-negro.jpg`
 
 ```
 Nuevos modelos en Ciudad Ojeda.
+Delivery gratis en Ciudad Ojeda hasta el domingo 25 de octubre.
 Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Running
@@ -97,6 +105,7 @@ Imagen: `publicaciones/09-nike-blanco-cafe.jpg`
 
 ```
 Nuevos modelos en Ciudad Ojeda.
+Delivery gratis en Ciudad Ojeda hasta el domingo 25 de octubre.
 Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Training
@@ -108,6 +117,7 @@ Imagen: `publicaciones/10-tommy-gris.jpg`
 
 ```
 Nuevos modelos en Ciudad Ojeda.
+Delivery gratis en Ciudad Ojeda hasta el domingo 25 de octubre.
 Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Lifestyle
@@ -119,6 +129,7 @@ Imagen: `publicaciones/11-air-jordan-3-negro.jpg`
 
 ```
 Nuevos modelos en Ciudad Ojeda.
+Delivery gratis en Ciudad Ojeda hasta el domingo 25 de octubre.
 Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Basketball
@@ -130,6 +141,7 @@ Imagen: `publicaciones/12-tommy-blanco-h.jpg`
 
 ```
 Nuevos modelos en Ciudad Ojeda.
+Delivery gratis en Ciudad Ojeda hasta el domingo 25 de octubre.
 Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Lifestyle
@@ -141,6 +153,7 @@ Imagen: `publicaciones/13-tommy-negro.jpg`
 
 ```
 Nuevos modelos en Ciudad Ojeda.
+Delivery gratis en Ciudad Ojeda hasta el domingo 25 de octubre.
 Más fotos, tallas y modelos en la web (enlace en la biografía).
 
 #CiudadOjeda #Ojeda #Zulia #CostaOriental #Lagunillas #Cabimas #BotasVenezuela #Botas #Lifestyle
